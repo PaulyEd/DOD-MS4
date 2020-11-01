@@ -1,0 +1,92 @@
+<div class="container">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<div class="col-4">
+		<ul class="navbar-nav d-flex justify-content-start">
+			<li class="nav-item">
+				<a class="navbar-brand" href="#"><h4>Dev on Demand</h4></a>
+			</li>
+			<li class="nav-item">
+				<a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+					href="">
+					<p class="my-0"><i class="fas fa-shopping-bag fa-lg"></i>
+						{% if grand_total %}
+						${{ grand_total|floatformat:2 }}
+						{% else %}
+						$0.00
+						{% endif %}
+					</p>
+				</a>
+			</li>
+		</ul>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+	</div>
+	<div class="col-4">
+		<ul class="navbar-nav w-auto mx-auto d-flex justify-content-center">
+			<li class="nav-item dropdown d-flex justify-content-center">
+            <a class="logo-font font-weight-bold nav-link text-white mr-3 ml-3" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Python
+            </a>
+            <div class="dropdown-menu border-0 bg-primary" aria-labelledby="all-products-link">
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Python</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Django</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Flask</a>
+            </div>
+        </li>
+			<li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-3 ml-3" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Java
+            </a>
+            <div class="dropdown-menu border-0 bg-primary" aria-labelledby="clothing-link">
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Java</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Hibernate</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Spring</a>
+            </div>
+        </li>
+			<li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-3 ml-3" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Javascript
+            </a>
+            <div class="dropdown-menu border-0 bg-primary" aria-labelledby="homeware-link">
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Javascript</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">React</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Angular</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Vue</a>
+            </div>
+        </li>
+			<li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-3 ml-3" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                PHP
+            </a>
+            <div class="dropdown-menu border-0 bg-primary" aria-labelledby="homeware-link">
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Laravel</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">CodeIgniter</a>
+
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-3 ml-3" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Others
+            </a>
+            <div class="dropdown-menu border-0 bg-primary" aria-labelledby="homeware-link">
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">C#</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">C++</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Ruby</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Swift</a>
+            </div>
+        </li>
+		</ul>
+	</div>
+	<div class="col-4">
+		<form class="form-inline my-2 my-lg-0 d-flex justify-content-end">
+			<div class="input-group">
+				<input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-search">
+				<div class="input-group-append">
+                    <button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
