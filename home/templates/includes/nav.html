@@ -14,9 +14,9 @@
                 Python
             </a>
             <div class="dropdown-menu border-0 bg-primary" aria-labelledby="python-link">
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Python</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Django</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Flask</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Python</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Django</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Flask</a>
             </div>
         </li>
 			<li class="nav-item dropdown">
@@ -24,9 +24,9 @@
                 Java
             </a>
             <div class="dropdown-menu border-0 bg-primary" aria-labelledby="java-link">
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Java</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Hibernate</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Spring</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Java</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Hibernate</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Spring</a>
             </div>
         </li>
 			<li class="nav-item dropdown">
@@ -34,10 +34,10 @@
                 Javascript
             </a>
             <div class="dropdown-menu border-0 bg-primary" aria-labelledby="javascript-link">
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Javascript</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">React</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Angular</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Vue</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Javascript</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">React</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Angular</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Vue</a>
             </div>
         </li>
 			<li class="nav-item dropdown">
@@ -45,8 +45,8 @@
                 PHP
             </a>
             <div class="dropdown-menu border-0 bg-primary" aria-labelledby="php-link">
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Laravel</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">CodeIgniter</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Laravel</a>
+                <a href="__url__?sort=price&direction=asc" class="dropdown-item">CodeIgniter</a>
 
             </div>
         </li>
@@ -69,13 +69,13 @@
 				<div class="dropdown-menu border-0 bg-primary" aria-labelledby="user-options">
 					{% if request.user.is_authenticated %}
 					{% if request.user.is_superuser %}
-					<a href="{% url 'add_product' %}" class="dropdown-item text-white">Product Management</a>
+					<a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
 					{% endif %}
-					<a href="{% url 'profile' %}" class="dropdown-item text-white">My Profile</a>
+					<a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
 					<a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
 					{% else %}
-					<a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
-					<a href="{% url 'account_login' %}" class="dropdown-item text-white">Login</a>
+					<a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+					<a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
 					{% endif %}
 				</div>
 			</li>

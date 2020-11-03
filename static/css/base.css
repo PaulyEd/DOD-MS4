@@ -10,13 +10,17 @@ body {
     font-family: 'Exo 2', sans-serif;
 }
 
+.dropdown-item{
+    color: #fff;
+}
+
 .dropdown-item:focus, .dropdown-item:hover {
     color: #0275d8!important;
     text-decoration: none;
     background-color: #fff!important;
 }
 
-li.nav-item a:hover {
+li.nav-item > a:hover {
     color: black!important;
 }
 
