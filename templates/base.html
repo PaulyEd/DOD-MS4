@@ -33,11 +33,35 @@
     <title>Dev on Demand {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top px-0">
+  <!-- <div class="jumbotron d-none d-lg-block mb-0">
+      <div class="container">
+        <h1 class="display-1 p-2">Dev on Demand</h1>
+        <p class="lead-1 p-2">
+          Create & Share Recipes - the must have tool for all home cooking &
+          baking enthusiasts
+        </p>
+      </div>
+    </div> -->
+    <header class="container-fluid sticky-top px-0">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			{% include 'includes/mobile-nav.html' %}
-			{% include 'includes/nav.html' %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <!-- <div class="container"> -->
+			    {% include 'includes/mobile-nav.html' %}
+			    {% include 'includes/nav.html' %}
+            <!-- </div> -->
 		</nav>
+        <div class="border-0 p-3 rounded-0 my-0 w-25 mx-auto justify-content-center d-none" id="search-box">
+				<form class="form w-100" method="GET" action="">
+					<div class="input-group">
+						<input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-search">
+						<div class="input-group-append">
+							<button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</form>
+			</div>
 	</header>
 
     {% if messages %}
@@ -68,7 +92,7 @@
     <div class="container py-5">
       <div class="row py-4">
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="img/logo.png" alt="" width="180" class="mb-3">
-          <p class="font-italic text-white">Interact with us on social media!</p>
+          <p class="font-italic text-white text-center">Interact with us on social media!</p>
         <div class="icon-bar">
           <a href="https://www.facebook.com/" target="_blank" class="facebook">
             <i class="fa fa-facebook"></i>
@@ -87,7 +111,7 @@
           </a>
         </div>
         </div>
-        <div class="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <div class="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 text-center">
           <h6 class="text-uppercase font-weight-bold mb-4">Languages</h6>
           <ul class="list-unstyled mb-0">
             <li class="mb-2"><a href="#" class="text-white">Python</a></li>
@@ -96,7 +120,7 @@
             <li class="mb-2"><a href="#" class="text-white">PHP</a></li>
           </ul>
         </div>
-        <div class="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <div class="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 text-center">
           <h6 class="text-uppercase font-weight-bold mb-4">Company</h6>
           <ul class="list-unstyled mb-0">
             <li class="mb-2"><a href="#" class="text-white">Login</a></li>
@@ -104,7 +128,7 @@
             <li class="mb-2"><a href="#" class="text-white">Our Devs</a></li>
           </ul>
         </div>
-        <div class="col-lg-4 col-md-6 mb-lg-0">
+        <div class="col-lg-4 col-md-6 mb-lg-0 text-center">
           <h6 class="text-uppercase font-weight-bold mb-4">Newsletter</h6>
           <p class="text-white mb-4">Sign up to say up to date with all our latest promotions and insights from our devs!</p>
           <div class="p-1 rounded border">
@@ -128,6 +152,12 @@
     {% block postloadjs %}
     <script type="text/javascript">
         $('.toast').toast('show');
+
+        $('#nav-search').on('click', function(e) {
+            $('#search-box').toggleClass("d-lg-block");
+            console.log("Hello world!");
+        });
+
     </script>
     {% endblock %}
 

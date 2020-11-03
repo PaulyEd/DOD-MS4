@@ -1,5 +1,5 @@
 /* general css */
-
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&display=swap');
 html {
     height: 100%;
 }
@@ -7,8 +7,19 @@ html {
 body {
     background: url('/media/') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    font-family: 'Exo 2', sans-serif;
 }
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #0275d8!important;
+    text-decoration: none;
+    background-color: #fff!important;
+}
+
+li.nav-item a:hover {
+    color: black!important;
+}
+
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1000px) {
@@ -33,9 +44,14 @@ body {
         left: 0;
         z-index: 1030;
     }
-
     .header-container {
         padding-top: 164px;
+    }
+}
+
+@media (max-width: 991px) {
+    .dropdown-item{
+        border-radius: .25rem;
     }
 }
 
@@ -119,10 +135,6 @@ body {
   -ms-transform: translateY(0);
   transform: translateY(0);
   left: 50%;
-  /* background: #ff5f6d;
-  background: -webkit-linear-gradient(to right, #ff5f6d, #ffc371);
-  background: linear-gradient(to right, #ff5f6d, #ffc371); */
-  /* height: 58px; */
   padding: 3px;
   border-radius: 8px;
 }

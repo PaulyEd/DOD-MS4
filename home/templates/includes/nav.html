@@ -1,30 +1,15 @@
 <div class="container">
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-	<div class="col-4">
+<div class="collapse navbar-collapse" id="main-nav">
+	<div class="col-3 d-none d-lg-block px-0">
 		<ul class="navbar-nav d-flex justify-content-start">
-			<li class="nav-item">
+        <li class="nav-item">
 				<a class="navbar-brand mr-0" href="#"><h4>Dev on Demand</h4></a>
 			</li>
-			<li class="nav-item">
-				<a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-					href="">
-					<p class="my-0"><i class="fas fa-shopping-bag fa-lg"></i>
-						{% if grand_total %}
-						${{ grand_total|floatformat:2 }}
-						{% else %}
-						$0.00
-						{% endif %}
-					</p>
-				</a>
-			</li>
 		</ul>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 	</div>
-	<div class="col-4">
+	<div class="col-6">
 		<ul class="navbar-nav w-auto mx-auto d-flex justify-content-center">
-			<li class="nav-item dropdown d-flex justify-content-center">
+			<li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-white mx-xl-3" href="#" id="python-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Python
             </a>
@@ -65,28 +50,48 @@
 
             </div>
         </li>
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mx-xl-3" href="#" id="others-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Others
-            </a>
-            <div class="dropdown-menu border-0 bg-primary" aria-labelledby="others-link">
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">C#</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">C++</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Ruby</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item text-white">Swift</a>
-            </div>
-        </li>
+		<li class="nav-item d-none d-lg-block" id="nav-search">
+			<a class="logo-font font-weight-bold nav-link text-white mx-xl-3" href="#">
+				Search <i class="fas fa-search"></i>
+			</a>
+		</li>
 		</ul>
 	</div>
-	<div class="col-4">
-		<form class="form-inline my-2 my-lg-0 d-flex justify-content-end">
-			<div class="input-group">
-				<input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-search">
-				<div class="input-group-append">
-                    <button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
+	<div class="col-3 d-none d-lg-block px-0 ">
+		<ul class="navbar-nav d-flex justify-content-end">
+			<li class="nav-item dropdown mr-3">
+				<a class="text-white nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					<div class="text-center">
+						<p class="my-0"><i class="fas fa-user fa-lg"></i> - My Account</p>
+					</div>
+				</a>
+				<div class="dropdown-menu border-0 bg-primary" aria-labelledby="user-options">
+					{% if request.user.is_authenticated %}
+					{% if request.user.is_superuser %}
+					<a href="{% url 'add_product' %}" class="dropdown-item text-white">Product Management</a>
+					{% endif %}
+					<a href="{% url 'profile' %}" class="dropdown-item text-white">My Profile</a>
+					<a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+					{% else %}
+					<a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
+					<a href="{% url 'account_login' %}" class="dropdown-item text-white">Login</a>
+					{% endif %}
 				</div>
-			</div>
-		</form>
+			</li>
+			<li class="nav-item">
+				<a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link text-center" href="">
+					<p class="my-0"><i class="fas fa-shopping-bag fa-lg"></i>
+						-
+						{% if grand_total %}
+						€{{ grand_total|floatformat:2 }}
+						{% else %}
+						€0.00
+						{% endif %}
+					</p>
+				</a>
+			</li>
+		</ul>
 	</div>
 </div>
 </div>
