@@ -3,7 +3,7 @@
 	<div class="col-3 d-none d-lg-block px-0">
 		<ul class="navbar-nav d-flex justify-content-start">
         <li class="nav-item">
-				<a class="navbar-brand mr-0" href="#"><h4>Dev on Demand</h4></a>
+				<a class="navbar-brand mr-0" href="/"><h4>&lt;Dev_on_Demand&gt;</h4></a>
 			</li>
 		</ul>
 	</div>
@@ -57,21 +57,29 @@
 		</li>
 		</ul>
 	</div>
-	<div class="col-3 d-none d-lg-block px-0 ">
+	<div class="col-3 d-none d-lg-block px-0">
 		<ul class="navbar-nav d-flex justify-content-end">
 			<li class="nav-item dropdown mr-3">
 				<a class="text-white nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">
 					<div class="text-center">
-						<p class="my-0"><i class="fas fa-user fa-lg"></i> - My Account</p>
+                        {% if request.user.is_authenticated %}
+                        {% if user.first_name %}
+                        <p class="my-0"><i class="fas fa-user fa-lg"></i> {{ user.first_name }}'s Account</p>
+                        {% else %}
+                        <p class="my-0"><i class="fas fa-user fa-lg"></i> My Account</p>
+                        {% endif %}
+                        {% else %}
+                        <p class="my-0"><i class="fas fa-user fa-lg"></i> Sign in / Sign up</p>
+                        {% endif %}
 					</div>
 				</a>
 				<div class="dropdown-menu border-0 bg-primary" aria-labelledby="user-options">
 					{% if request.user.is_authenticated %}
 					{% if request.user.is_superuser %}
-					<a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+					<a href="/admin" class="dropdown-item">Admin</a>
 					{% endif %}
-					<a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+					<a href="" class="dropdown-item">My Profile</a>
 					<a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
 					{% else %}
 					<a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
