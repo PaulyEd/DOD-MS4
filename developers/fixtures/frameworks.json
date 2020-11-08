@@ -1,0 +1,105 @@
+[
+  {
+    "pk": 1,
+    "model": "developers.framework",
+    "fields": {
+      "name": "react",
+      "friendly_name": "React"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "developers.framework",
+    "fields": {
+      "name": "angular",
+      "friendly_name": "Angular"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "developers.framework",
+    "fields": {
+      "name": "vue",
+      "friendly_name": "Vue"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "developers.framework",
+    "fields": {
+      "name": "django",
+      "friendly_name": "Django"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "developers.framework",
+    "fields": {
+      "name": "flask",
+      "friendly_name": "Flask"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "developers.framework",
+    "fields": {
+      "name": "spring",
+      "friendly_name": "Spring"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "developers.framework",
+    "fields": {
+      "name": "hibernate",
+      "friendly_name": "Hibernate"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "developers.framework",
+    "fields": {
+      "name": "rails",
+      "friendly_name": "Rails"
+    }
+  },
+    {
+    "pk": 9,
+    "model": "developers.framework",
+    "fields": {
+      "name": "roda",
+      "friendly_name": "Roda"
+    }
+  },
+    {
+    "pk": 10,
+    "model": "developers.framework",
+    "fields": {
+      "name": "foundation",
+      "friendly_name": "Foundation"
+    }
+  },    {
+    "pk": 11,
+    "model": "developers.framework",
+    "fields": {
+      "name": "laravel",
+      "friendly_name": "Laravel"
+    }
+  },
+      {
+    "pk": 12,
+    "model": "developers.framework",
+    "fields": {
+      "name": "codeIgniter",
+      "friendly_name": "CodeIgniter"
+    }
+  },
+        {
+    "pk": 13,
+    "model": "developers.framework",
+    "fields": {
+      "name": "xamarin",
+      "friendly_name": "Xamarin"
+    }
+  }
+]
