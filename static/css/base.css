@@ -48,6 +48,11 @@ li.nav-item > a:hover {
   color: black !important;
 }
 
+
+.code-links{
+    font-size: 0.9rem;
+}
+
 /* Slightly larger container on xl screens */
 @media (min-width: 1000px) {
   .container {
@@ -191,3 +196,4 @@ li.nav-item > a:hover {
 https: ; //jsfiddle.net/bootstrapious/c7ash30w
 https://stackoverflow.com/questions/25386119/whats-the-difference-between-a-onetoone-manytomany-and-a-foreignkey-field-in-d#:~:text=of%20the%20relationship.-,ForeignKey,may%20be%20related%20to%20one.
 https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/
+https://stackoverflow.com/questions/4270330/django-show-a-manytomanyfield-in-a-template
