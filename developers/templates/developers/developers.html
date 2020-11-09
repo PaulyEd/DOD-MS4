@@ -10,22 +10,24 @@
 {% block content %}
 <div class="container">
 <div class="container">
-<div class="row">
+<div class="row mt-5">
     {% for developer in developers %}
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <div class="card h-100 border-0">
-                <p class="p-2 mb-0 text-center h3">{{ developer.name }}</p>
-                <div class="card-body pb-5 pt-0">
-                {% if developer.image %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ developer.image.url }}" alt="{{ developer.name }}">
-                </a>
-                {% else %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ developer.name }}">
-                </a>
-                {% endif %}
-                </div>
+				<div class="card-body pb-5 pt-0 px-0">
+                <p class="pb-2 mb-0 text-center h3 text-primary">{{ developer.name }}</p>
+					<div class="circle">
+						{% if developer.image %}
+						<a href="{% url 'developer_detail' developer.id %}">
+							<img class="card-img-top rounded-circle" src="{{ developer.image.url }}" alt="{{ developer.name }}" width="170">
+				                </a>
+						{% else %}
+							<a href="{% url 'developer_detail' developer.id %}">
+								<img class="card-img-top rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ developer.name }}" width="170">
+				                </a>
+						{% endif %}
+					</div>
+				</div>
                 <div class="card-footer bg-white pt-0 border-0 text-left">
                     <div class="row">
                         <div class="col">

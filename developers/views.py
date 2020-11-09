@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Developer
 
 # Create your views here.
@@ -14,3 +14,16 @@ def all_developers(request):
     }
 
     return render(request, 'developers/developers.html', context)
+
+
+def developer_detail(request, developer_id):
+    """ Return the a requested developer to dev detail page """
+
+    developer = get_object_or_404(Developer, pk=developer_id)
+
+    context = {
+        'developer' : developer,
+    }
+
+    return render(request, 'developers/developer_detail.html', context)
+
