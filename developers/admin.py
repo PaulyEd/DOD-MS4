@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Developer, Framework, Language
+from .models import Developer, Framework, Language, Spoken_Language
 
 # Register your models here.
 
@@ -37,6 +37,17 @@ class LanguageAdmin(admin.ModelAdmin):
     )
 
 
+class Spoken_LanguageAdmin(admin.ModelAdmin):
+    list_display = (
+        'code',
+        'name',
+        'nativeName',
+    )
+
+    ordering = ('name',)
+
+
 admin.site.register(Developer, DeveloperAdmin)
 admin.site.register(Framework, FrameworkAdmin)
 admin.site.register(Language, LanguageAdmin)
+admin.site.register(Spoken_Language, Spoken_LanguageAdmin)

@@ -1,0 +1,1640 @@
+[
+ {
+   "pk": 1,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ab",
+      "name": "Abkhaz",
+      "nativeName": "аҧсуа"
+   }
+},
+ {
+   "pk": 2,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "aa",
+      "name": "Afar",
+      "nativeName": "Afaraf"
+   }
+},
+ {
+   "pk": 3,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "af",
+      "name": "Afrikaans",
+      "nativeName": "Afrikaans"
+   }
+},
+ {
+   "pk": 4,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ak",
+      "name": "Akan",
+      "nativeName": "Akan"
+   }
+},
+ {
+   "pk": 5,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sq",
+      "name": "Albanian",
+      "nativeName": "Shqip"
+   }
+},
+ {
+   "pk": 6,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "am",
+      "name": "Amharic",
+      "nativeName": "አማርኛ"
+   }
+},
+ {
+   "pk": 7,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ar",
+      "name": "Arabic",
+      "nativeName": "العربية"
+   }
+},
+ {
+   "pk": 8,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "an",
+      "name": "Aragonese",
+      "nativeName": "Aragonés"
+   }
+},
+ {
+   "pk": 9,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "hy",
+      "name": "Armenian",
+      "nativeName": "Հայերեն"
+   }
+},
+ {
+   "pk": 10,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "as",
+      "name": "Assamese",
+      "nativeName": "অসমীয়া"
+   }
+},
+ {
+   "pk": 11,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "av",
+      "name": "Avaric",
+      "nativeName": "авар мацӀ, магӀарул мацӀ"
+   }
+},
+ {
+   "pk": 12,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ae",
+      "name": "Avestan",
+      "nativeName": "avesta"
+   }
+},
+ {
+   "pk": 13,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ay",
+      "name": "Aymara",
+      "nativeName": "aymar aru"
+   }
+},
+ {
+   "pk": 14,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "az",
+      "name": "Azerbaijani",
+      "nativeName": "azərbaycan dili"
+   }
+},
+ {
+   "pk": 15,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "bm",
+      "name": "Bambara",
+      "nativeName": "bamanankan"
+   }
+},
+ {
+   "pk": 16,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ba",
+      "name": "Bashkir",
+      "nativeName": "башҡорт теле"
+   }
+},
+ {
+   "pk": 17,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "eu",
+      "name": "Basque",
+      "nativeName": "euskara, euskera"
+   }
+},
+ {
+   "pk": 18,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "be",
+      "name": "Belarusian",
+      "nativeName": "Беларуская"
+   }
+},
+ {
+   "pk": 19,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "bn",
+      "name": "Bengali",
+      "nativeName": "বাংলা"
+   }
+},
+ {
+   "pk": 20,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "bh",
+      "name": "Bihari",
+      "nativeName": "भोजपुरी"
+   }
+},
+ {
+   "pk": 21,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "bi",
+      "name": "Bislama",
+      "nativeName": "Bislama"
+   }
+},
+ {
+   "pk": 22,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "bs",
+      "name": "Bosnian",
+      "nativeName": "bosanski jezik"
+   }
+},
+ {
+   "pk": 23,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "br",
+      "name": "Breton",
+      "nativeName": "brezhoneg"
+   }
+},
+ {
+   "pk": 24,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "bg",
+      "name": "Bulgarian",
+      "nativeName": "български език"
+   }
+},
+ {
+   "pk": 25,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "my",
+      "name": "Burmese",
+      "nativeName": "ဗမာစာ"
+   }
+},
+ {
+   "pk": 26,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ca",
+      "name": "Catalan; Valencian",
+      "nativeName": "Català"
+   }
+},
+ {
+   "pk": 27,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ch",
+      "name": "Chamorro",
+      "nativeName": "Chamoru"
+   }
+},
+ {
+   "pk": 28,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ce",
+      "name": "Chechen",
+      "nativeName": "нохчийн мотт"
+   }
+},
+ {
+   "pk": 29,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ny",
+      "name": "Chichewa; Chewa; Nyanja",
+      "nativeName": "chiCheŵa, chinyanja"
+   }
+},
+ {
+   "pk": 30,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "zh",
+      "name": "Chinese",
+      "nativeName": "中文 (Zhōngwén), 汉语, 漢語"
+   }
+},
+ {
+   "pk": 31,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "cv",
+      "name": "Chuvash",
+      "nativeName": "чӑваш чӗлхи"
+   }
+},
+ {
+   "pk": 32,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "kw",
+      "name": "Cornish",
+      "nativeName": "Kernewek"
+   }
+},
+ {
+   "pk": 33,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "co",
+      "name": "Corsican",
+      "nativeName": "corsu, lingua corsa"
+   }
+},
+ {
+   "pk": 34,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "cr",
+      "name": "Cree",
+      "nativeName": "ᓀᐦᐃᔭᐍᐏᐣ"
+   }
+},
+ {
+   "pk": 35,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "hr",
+      "name": "Croatian",
+      "nativeName": "hrvatski"
+   }
+},
+ {
+   "pk": 36,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "cs",
+      "name": "Czech",
+      "nativeName": "česky, čeština"
+   }
+},
+ {
+   "pk": 37,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "da",
+      "name": "Danish",
+      "nativeName": "dansk"
+   }
+},
+ {
+   "pk": 38,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "dv",
+      "name": "Divehi; Dhivehi; Maldivian;",
+      "nativeName": "ދިވެހި"
+   }
+},
+ {
+   "pk": 39,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "nl",
+      "name": "Dutch",
+      "nativeName": "Nederlands, Vlaams"
+   }
+},
+ {
+   "pk": 40,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English"
+   }
+},
+ {
+   "pk": 41,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "eo",
+      "name": "Esperanto",
+      "nativeName": "Esperanto"
+   }
+},
+ {
+   "pk": 42,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "et",
+      "name": "Estonian",
+      "nativeName": "eesti, eesti keel"
+   }
+},
+ {
+   "pk": 43,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ee",
+      "name": "Ewe",
+      "nativeName": "Eʋegbe"
+   }
+},
+ {
+   "pk": 44,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "fo",
+      "name": "Faroese",
+      "nativeName": "føroyskt"
+   }
+},
+ {
+   "pk": 45,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "fj",
+      "name": "Fijian",
+      "nativeName": "vosa Vakaviti"
+   }
+},
+ {
+   "pk": 46,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "fi",
+      "name": "Finnish",
+      "nativeName": "suomi, suomen kieli"
+   }
+},
+ {
+   "pk": 47,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "fr",
+      "name": "French",
+      "nativeName": "français, langue française"
+   }
+},
+ {
+   "pk": 48,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ff",
+      "name": "Fula; Fulah; Pulaar; Pular",
+      "nativeName": "Fulfulde, Pulaar, Pular"
+   }
+},
+ {
+   "pk": 49,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "gl",
+      "name": "Galician",
+      "nativeName": "Galego"
+   }
+},
+ {
+   "pk": 50,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ka",
+      "name": "Georgian",
+      "nativeName": "ქართული"
+   }
+},
+ {
+   "pk": 51,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "de",
+      "name": "German",
+      "nativeName": "Deutsch"
+   }
+},
+ {
+   "pk": 52,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "el",
+      "name": "Greek, Modern",
+      "nativeName": "Ελληνικά"
+   }
+},
+ {
+   "pk": 53,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "gn",
+      "name": "Guaraní",
+      "nativeName": "Avañeẽ"
+   }
+},
+ {
+   "pk": 54,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "gu",
+      "name": "Gujarati",
+      "nativeName": "ગુજરાતી"
+   }
+},
+ {
+   "pk": 55,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ht",
+      "name": "Haitian; Haitian Creole",
+      "nativeName": "Kreyòl ayisyen"
+   }
+},
+ {
+   "pk": 56,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ha",
+      "name": "Hausa",
+      "nativeName": "Hausa, هَوُسَ"
+   }
+},
+ {
+   "pk": 57,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "he",
+      "name": "Hebrew (modern)",
+      "nativeName": "עברית"
+   }
+},
+ {
+   "pk": 58,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "hz",
+      "name": "Herero",
+      "nativeName": "Otjiherero"
+   }
+},
+ {
+   "pk": 59,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "hi",
+      "name": "Hindi",
+      "nativeName": "हिन्दी, हिंदी"
+   }
+},
+ {
+   "pk": 60,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ho",
+      "name": "Hiri Motu",
+      "nativeName": "Hiri Motu"
+   }
+},
+ {
+   "pk": 61,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "hu",
+      "name": "Hungarian",
+      "nativeName": "Magyar"
+   }
+},
+ {
+   "pk": 62,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ia",
+      "name": "Interlingua",
+      "nativeName": "Interlingua"
+   }
+},
+ {
+   "pk": 63,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "id",
+      "name": "Indonesian",
+      "nativeName": "Bahasa Indonesia"
+   }
+},
+ {
+   "pk": 64,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ie",
+      "name": "Interlingue",
+      "nativeName": "Originally called Occidental; then Interlingue after WWII"
+   }
+},
+ {
+   "pk": 65,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ga",
+      "name": "Irish",
+      "nativeName": "Gaeilge"
+   }
+},
+ {
+   "pk": 66,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ig",
+      "name": "Igbo",
+      "nativeName": "Asụsụ Igbo"
+   }
+},
+ {
+   "pk": 67,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ik",
+      "name": "Inupiaq",
+      "nativeName": "Iñupiaq, Iñupiatun"
+   }
+},
+ {
+   "pk": 68,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "io",
+      "name": "Ido",
+      "nativeName": "Ido"
+   }
+},
+ {
+   "pk": 69,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "is",
+      "name": "Icelandic",
+      "nativeName": "Íslenska"
+   }
+},
+ {
+   "pk": 70,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "it",
+      "name": "Italian",
+      "nativeName": "Italiano"
+   }
+},
+ {
+   "pk": 71,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "iu",
+      "name": "Inuktitut",
+      "nativeName": "ᐃᓄᒃᑎᑐᑦ"
+   }
+},
+ {
+   "pk": 72,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ja",
+      "name": "Japanese",
+      "nativeName": "日本語 (にほんご／にっぽんご)"
+   }
+},
+ {
+   "pk": 73,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "jv",
+      "name": "Javanese",
+      "nativeName": "basa Jawa"
+   }
+},
+ {
+   "pk": 74,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "kl",
+      "name": "Kalaallisut, Greenlandic",
+      "nativeName": "kalaallisut, kalaallit oqaasii"
+   }
+},
+ {
+   "pk": 75,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "kn",
+      "name": "Kannada",
+      "nativeName": "ಕನ್ನಡ"
+   }
+},
+ {
+   "pk": 76,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "kr",
+      "name": "Kanuri",
+      "nativeName": "Kanuri"
+   }
+},
+ {
+   "pk": 77,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ks",
+      "name": "Kashmiri",
+      "nativeName": "कश्मीरी, كشميري‎"
+   }
+},
+ {
+   "pk": 78,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "kk",
+      "name": "Kazakh",
+      "nativeName": "Қазақ тілі"
+   }
+},
+ {
+   "pk": 79,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "km",
+      "name": "Khmer",
+      "nativeName": "ភាសាខ្មែរ"
+   }
+},
+ {
+   "pk": 80,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ki",
+      "name": "Kikuyu, Gikuyu",
+      "nativeName": "Gĩkũyũ"
+   }
+},
+ {
+   "pk": 81,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "rw",
+      "name": "Kinyarwanda",
+      "nativeName": "Ikinyarwanda"
+   }
+},
+ {
+   "pk": 82,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ky",
+      "name": "Kirghiz, Kyrgyz",
+      "nativeName": "кыргыз тили"
+   }
+},
+ {
+   "pk": 83,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "kv",
+      "name": "Komi",
+      "nativeName": "коми кыв"
+   }
+},
+ {
+   "pk": 84,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "kg",
+      "name": "Kongo",
+      "nativeName": "KiKongo"
+   }
+},
+ {
+   "pk": 85,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ko",
+      "name": "Korean",
+      "nativeName": "한국어 (韓國語), 조선말 (朝鮮語)"
+   }
+},
+ {
+   "pk": 86,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ku",
+      "name": "Kurdish",
+      "nativeName": "Kurdî, كوردی‎"
+   }
+},
+ {
+   "pk": 87,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "kj",
+      "name": "Kwanyama, Kuanyama",
+      "nativeName": "Kuanyama"
+   }
+},
+ {
+   "pk": 88,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "la",
+      "name": "Latin",
+      "nativeName": "latine, lingua latina"
+   }
+},
+ {
+   "pk": 89,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "lb",
+      "name": "Luxembourgish, Letzeburgesch",
+      "nativeName": "Lëtzebuergesch"
+   }
+},
+ {
+   "pk": 90,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "lg",
+      "name": "Luganda",
+      "nativeName": "Luganda"
+   }
+},
+ {
+   "pk": 91,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "li",
+      "name": "Limburgish, Limburgan, Limburger",
+      "nativeName": "Limburgs"
+   }
+},
+ {
+   "pk": 92,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ln",
+      "name": "Lingala",
+      "nativeName": "Lingála"
+   }
+},
+ {
+   "pk": 93,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "lo",
+      "name": "Lao",
+      "nativeName": "ພາສາລາວ"
+   }
+},
+ {
+   "pk": 94,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "lt",
+      "name": "Lithuanian",
+      "nativeName": "lietuvių kalba"
+   }
+},
+ {
+   "pk": 95,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "lu",
+      "name": "Luba-Katanga",
+      "nativeName": ""
+   }
+},
+ {
+   "pk": 96,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "lv",
+      "name": "Latvian",
+      "nativeName": "latviešu valoda"
+   }
+},
+ {
+   "pk": 97,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "gv",
+      "name": "Manx",
+      "nativeName": "Gaelg, Gailck"
+   }
+},
+ {
+   "pk": 98,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "mk",
+      "name": "Macedonian",
+      "nativeName": "македонски јазик"
+   }
+},
+ {
+   "pk": 99,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "mg",
+      "name": "Malagasy",
+      "nativeName": "Malagasy fiteny"
+   }
+},
+ {
+   "pk": 100,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ms",
+      "name": "Malay",
+      "nativeName": "bahasa Melayu, بهاس ملايو‎"
+   }
+},
+ {
+   "pk": 101,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ml",
+      "name": "Malayalam",
+      "nativeName": "മലയാളം"
+   }
+},
+ {
+   "pk": 102,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "mt",
+      "name": "Maltese",
+      "nativeName": "Malti"
+   }
+},
+ {
+   "pk": 103,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "mi",
+      "name": "Māori",
+      "nativeName": "te reo Māori"
+   }
+},
+ {
+   "pk": 104,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "mr",
+      "name": "Marathi (Marāṭhī)",
+      "nativeName": "मराठी"
+   }
+},
+ {
+   "pk": 105,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "mh",
+      "name": "Marshallese",
+      "nativeName": "Kajin M̧ajeļ"
+   }
+},
+ {
+   "pk": 106,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "mn",
+      "name": "Mongolian",
+      "nativeName": "монгол"
+   }
+},
+ {
+   "pk": 107,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "na",
+      "name": "Nauru",
+      "nativeName": "Ekakairũ Naoero"
+   }
+},
+ {
+   "pk": 108,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "nv",
+      "name": "Navajo, Navaho",
+      "nativeName": "Diné bizaad, Dinékʼehǰí"
+   }
+},
+ {
+   "pk": 109,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "nb",
+      "name": "Norwegian Bokmål",
+      "nativeName": "Norsk bokmål"
+   }
+},
+ {
+   "pk": 110,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "nd",
+      "name": "North Ndebele",
+      "nativeName": "isiNdebele"
+   }
+},
+ {
+   "pk": 111,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ne",
+      "name": "Nepali",
+      "nativeName": "नेपाली"
+   }
+},
+ {
+   "pk": 112,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ng",
+      "name": "Ndonga",
+      "nativeName": "Owambo"
+   }
+},
+ {
+   "pk": 113,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "nn",
+      "name": "Norwegian Nynorsk",
+      "nativeName": "Norsk nynorsk"
+   }
+},
+ {
+   "pk": 114,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "no",
+      "name": "Norwegian",
+      "nativeName": "Norsk"
+   }
+},
+ {
+   "pk": 115,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ii",
+      "name": "Nuosu",
+      "nativeName": "ꆈꌠ꒿ Nuosuhxop"
+   }
+},
+ {
+   "pk": 116,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "nr",
+      "name": "South Ndebele",
+      "nativeName": "isiNdebele"
+   }
+},
+ {
+   "pk": 117,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "oc",
+      "name": "Occitan",
+      "nativeName": "Occitan"
+   }
+},
+ {
+   "pk": 118,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "oj",
+      "name": "Ojibwe, Ojibwa",
+      "nativeName": "ᐊᓂᔑᓈᐯᒧᐎᓐ"
+   }
+},
+ {
+   "pk": 119,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "cu",
+      "name": "Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic",
+      "nativeName": "ѩзыкъ словѣньскъ"
+   }
+},
+ {
+   "pk": 120,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "om",
+      "name": "Oromo",
+      "nativeName": "Afaan Oromoo"
+   }
+},
+ {
+   "pk": 121,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "or",
+      "name": "Oriya",
+      "nativeName": "ଓଡ଼ିଆ"
+   }
+},
+ {
+   "pk": 122,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "os",
+      "name": "Ossetian, Ossetic",
+      "nativeName": "ирон æвзаг"
+   }
+},
+ {
+   "pk": 123,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "pa",
+      "name": "Panjabi, Punjabi",
+      "nativeName": "ਪੰਜਾਬੀ, پنجابی‎"
+   }
+},
+ {
+   "pk": 124,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "pi",
+      "name": "Pāli",
+      "nativeName": "पाऴि"
+   }
+},
+ {
+   "pk": 125,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "fa",
+      "name": "Persian",
+      "nativeName": "فارسی"
+   }
+},
+ {
+   "pk": 126,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "pl",
+      "name": "Polish",
+      "nativeName": "polski"
+   }
+},
+ {
+   "pk": 127,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ps",
+      "name": "Pashto, Pushto",
+      "nativeName": "پښتو"
+   }
+},
+ {
+   "pk": 128,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "pt",
+      "name": "Portuguese",
+      "nativeName": "Português"
+   }
+},
+ {
+   "pk": 129,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "qu",
+      "name": "Quechua",
+      "nativeName": "Runa Simi, Kichwa"
+   }
+},
+ {
+   "pk": 130,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "rm",
+      "name": "Romansh",
+      "nativeName": "rumantsch grischun"
+   }
+},
+ {
+   "pk": 131,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "rn",
+      "name": "Kirundi",
+      "nativeName": "kiRundi"
+   }
+},
+ {
+   "pk": 132,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ro",
+      "name": "Romanian, Moldavian, Moldovan",
+      "nativeName": "română"
+   }
+},
+ {
+   "pk": 133,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ru",
+      "name": "Russian",
+      "nativeName": "русский язык"
+   }
+},
+ {
+   "pk": 134,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sa",
+      "name": "Sanskrit (Saṁskṛta)",
+      "nativeName": "संस्कृतम्"
+   }
+},
+ {
+   "pk": 135,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sc",
+      "name": "Sardinian",
+      "nativeName": "sardu"
+   }
+},
+ {
+   "pk": 136,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sd",
+      "name": "Sindhi",
+      "nativeName": "सिन्धी, سنڌي، سندھی‎"
+   }
+},
+ {
+   "pk": 137,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "se",
+      "name": "Northern Sami",
+      "nativeName": "Davvisámegiella"
+   }
+},
+ {
+   "pk": 138,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sm",
+      "name": "Samoan",
+      "nativeName": "gagana faa Samoa"
+   }
+},
+ {
+   "pk": 139,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sg",
+      "name": "Sango",
+      "nativeName": "yângâ tî sängö"
+   }
+},
+ {
+   "pk": 140,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sr",
+      "name": "Serbian",
+      "nativeName": "српски језик"
+   }
+},
+ {
+   "pk": 141,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "gd",
+      "name": "Scottish Gaelic; Gaelic",
+      "nativeName": "Gàidhlig"
+   }
+},
+ {
+   "pk": 142,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sn",
+      "name": "Shona",
+      "nativeName": "chiShona"
+   }
+},
+ {
+   "pk": 143,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "si",
+      "name": "Sinhala, Sinhalese",
+      "nativeName": "සිංහල"
+   }
+},
+ {
+   "pk": 144,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sk",
+      "name": "Slovak",
+      "nativeName": "slovenčina"
+   }
+},
+ {
+   "pk": 145,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sl",
+      "name": "Slovene",
+      "nativeName": "slovenščina"
+   }
+},
+ {
+   "pk": 146,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "so",
+      "name": "Somali",
+      "nativeName": "Soomaaliga, af Soomaali"
+   }
+},
+ {
+   "pk": 147,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "st",
+      "name": "Southern Sotho",
+      "nativeName": "Sesotho"
+   }
+},
+ {
+   "pk": 148,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "es",
+      "name": "Spanish; Castilian",
+      "nativeName": "español, castellano"
+   }
+},
+ {
+   "pk": 149,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "su",
+      "name": "Sundanese",
+      "nativeName": "Basa Sunda"
+   }
+},
+ {
+   "pk": 150,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sw",
+      "name": "Swahili",
+      "nativeName": "Kiswahili"
+   }
+},
+ {
+   "pk": 151,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ss",
+      "name": "Swati",
+      "nativeName": "SiSwati"
+   }
+},
+ {
+   "pk": 152,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "sv",
+      "name": "Swedish",
+      "nativeName": "svenska"
+   }
+},
+ {
+   "pk": 153,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ta",
+      "name": "Tamil",
+      "nativeName": "தமிழ்"
+   }
+},
+ {
+   "pk": 154,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "te",
+      "name": "Telugu",
+      "nativeName": "తెలుగు"
+   }
+},
+ {
+   "pk": 155,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "tg",
+      "name": "Tajik",
+      "nativeName": "тоҷикӣ, toğikī, تاجیکی‎"
+   }
+},
+ {
+   "pk": 156,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "th",
+      "name": "Thai",
+      "nativeName": "ไทย"
+   }
+},
+ {
+   "pk": 157,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ti",
+      "name": "Tigrinya",
+      "nativeName": "ትግርኛ"
+   }
+},
+ {
+   "pk": 158,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "bo",
+      "name": "Tibetan Standard, Tibetan, Central",
+      "nativeName": "བོད་ཡིག"
+   }
+},
+ {
+   "pk": 159,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "tk",
+      "name": "Turkmen",
+      "nativeName": "Türkmen, Түркмен"
+   }
+},
+ {
+   "pk": 160,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "tl",
+      "name": "Tagalog",
+      "nativeName": "Wikang Tagalog, ᜏᜒᜃᜅ᜔ ᜆᜄᜎᜓᜄ᜔"
+   }
+},
+ {
+   "pk": 161,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "tn",
+      "name": "Tswana",
+      "nativeName": "Setswana"
+   }
+},
+ {
+   "pk": 162,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "to",
+      "name": "Tonga (Tonga Islands)",
+      "nativeName": "faka Tonga"
+   }
+},
+ {
+   "pk": 163,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "tr",
+      "name": "Turkish",
+      "nativeName": "Türkçe"
+   }
+},
+ {
+   "pk": 164,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ts",
+      "name": "Tsonga",
+      "nativeName": "Xitsonga"
+   }
+},
+ {
+   "pk": 165,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "tt",
+      "name": "Tatar",
+      "nativeName": "татарча, tatarça, تاتارچا‎"
+   }
+},
+ {
+   "pk": 166,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "tw",
+      "name": "Twi",
+      "nativeName": "Twi"
+   }
+},
+ {
+   "pk": 167,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ty",
+      "name": "Tahitian",
+      "nativeName": "Reo Tahiti"
+   }
+},
+ {
+   "pk": 168,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ug",
+      "name": "Uighur, Uyghur",
+      "nativeName": "Uyƣurqə, ئۇيغۇرچە‎"
+   }
+},
+ {
+   "pk": 169,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "uk",
+      "name": "Ukrainian",
+      "nativeName": "українська"
+   }
+},
+ {
+   "pk": 170,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ur",
+      "name": "Urdu",
+      "nativeName": "اردو"
+   }
+},
+ {
+   "pk": 171,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "uz",
+      "name": "Uzbek",
+      "nativeName": "zbek, Ўзбек, أۇزبېك‎"
+   }
+},
+ {
+   "pk": 172,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "ve",
+      "name": "Venda",
+      "nativeName": "Tshivenḓa"
+   }
+},
+ {
+   "pk": 173,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "vi",
+      "name": "Vietnamese",
+      "nativeName": "Tiếng Việt"
+   }
+},
+ {
+   "pk": 174,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "vo",
+      "name": "Volapük",
+      "nativeName": "Volapük"
+   }
+},
+ {
+   "pk": 175,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "wa",
+      "name": "Walloon",
+      "nativeName": "Walon"
+   }
+},
+ {
+   "pk": 176,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "cy",
+      "name": "Welsh",
+      "nativeName": "Cymraeg"
+   }
+},
+ {
+   "pk": 177,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "wo",
+      "name": "Wolof",
+      "nativeName": "Wollof"
+   }
+},
+ {
+   "pk": 178,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "fy",
+      "name": "Western Frisian",
+      "nativeName": "Frysk"
+   }
+},
+ {
+   "pk": 179,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "xh",
+      "name": "Xhosa",
+      "nativeName": "isiXhosa"
+   }
+},
+ {
+   "pk": 180,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "yi",
+      "name": "Yiddish",
+      "nativeName": "ייִדיש"
+   }
+},
+ {
+   "pk": 181,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "yo",
+      "name": "Yoruba",
+      "nativeName": "Yorùbá"
+   }
+},
+ {
+   "pk": 182,
+   "model": "developers.spoken_language",
+   "fields": {
+      "code": "za",
+      "name": "Zhuang, Chuang",
+      "nativeName": "Saɯ cueŋƅ, Saw cuengh"
+   }
+}
+]

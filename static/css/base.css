@@ -2,9 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&display=swap");
 html {
   height: 100%;
-  font-family: "Exo 2", sans-serif;
 }
-
+body{
+    font-family: "Exo 2", sans-serif;
+}
 #hero-image {
   height: 1200px;
   width: 100%;
@@ -213,3 +214,12 @@ https://freefrontend.com/bootstrap-profiles/
 https://stackoverflow.com/questions/10989238/center-image-horizontally-within-a-div
 https://stackoverflow.com/questions/37920332/force-image-tag-to-be-perfect-circle
 https://stackoverflow.com/questions/37261988/force-text-to-stay-on-one-line
+https://stackoverflow.com/questions/3217492/list-of-language-codes-in-yaml-or-json
+https://stackoverflow.com/questions/8368937/change-model-class-name-in-django-admin-interface/8369031
+
+
+/* tools */
+https://jsonformatter.org/
+https://csvjson.com/csv2json
+https://json-csv.com/
+https://www.convertcsv.com/csv-to-json.htm
