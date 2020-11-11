@@ -9,6 +9,14 @@ class DeveloperAdmin(admin.ModelAdmin):
         'name',
         'get_framework',
         'get_language',
+        'get_Spoken_Language',
+        'country',
+        'website',
+        'github',
+        'linkedin',
+        'twitter',
+        'facebook',
+        'email',
         'rate',
         'rating',
         'image',
@@ -19,6 +27,9 @@ class DeveloperAdmin(admin.ModelAdmin):
         
     def get_language(self, obj):
         return ", ".join([p.friendly_name for p in obj.language.all()])
+
+    def get_Spoken_Language(self, obj):
+        return ", ".join([p.name for p in obj.spoken_language.all()])
 
     ordering = ('name',)
 

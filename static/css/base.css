@@ -180,6 +180,8 @@ li.nav-item > a:hover {
   border-radius: 8px;
 }
 
+
+
 @media (max-width: 475px) {
   .icon-bar a {
     padding: 7px 0px;
@@ -216,6 +218,8 @@ https://stackoverflow.com/questions/37920332/force-image-tag-to-be-perfect-circl
 https://stackoverflow.com/questions/37261988/force-text-to-stay-on-one-line
 https://stackoverflow.com/questions/3217492/list-of-language-codes-in-yaml-or-json
 https://stackoverflow.com/questions/8368937/change-model-class-name-in-django-admin-interface/8369031
+https://stackoverflow.com/questions/35288084/how-to-display-a-manytomany-fields-in-the-template
+https://stackoverflow.com/questions/27149984/django-how-to-get-count-for-manytomany-field
 
 
 /* tools */

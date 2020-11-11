@@ -4,10 +4,28 @@
     "model": "developers.developer",
     "fields": {
       "name": "Ashton Bingham",
-      "description": "10 years experience in Python development",
+      "bio": "10 years experience in Python development",
+      "tagline": "Full Stack Developer",
+      "country": "Rep. Ireland",
+      "spoken_language": [
+        40,
+        47
+      ],
+      "website": "AshtonBingham.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "AshtonBingham@dev.com",
       "rate": 59.99,
-      "language": [1, 2],
-	  "framework": [1, 4],
+      "language": [
+        1,
+        2
+      ],
+      "framework": [
+        1,
+        4
+      ],
       "rating": 4.6,
       "image": "1m.jpg"
     }
@@ -17,10 +35,26 @@
     "model": "developers.developer",
     "fields": {
       "name": "Ben Parker",
-      "description": "15 years experience in PHP development",
+      "bio": "15 years experience in PHP development",
+      "tagline": "Full Stack Developer",
+      "country": "Germany",
+      "spoken_language": [
+        40,
+        51
+      ],
+      "website": "BenParker.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "BenParker@dev.com",
       "rate": 59.99,
-      "language": [9],
-	  "framework": [11],
+      "language": [
+        9
+      ],
+      "framework": [
+        11
+      ],
       "rating": 4.6,
       "image": "2m.jpg"
     }
@@ -30,10 +64,28 @@
     "model": "developers.developer",
     "fields": {
       "name": "Chalo Garcia",
-      "description": "5 years experience in Python development, 10 years in Javascript development",
+      "bio": "5 years experience in Python development, 10 years in Javascript development",
+      "tagline": "Full Stack Developer",
+      "country": "Brazil",
+      "spoken_language": [
+        40,
+        148
+      ],
+      "website": "ChaloGarcia.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "ChaloGarcia@dev.com",
       "rate": 59.99,
-      "language": [1, 2],
-	  "framework": [3, 5],
+      "language": [
+        1,
+        2
+      ],
+      "framework": [
+        3,
+        5
+      ],
       "rating": 4.6,
       "image": "3m.jpg"
     }
@@ -43,114 +95,274 @@
     "model": "developers.developer",
     "fields": {
       "name": "Chase Fade",
-      "description": "10 years experience in Python development",
+      "bio": "10 years experience in Python development",
+      "tagline": "Full Stack Developer",
+      "country": "USA",
+      "spoken_language": [
+        40
+      ],
+      "website": "ChaseFade.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "ChaseFade@dev.com",
       "rate": 59.99,
-      "language": [1],
-	  "framework": [4],
+      "language": [
+        1
+      ],
+      "framework": [
+        4
+      ],
       "rating": 4.6,
       "image": "4m.jpg"
     }
   },
-    {
+  {
     "pk": 5,
     "model": "developers.developer",
     "fields": {
       "name": "Joseph Harps",
-      "description": "7 years experience in Ruby development",
+      "bio": "7 years experience in Ruby development",
+      "tagline": "Full Stack Developer",
+      "country": "UK",
+      "spoken_language": [
+        40
+      ],
+      "website": "JosephHarps.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "JosephHarps@dev.com",
       "rate": 59.99,
-      "language": [6, 2],
-	  "framework": [8, 9],
+      "language": [
+        6,
+        2
+      ],
+      "framework": [
+        8,
+        9
+      ],
       "rating": 4.6,
       "image": "5m.jpg"
     }
   },
-    {
+  {
     "pk": 6,
     "model": "developers.developer",
     "fields": {
       "name": "Joseph Gonzalez",
-      "description": "13 years experience in Java development",
+      "bio": "13 years experience in Java development",
+      "tagline": "Full Stack Developer",
+      "country": "Spain",
+      "spoken_language": [
+        40,
+        148,
+        128
+      ],
+      "website": "JosephGonzalez.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "JosephGonzalez@dev.com",
       "rate": 59.99,
-      "language": [5],
-	  "framework": [6, 7],
+      "language": [
+        5
+      ],
+      "framework": [
+        6,
+        7
+      ],
       "rating": 4.6,
       "image": "6m.jpg"
     }
   },
-    {
+  {
     "pk": 7,
     "model": "developers.developer",
     "fields": {
       "name": "Mauro Paillex",
-      "description": "20 years experience in Python development",
+      "bio": "20 years experience in Python development",
+      "tagline": "Full Stack Developer",
+      "country": "Mexico",
+      "spoken_language": [
+        40,
+        148,
+        70
+      ],
+      "website": "MauroPaillex.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "MauroPaillex@dev.com",
       "rate": 59.99,
-      "language": [1, 2],
-	  "framework": [4, 5, 1, 2],
+      "language": [
+        1,
+        2
+      ],
+      "framework": [
+        4,
+        5,
+        1,
+        2
+      ],
       "rating": 4.6,
       "image": "7m.jpg"
     }
   },
-    {
+  {
     "pk": 8,
     "model": "developers.developer",
     "fields": {
       "name": "Michellle Dam",
-      "description": "3 years experience in Swift development, 8 years experience in Javascript",
+      "bio": "3 years experience in Swift development, 8 years experience in Javascript",
+      "tagline": "Full Stack Developer",
+      "country": "Netherlands",
+      "spoken_language": [
+        40,
+        39,
+        51
+      ],
+      "website": "MichellleDam.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "MichellleDam@dev.com",
       "rate": 59.99,
-      "language": [2, 7],
-	  "framework": [1, 2, 10],
+      "language": [
+        2,
+        7
+      ],
+      "framework": [
+        1,
+        2,
+        10
+      ],
       "rating": 4.6,
       "image": "1f.jpg"
     }
   },
-    {
+  {
     "pk": 9,
     "model": "developers.developer",
     "fields": {
       "name": "Saiyed Gangan",
-      "description": "10 years experience in C# & C++ development",
+      "bio": "10 years experience in C# & C++ development",
+      "tagline": "Full Stack Developer",
+      "country": "India",
+      "spoken_language": [
+        40,
+        59
+      ],
+      "website": "SaiyedGangan.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "SaiyedGangan@dev.com",
       "rate": 59.99,
-      "language": [3, 4],
-	  "framework": [13],
+      "language": [
+        3,
+        4
+      ],
+      "framework": [
+        13
+      ],
       "rating": 4.6,
       "image": "8m.jpg"
     }
   },
-    {
+  {
     "pk": 10,
     "model": "developers.developer",
     "fields": {
       "name": "Humphrey Muleba",
-      "description": "7 years experience in C# development, 3 years experience in Javascript",
+      "bio": "7 years experience in C# development, 3 years experience in Javascript",
+      "tagline": "Full Stack Developer",
+      "country": "UK",
+      "spoken_language": [
+        40
+      ],
+      "website": "HumphreyMuleba.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "HumphreyMuleba@dev.com",
       "rate": 59.99,
-      "language": [2, 3],
-	  "framework": [1, 2],
+      "language": [
+        2,
+        3
+      ],
+      "framework": [
+        1,
+        2
+      ],
       "rating": 4.6,
       "image": "2f.jpg"
     }
   },
-      {
+  {
     "pk": 11,
     "model": "developers.developer",
     "fields": {
       "name": "Zoe Fernandez",
-      "description": "10 years experience in C++ development",
+      "bio": "10 years experience in C++ development",
+      "tagline": "Full Stack Developer",
+      "country": "USA",
+      "spoken_language": [
+        40,
+        148
+      ],
+      "website": "ZoeFernandez.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "ZoeFernandez@dev.com",
       "rate": 59.99,
-      "language": [4],
-	  "framework": [],
+      "language": [
+        4
+      ],
+      "framework": [],
       "rating": 4.6,
       "image": "3f.jpg"
     }
   },
-      {
+  {
     "pk": 12,
     "model": "developers.developer",
     "fields": {
       "name": "Kelly Sikkema",
-      "description": "6 years experience in Python, Javascript & PHP development",
+      "bio": "6 years experience in Python, Javascript & PHP development",
+      "tagline": "Full Stack Developer",
+      "country": "Sweden",
+      "spoken_language": [
+        40,
+        152
+      ],
+      "website": "KellySikkema.dev.com",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "facebook": "https://www.facebook.com/",
+      "email": "KellySikkema@dev.com",
       "rate": 59.99,
-      "language": [1, 2, 9],
-	  "framework": [1, 4, 11, 12],
+      "language": [
+        1,
+        2,
+        9
+      ],
+      "framework": [
+        1,
+        4,
+        11,
+        12
+      ],
       "rating": 4.6,
       "image": "4f.jpg"
     }
