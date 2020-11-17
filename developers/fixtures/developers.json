@@ -6,7 +6,7 @@
       "name": "Ashton Bingham",
       "bio": "10 years experience in Python development",
       "tagline": "Full Stack Developer",
-      "country": "Rep. Ireland",
+      "country": "Ireland",
       "spoken_language": [
         40,
         47
@@ -97,7 +97,7 @@
       "name": "Chase Fade",
       "bio": "10 years experience in Python development",
       "tagline": "Full Stack Developer",
-      "country": "USA",
+      "country": "United States of America",
       "spoken_language": [
         40
       ],
@@ -125,7 +125,7 @@
       "name": "Joseph Harps",
       "bio": "7 years experience in Ruby development",
       "tagline": "Full Stack Developer",
-      "country": "UK",
+      "country": "United Kingdom",
       "spoken_language": [
         40
       ],
@@ -283,7 +283,7 @@
       "name": "Humphrey Muleba",
       "bio": "7 years experience in C# development, 3 years experience in Javascript",
       "tagline": "Full Stack Developer",
-      "country": "UK",
+      "country": "United Kingdom",
       "spoken_language": [
         40
       ],
@@ -313,7 +313,7 @@
       "name": "Zoe Fernandez",
       "bio": "10 years experience in C++ development",
       "tagline": "Full Stack Developer",
-      "country": "USA",
+      "country": "United States of America",
       "spoken_language": [
         40,
         148

@@ -38,15 +38,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-            <!-- <div class="container"> -->
 			    {% include 'includes/mobile-nav.html' %}
 			    {% include 'includes/nav.html' %}
-            <!-- </div> -->
 		</nav>
         <div class="bg-primary border-0 p-3 rounded-0 my-0 w-100 d-none" id="search-box">
-				<form class="form w-25 mx-auto justify-content-center" method="GET" action="">
+				<form class="form w-25 mx-auto justify-content-center" method="GET" action="{% url 'developers' %}">
 					<div class="input-group">
-						<input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-search">
+						<input type="search" class="form-control" placeholder="Search" name="q" aria-label="Search" aria-describedby="basic-search">
 						<div class="input-group-append">
 							<button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
 						</div>

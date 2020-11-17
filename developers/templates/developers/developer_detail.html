@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="container">
-<div class="container">
+<div class="container py-5">
     <div class="main-body my-5">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
@@ -34,21 +34,25 @@
                     <h6 class="mb-0"><i class="fas fa-hand-holding-usd"></i> Rate</h6>
                     <span class="text-secondary">€{{ developer.rate }}</span>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 class="mb-0"><i class="fas fa-globe"></i> Website</h6>
-                    <span class="text-secondary">{{ developer.website }}</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap github">
                     <h6 class="mb-0"><i class="fab fa-github"></i> Github</h6>
-                    <span class="text-secondary">{{ developer.github }}</span>
+                    <span class="text-secondary"><a class="" target="_blank" href="{{ developer.github }}">Go!</a></span>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 class="mb-0"><i class="fab fa-twitter"></i> Twitter</h6>
-                    <span class="text-secondary">{{ developer.twitter }}</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap facebook">
                     <h6 class="mb-0"><i class="fab fa-facebook-f"></i> Facebook</h6>
-                    <span class="text-secondary">{{ developer.facebook }}</span>
+                    <span class="text-secondary"><a class="" target="_blank" href="{{ developer.facebook }}">Go!</a></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap linkedin">
+                    <h6 class="mb-0"><i class="fab fa-linkedin-in"></i> Linkedin</h6>
+                    <span class="text-secondary"><a class="" target="_blank" href="{{ developer.linkedin }}">Go!</a></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap twitter">
+                    <h6 class="mb-0"><i class="fab fa-twitter"></i> Twitter</h6>
+                    <span class="text-secondary"><a class="" target="_blank" href="{{ developer.twitter }}">Go!</a></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap website">
+                    <h6 class="mb-0"><i class="fas fa-globe"></i> Website</h6>
+                    <span class="text-secondary"><a class="" target="_blank" href="{{ developer.website }}">Go!</a></span>
                   </li>
                 </ul>
               </div>
@@ -101,59 +105,20 @@
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3">Programming Languages</h6><hr>
+                      <h4 class="d-flex align-items-center mb-3">Programming Languages</h4><hr>
                       {% for language in developer.language.all %}
-                      <h5><i class="fas fa-code"></i> {{ language.friendly_name }}</h5><br>
+                      <h5><i class="fas fa-code text-primary"></i> {{ language.friendly_name }}</h5><br>
                       {% endfor %}
-                      <!-- <small>Web Design</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Website Markup</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>One Page</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div> -->
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3">Programming Frameworks</h6><hr>
+                      <h4 class="d-flex align-items-center mb-3 ">Programming Frameworks</h4><hr>
                       {% for framework in developer.framework.all %}
-                      <h5><i class="fas fa-box-open"></i> {{ framework.friendly_name }}</h5><br>
+                      <h5><i class="fas fa-box-open text-primary"></i> {{ framework.friendly_name }}</h5><br>
                       {% endfor %}
-                      <!-- <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Website Markup</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>One Page</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div> -->
                     </div>
                   </div>
                 </div>
