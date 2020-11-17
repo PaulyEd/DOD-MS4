@@ -10,7 +10,7 @@
 	<div class="col-6">
 		<ul class="navbar-nav w-auto mx-auto d-flex justify-content-center">
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-white mx-xl-2" href="#" id="all-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mx-xl-2" href="{% url 'developers' %}">
                 All
             </a>
         </li>
@@ -19,9 +19,9 @@
                 Python
             </a>
             <div class="dropdown-menu border-0 bg-primary" aria-labelledby="python-link">
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Python</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Django</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Flask</a>
+                <a href="{% url 'developers' %}?language=python" class="dropdown-item">Python</a>
+                <a href="{% url 'developers' %}?framework=django" class="dropdown-item">Django</a>
+                <a href="{% url 'developers' %}?framework=flask" class="dropdown-item">Flask</a>
             </div>
         </li>
 			<li class="nav-item dropdown">
@@ -29,9 +29,9 @@
                 Java
             </a>
             <div class="dropdown-menu border-0 bg-primary" aria-labelledby="java-link">
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Java</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Hibernate</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Spring</a>
+                <a href="{% url 'developers' %}?language=java" class="dropdown-item">Java</a>
+                <a href="{% url 'developers' %}?framework=hibernate" class="dropdown-item">Hibernate</a>
+                <a href="{% url 'developers' %}?framework=spring" class="dropdown-item">Spring</a>
             </div>
         </li>
 			<li class="nav-item dropdown">
@@ -39,10 +39,10 @@
                 Javascript
             </a>
             <div class="dropdown-menu border-0 bg-primary" aria-labelledby="javascript-link">
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Javascript</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">React</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Angular</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Vue</a>
+                <a href="{% url 'developers' %}?language=javascript" class="dropdown-item">Javascript</a>
+                <a href="{% url 'developers' %}?framework=react" class="dropdown-item">React</a>
+                <a href="{% url 'developers' %}?framework=angular" class="dropdown-item">Angular</a>
+                <a href="{% url 'developers' %}?framework=vue" class="dropdown-item">Vue</a>
             </div>
         </li>
 			<li class="nav-item dropdown">
@@ -50,8 +50,9 @@
                 PHP
             </a>
             <div class="dropdown-menu border-0 bg-primary" aria-labelledby="php-link">
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">Laravel</a>
-                <a href="__url__?sort=price&direction=asc" class="dropdown-item">CodeIgniter</a>
+                <a href="{% url 'developers' %}?language=php" class="dropdown-item">PHP</a>
+                <a href="{% url 'developers' %}?framework=laravel" class="dropdown-item">Laravel</a>
+                <a href="{% url 'developers' %}?framework=codeigniter" class="dropdown-item">CodeIgniter</a>
 
             </div>
         </li>

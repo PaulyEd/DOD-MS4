@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from .models import Developer
+from .models import Developer, Language, Framework
 from django.db.models import Q
 from django.contrib import messages
 
@@ -14,8 +14,17 @@ def all_developers(request):
     query = None
     queries = None
 
-
     if request.GET:
+        if 'framework' in request.GET:
+            frameworks = request.GET['framework'].split(',')
+            developers = developers.filter(framework__name__in=frameworks)
+            frameworks = Framework.objects.filter(name__in=frameworks)
+
+        if 'language' in request.GET:
+            languages = request.GET['language'].split(',')
+            developers = developers.filter(language__name__in=languages)
+            languages = Language.objects.filter(name__in=languages)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:

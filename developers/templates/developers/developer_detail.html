@@ -13,11 +13,11 @@
     <div class="main-body my-5">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
-              <div class="card">
+              <div class="card bg-card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                   <div class="circle">
-                    <img src="{{ developer.image.url }}" alt="Admin" class="rounded-circle" width="170">
+                    <img src="{{ developer.image.url }}" alt="Admin" class="rounded-circle" width="200">
                     </div>
                     <div class="mt-3">
                       <h4>{{ developer.name }}</h4>
@@ -59,43 +59,43 @@
             </div>
             <div class="col-md-8">
               <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
+                <div class="card-body p-0">
+                  <div class="row m-0 p-3 bg-card">
+                    <div class="col-sm-4">
                       <h6 class="mb-0">Full Name</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-8 text-secondary">
                       {{ developer.name }}
                     </div>
                   </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
+                  <!-- <hr> -->
+                  <div class="row m-0 p-3">
+                    <div class="col-sm-4">
                       <h6 class="mb-0">Email</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-8 text-secondary">
                       {{ developer.email }}
                     </div>
                   </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
+                  <!-- <hr> -->
+                  <div class="row m-0 p-3 bg-card">
+                    <div class="col-sm-4">
                       <h6 class="mb-0">Country</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-8 text-secondary">
                       {{ developer.country }}
                     </div>
                   </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
+                  <!-- <hr> -->
+                  <div class="row m-0 p-3">
+                    <div class="col-sm-4">
                     {% if developer.spoken_language.all.count > 1 %}
                       <h6 class="mb-0">Spoken Languages</h6>
                     {% else %}
                       <h6 class="mb-0">Spoken Language</h6>
                     {% endif %}
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-8 text-secondary">
                     {% for spoken_language in developer.spoken_language.all %} {{ spoken_language.name }} ({{ spoken_language.nativeName }}), {% endfor %}
                     </div>
                   </div>
@@ -104,8 +104,8 @@
               <div class="row gutters-sm">
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
+                  <h4 class="d-flex align-items-center mb-3 card-header">Programming Languages</h4>
                     <div class="card-body">
-                      <h4 class="d-flex align-items-center mb-3">Programming Languages</h4><hr>
                       {% for language in developer.language.all %}
                       <h5><i class="fas fa-code text-primary"></i> {{ language.friendly_name }}</h5><br>
                       {% endfor %}
@@ -114,8 +114,8 @@
                 </div>
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
+                  <h4 class="d-flex align-items-center mb-3 card-header">Programming Frameworks</h4>
                     <div class="card-body">
-                      <h4 class="d-flex align-items-center mb-3 ">Programming Frameworks</h4><hr>
                       {% for framework in developer.framework.all %}
                       <h5><i class="fas fa-box-open text-primary"></i> {{ framework.friendly_name }}</h5><br>
                       {% endfor %}
