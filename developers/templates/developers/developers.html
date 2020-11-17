@@ -36,8 +36,8 @@
 									{% if developer.language %}
 									{% for language in developer.language.all %}
 									<p class="small mt-1 mb-0">
-										<a class="text-muted dynamic-text" href="{% url 'developers' %}?language={{ .language.name }}">
-											<i class="fas fa-code"></i> {{ language.friendly_name }}<br/>
+										<a class="text-muted dynamic-text" href="{% url 'developers' %}?language={{ language.name }}">
+											<i class="fas fa-code pr-1"></i>{{ language.friendly_name }}<br/>
                                             </a>
 									</p>
 									{% endfor %}
@@ -47,8 +47,8 @@
 									{% if developer.framework %}
 									{% for framework in developer.framework.all %}
 									<p class="small mt-1 mb-0 text-right">
-										<a class="text-muted dynamic-text" href="{% url 'developers' %}?framework={{ .framework.name }}">
-											{{ framework.friendly_name }} <i class="fas fa-box-open"></i><br/>
+										<a class="text-muted dynamic-text" href="{% url 'developers' %}?framework={{ framework.name }}">
+											{{ framework.friendly_name }}<i class="fas fa-box-open pl-1"></i><br/>
                                         </a>
 									</p>
 									{% endfor %}

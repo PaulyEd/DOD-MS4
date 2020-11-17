@@ -107,7 +107,7 @@
                   <h4 class="d-flex align-items-center mb-3 card-header">Programming Languages</h4>
                     <div class="card-body">
                       {% for language in developer.language.all %}
-                      <h5><i class="fas fa-code text-primary"></i> {{ language.friendly_name }}</h5><br>
+                      <a href="{% url 'developers' %}?language={{ language.name }}"><h5><i class="fas fa-code text-primary pr-1"> </i>{{ language.friendly_name }}</h5></a><br>
                       {% endfor %}
                     </div>
                   </div>
@@ -117,7 +117,7 @@
                   <h4 class="d-flex align-items-center mb-3 card-header">Programming Frameworks</h4>
                     <div class="card-body">
                       {% for framework in developer.framework.all %}
-                      <h5><i class="fas fa-box-open text-primary"></i> {{ framework.friendly_name }}</h5><br>
+                      <a href="{% url 'developers' %}?framework={{ framework.name }}"><h5><i class="fas fa-box-open text-primary pr-1"> </i>{{ framework.friendly_name }}</h5></a><br>
                       {% endfor %}
                     </div>
                   </div>
