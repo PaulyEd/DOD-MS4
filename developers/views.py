@@ -13,8 +13,30 @@ def all_developers(request):
     developers = Developer.objects.all()
     query = None
     queries = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                developers = developers.annotate(lower_name=Lower('name'))
+
+            if sortkey == 'framework':
+                sortkey = 'framework__name'
+
+            if sortkey == 'language':
+                sortkey = 'language__name'
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+
+            developers = developers.order_by(sortkey)
+
         if 'framework' in request.GET:
             frameworks = request.GET['framework'].split(',')
             developers = developers.filter(framework__name__in=frameworks)
@@ -34,10 +56,28 @@ def all_developers(request):
             queries = Q(name__icontains=query) | Q(language__friendly_name__icontains=query) | Q(framework__friendly_name__icontains=query) | Q(spoken_language__name__icontains=query)
             developers = list(set(developers.filter(queries)))  # converting to a set then back to a list prevents object duplication for the search queries, .distict() could work similarly
 
-    context = {
-        'developers' : developers,
-        'search_term': query,
-    }
+    current_sorting = f'{sort}_{direction}'
+
+    if 'framework' in request.GET:
+        context = {
+            'developers': developers,
+            'search_term': query,
+            'current_selection': frameworks,
+            'current_sorting': current_sorting,
+        }
+    elif 'language' in request.GET:
+        context = {
+            'developers': developers,
+            'search_term': query,
+            'current_selection': languages,
+            'current_sorting': current_sorting,
+        }
+    else:
+        context = {
+            'developers': developers,
+            'search_term': query,
+            'current_sorting': current_sorting,
+        }
 
     return render(request, 'developers/developers.html', context)
 
