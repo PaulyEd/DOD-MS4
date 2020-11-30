@@ -20,15 +20,6 @@ def all_developers(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                developers = developers.annotate(lower_name=Lower('name'))
-
-            if sortkey == 'framework':
-                sortkey = 'framework__name'
-
-            if sortkey == 'language':
-                sortkey = 'language__name'
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
