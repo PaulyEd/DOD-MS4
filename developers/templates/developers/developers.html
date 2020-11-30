@@ -48,11 +48,11 @@
 					<div class="circle">
 						{% if developer.image %}
 						<a href="{% url 'developer_detail' developer.id %}">
-							<img class="card-img-top rounded-circle" src="{{ developer.image.url }}" alt="{{ developer.name }}" width="200">
+							<img class="card-img-top rounded-circle" src="{{ developer.image.url }}" alt="{{ developer.name }}" width="170">
 				                </a>
 						{% else %}
 							<a href="{% url 'developer_detail' developer.id %}">
-								<img class="card-img-top rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ developer.name }}" width="200">
+								<img class="card-img-top rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ developer.name }}" width="170">
 				                </a>
 						{% endif %}
 					</div>
