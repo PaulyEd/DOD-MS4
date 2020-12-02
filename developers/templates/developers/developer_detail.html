@@ -29,8 +29,20 @@
                             <div class="col-12">
                                 <p class="mt-3"><strong>Hours to buy:</strong></p>
                                 <div class="form-group w-75 mx-auto">
-                                        <input class="form-control mx-auto mb-1 text-center" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ developer.id }}" id="id_qty_{{ developer.id }}">
-                                        <input type="submit" class="btn btn-primary text-uppercase mx-auto ml-lg-1 mb-1" value="Add to Bag">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn p-0 border-0" data-item_id="{{ developer.id }}" id="decrement-qty_{{ developer.id }}">
+                                                <span class="input-group-text btn-left bg-primary"><i class="fas fa-minus text-white l-0"></i></span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control text-center qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ developer.id }}" id="id_qty_{{ developer.id }}">
+                                        <div class="input-group-append">
+                                            <button class="btn p-0 border-0" data-item_id="{{ developer.id }}" id="increment-qty_{{ developer.id }}">
+                                                <span class="input-group-text btn-right bg-primary text-white"><i class="fas fa-plus text-white l-0"></i></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary text-uppercase mx-auto ml-lg-1 mb-1" value="Add to Bag">
                                 </div>
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -140,74 +152,8 @@
         </div>
     </div>
     </div>
-<!-- <div class="container">
-	<div class="container">
-		<div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <div class="card h-100 border-0">
-                <p class="p-2 mb-0 text-center h3">{{ developer.name }}</p>
-                <div class="card-body pb-5 pt-0">
-                {% if developer.image %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ developer.image.url }}" alt="{{ developer.name }}">
-                </a>
-                {% else %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ developer.name }}">
-                </a>
-                {% endif %}
-                </div>
-                <div class="card-footer bg-white pt-0 border-0 text-left">
-                    <div class="row">
-                        <div class="col">
-                            <p class="lead mb-0 text-left font-weight-bold">${{ developer.rate }}</p>
-							<div class="row">
-								<div class="col-6 pr-0">
-									{% if developer.language %}
-									{% for language in developer.language.all %}
-									<p class="small mt-1 mb-0">
-										<a class="text-muted code-links" href="{% url 'developers' %}?language={{ .language.name }}">
-											<i class="fas fa-code"></i> {{ language.friendly_name }}<br/>
-                                            </a>
-									</p>
-									{% endfor %}
-									{% endif %}
-								</div>
-                                <div class="col-6 pl-0">
-									{% if developer.framework %}
-									{% for framework in developer.framework.all %}
-									<p class="small mt-1 mb-0 text-right">
-										<a class="text-muted code-links" href="{% url 'developers' %}?framework={{ .framework.name }}">
-											{{ framework.friendly_name }} <i class="fas fa-box-open"></i><br/>
-                                        </a>
-									</p>
-									{% endfor %}
-									{% endif %}
-								</div>
-							</div>
-                            <div class="row">
-								<div class="col-6 pr-0">
-                                    {% if developer.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ developer.rating }} / 5</small>
-                                    {% else %}
-                                        <small class="text-muted">No Rating</small>
-                                    {% endif %}
-                                </div>
-                            <div class="col-6 pl-0 text-right">
-                                {% if request.user.is_superuser %}
-                                <small class="text-right">
-                                    <a href="">Edit</a> | 
-                                    <a class="text-danger" href="">Delete</a>
-                                </small>
-                            {% endif %}
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		</div>
-	</div>
-</div> -->
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{% include 'developers/includes/quantity_script.html' %}
 {% endblock %}

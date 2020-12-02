@@ -221,6 +221,20 @@ li.nav-item > a:hover {
     white-space: nowrap;
 }
 
+.btn-left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.l-0{
+    line-height: inherit !important;
+}
+
 /* Media Queries */
 
 @media (min-width: 1400px) {
