@@ -22,6 +22,7 @@
                         <tr>
                             <th scope="col"> </th>
                             <th scope="col">Developer</th>
+                            <th scope="col">Languages/Frameworks</th>
                             <th scope="col" class="text-right">Rate</th>
                             <th scope="col" class="text-center">Quantity</th>
                             <th scope="col" class="text-right">Edit</th>
@@ -41,6 +42,25 @@
 							</div>
 						</td>
 						<td>{{ item.developer.name }}</td>
+                        <td>
+                            {% if item.developer.language %}
+                            <h6 class="text-muted">Languages:</h6>
+                            <p class="mt-1 mb-0 dynamic-text">
+                            {% for language in item.developer.language.all %}                            
+                                    <strong>{{ language.friendly_name }}</strong>,
+                            {% endfor %}
+                            </p>
+                            {% endif %}
+                            <br>
+                            {% if item.developer.framework %}
+                            <h6 class="text-muted">Frameworks:</h6>
+                            <p class="mt-1 mb-0 dynamic-text">
+                            {% for framework in item.developer.framework.all %}                            
+                                    <strong>{{ framework.friendly_name }}</strong>,
+                            {% endfor %}
+                            </p>
+                            {% endif %}
+                        </td>
                         <td class="text-right">€{{ item.developer.rate }}</td>
                             <td><p class="text-center">{{ item.quantity }}</p></td>
                             <td class="text-right">
