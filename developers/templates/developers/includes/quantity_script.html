@@ -23,7 +23,7 @@
     });
 
     // Increment quantity
-    $(`#increment-qty_${itemId}`).click(function(e) {
+    $('.increment-qty').click(function(e) {
        e.preventDefault();
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
        var currentValue = parseInt($(closestInput).val());
@@ -33,7 +33,7 @@
     });
 
     // Decrement quantity
-    $(`#decrement-qty_${itemId}`).click(function(e) {
+    $('.decrement-qty').click(function(e) {
        e.preventDefault();
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
        var currentValue = parseInt($(closestInput).val());

@@ -31,13 +31,13 @@
                                 <div class="form-group w-75 mx-auto">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <button class="btn p-0 border-0" data-item_id="{{ developer.id }}" id="decrement-qty_{{ developer.id }}">
+                                            <button class="btn p-0 border-0 decrement-qty" data-item_id="{{ developer.id }}" id="decrement-qty_{{ developer.id }}">
                                                 <span class="input-group-text btn-left bg-primary"><i class="fas fa-minus text-white l-0"></i></span>
                                             </button>
                                         </div>
                                         <input class="form-control text-center qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ developer.id }}" id="id_qty_{{ developer.id }}">
                                         <div class="input-group-append">
-                                            <button class="btn p-0 border-0" data-item_id="{{ developer.id }}" id="increment-qty_{{ developer.id }}">
+                                            <button class="btn p-0 border-0 increment-qty" data-item_id="{{ developer.id }}" id="increment-qty_{{ developer.id }}">
                                                 <span class="input-group-text btn-right bg-primary text-white"><i class="fas fa-plus text-white l-0"></i></span>
                                             </button>
                                         </div>

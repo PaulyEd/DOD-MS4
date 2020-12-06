@@ -1,106 +1,145 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-	<div class="container">
-		<div class="row mb-1">
-			<div class="col text-center mt-3">
-				<h2 class="logo-font">Cart</h2>
-			</div>
-		</div>
-	</div>
+<div class="container">
+   <div class="row mb-1">
+      <div class="col text-center mt-3">
+         <h2 class="logo-font">Cart</h2>
+      </div>
+   </div>
+</div>
 {% endblock %}
-
 {% block content %}
 <div class="container mb-4">
-    <div class="row">
-    {% if bag_items %}
-        <div class="col-12">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col"> </th>
-                            <th scope="col">Developer</th>
-                            <th scope="col">Languages/Frameworks</th>
-                            <th scope="col" class="text-right">Rate</th>
-                            <th scope="col" class="text-center">Quantity</th>
-                            <th scope="col" class="text-right">Edit</th>
-                            <th scope="col" class="text-right">Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-					{% for item in bag_items %}
-					<tr>
-						<td>
-							<div class="circle">
-								{% if item.developer.image %}
-									<img class="card-img-top rounded-circle" src="{{ item.developer.image.url }}" alt="{{ item.developer.name }}" width="170">
-								{% else %}
-									<img class="card-img-top rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.developer.name }}" width="170">
-								{% endif %}
-							</div>
-						</td>
-						<td>{{ item.developer.name }}</td>
-                        <td>
-                            {% if item.developer.language %}
-                            <h6 class="text-muted">Languages:</h6>
-                            <p class="mt-1 mb-0 dynamic-text">
-                            {% for language in item.developer.language.all %}                            
-                                    <strong>{{ language.friendly_name }}</strong>,
-                            {% endfor %}
-                            </p>
-                            {% endif %}
-                            <br>
-                            {% if item.developer.framework %}
-                            <h6 class="text-muted">Frameworks:</h6>
-                            <p class="mt-1 mb-0 dynamic-text">
-                            {% for framework in item.developer.framework.all %}                            
-                                    <strong>{{ framework.friendly_name }}</strong>,
-                            {% endfor %}
-                            </p>
-                            {% endif %}
-                        </td>
-                        <td class="text-right">€{{ item.developer.rate }}</td>
-                            <td><p class="text-center">{{ item.quantity }}</p></td>
-                            <td class="text-right">
-                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> </button>
-                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> 
-                            </td>
-                            <td class="text-right">€{{ item.developer.rate }}</td>
-                        </tr>
-                    {% endfor %}
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><strong>Total</strong></td>
-                            <td class="text-right"><strong>€{{ total|floatformat:2 }}</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+   <div class="row">
+      {% if bag_items %}
+      <div class="col-12">
+         <div class="table-responsive">
+            <table class="table table-striped">
+               <thead>
+                  <tr>
+                     <th scope="col"> </th>
+                     <th scope="col">Developer</th>
+                     <th scope="col">Languages/Frameworks</th>
+                     <th scope="col" class="text-right">Rate</th>
+                     <th scope="col" class="text-center">Quantity</th>
+                     <th scope="col" class="text-right">Subtotal</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for item in bag_items %}
+                  <tr>
+                     <td>
+                        <div class="circle">
+                           {% if item.developer.image %}
+                           <img class="card-img-top rounded-circle" src="{{ item.developer.image.url }}" alt="{{ item.developer.name }}" width="170">
+                           {% else %}
+                           <img class="card-img-top rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.developer.name }}" width="170">
+                           {% endif %}
+                        </div>
+                     </td>
+                     <td>{{ item.developer.name }}</td>
+                     <td>
+                        {% if item.developer.language %}
+                        <h6 class="text-muted">Languages:</h6>
+                        <p class="mt-1 mb-0 dynamic-text">
+                           {% for language in item.developer.language.all %}                            
+                           <strong>{{ language.friendly_name }}</strong>,
+                           {% endfor %}
+                        </p>
+                        {% endif %}
+                        <br>
+                        {% if item.developer.framework %}
+                        <h6 class="text-muted">Frameworks:</h6>
+                        <p class="mt-1 mb-0 dynamic-text">
+                           {% for framework in item.developer.framework.all %}                            
+                           <strong>{{ framework.friendly_name }}</strong>,
+                           {% endfor %}
+                        </p>
+                        {% endif %}
+                     </td>
+                     <td class="text-right">€{{ item.developer.rate }}</td>
+                     <td>
+                        <form class="form update-form" method="POST" action="">
+                           {% csrf_token %}
+                           <div class="form-group ">
+                              <div class="input-group">
+                                 <div class="input-group-prepend">
+                                    <button class="btn btn-sm bg-primary btn-left decrement-qty" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                    <span><i class="fas fa-minus fa-sm text-white "></i></span>
+                                    </button>
+                                 </div>
+                                 <input class="form-control form-control-sm text-center qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                 <div class="input-group-append">
+                                    <button class="btn btn-sm bg-primary btn-right increment-qty" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                    <span><i class="fas fa-plus text-white"></i></span>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </form>
+                        <a class="update-link text-primary c-pointer"><small>Update</small></a>
+                        <a class="remove-item text-danger float-right c-pointer" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                     </td>
+                     <td class="text-right">€{{ item.developer.rate }}</td>
+                  </tr>
+                  {% endfor %}
+                  <tr>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td><strong>Total</strong></td>
+                     <td class="text-right"><strong>€{{ total|floatformat:2 }}</strong></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <div class="col mb-2">
+         <div class="row">
+            <div class="col-sm-12  col-md-6">
+               <button class="btn btn-block btn-light">Continue Shopping</button>
             </div>
-        </div>
-        <div class="col mb-2">
-            <div class="row">
-                <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-light">Continue Shopping</button>
-                </div>
-                <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-block btn-primary text-uppercase">Checkout</button>
-                </div>
+            <div class="col-sm-12 col-md-6 text-right">
+               <button class="btn btn-block btn-primary text-uppercase">Checkout</button>
             </div>
-        </div>
-        {% else %}
-            <p class="lead mb-5">Your bag is empty.</p>
-                <a href="{% url 'developers' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">Keep Shopping</span>
-                </a>
-        {% endif %}
-    </div>
+         </div>
+      </div>
+      {% else %}
+      <p class="lead mb-5">Your bag is empty.</p>
+      <a href="{% url 'developers' %}" class="btn btn-outline-black rounded-0 btn-lg">
+      <span class="icon">
+      <i class="fas fa-chevron-left"></i>
+      </span>
+      <span class="text-uppercase">Keep Shopping</span>
+      </a>
+      {% endif %}
+   </div>
 </div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{% include 'developers/includes/quantity_script.html' %}
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/bag/remove/${itemId}`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
+
 {% endblock %}
