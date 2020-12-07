@@ -1,0 +1,48 @@
+{% if bag_items %}
+         {% load bag_tools %}
+         <!-- Sidebar -->
+         <div id="sidebar-container" class="sidebar-expanded d-none d-lg-block float-right p-2">
+            <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+            <!-- Separator with title -->
+            <div class="col text-center mt-1 text-primary">
+               <h2 class="logo-font"><i class="fas fa-shopping-cart"></i> Cart</h2><hr>
+            </div>
+            {% for item in bag_items %}
+            <div class="card-body p-2 border border-primary rounded">
+               <a href="{% url 'view_bag' %}">
+                  <p class="pb-1 mb-1 text-center card-header">{{ item.developer.name }}</p>
+               </a>
+               {% if item.developer.language %}
+               <h6 class="text-muted">Languages:</h6>
+               <p class="mt-1 mb-0">
+                  {% for language in item.developer.language.all %}                            
+                  <strong>{{ language.friendly_name }}</strong>,
+                  {% endfor %}
+               </p>
+               {% endif %}
+               {% if item.developer.framework %}
+               <h6 class="text-muted">Frameworks:</h6>
+               <p class="mt-1 mb-0">
+                  {% for framework in item.developer.framework.all %}                            
+                  <strong>{{ framework.friendly_name }}</strong>,
+                  {% endfor %}
+               </p>
+               {% endif %}
+               <p class="mt-1 mb-0">
+                {{ item.quantity }} Hours
+                </p>
+               <p class="mt-1 mb-0">
+                Subtotal:€{{ item.developer.rate | calc_subtotal:item.quantity }}
+                </p>
+            </div>
+            <hr>
+            {% endfor %}
+            <p class="my-2 text-center">
+                <strong>Total:€{{ total|floatformat:2 }}</strong>
+            </p>
+            <a href="{% url 'view_bag' %}" class="btn btn-block btn-primary">
+            Checkout
+            </a>
+         </div>
+         <!-- sidebar-container END -->
+         {% endif %}

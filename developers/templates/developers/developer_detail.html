@@ -42,7 +42,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <input type="submit" class="btn btn-primary text-uppercase mx-auto ml-lg-1 mb-1" value="Add to Bag">
+                                    <input type="submit" class="btn btn-primary text-uppercase mx-auto ml-lg-1 mb-1" value="Add to Cart">
                                 </div>
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -152,6 +152,9 @@
         </div>
     </div>
     </div>
+{% endblock %}
+{% block side-cart %}
+{% include 'includes/side-cart.html' %}
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
