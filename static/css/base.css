@@ -327,6 +327,17 @@ li.nav-item > a:hover {
     }
 }
 
+/* custom toastr classes */
+.toast-top-right-custom{
+    position: relative;
+    top:80px;
+    right:70px
+}
+
+#toast-container>div{
+    opacity:.95;
+}
+
 
 /* /////References//// */
 https: ; //jsfiddle.net/bootstrapious/c7ash30w
@@ -345,10 +356,13 @@ https://stackoverflow.com/questions/27149984/django-how-to-get-count-for-manytom
 https://stackoverflow.com/questions/15507171/django-filter-query-foreign-key
 https://stackoverflow.com/questions/4459703/how-to-make-lists-contain-only-distinct-element-in-python
 https://bootsnipp.com/snippets/ZXKKD
-
+https://bbbootstrap.com/snippets/simple-toast-notification-toastr-76085299
+https://stackoverflow.com/questions/45004245/how-to-use-toastr-in-django-for-success-or-fail-message
 
 /* tools */
 https://jsonformatter.org/
 https://csvjson.com/csv2json
 https://json-csv.com/
 https://www.convertcsv.com/csv-to-json.htm
+https://codeseven.github.io/toastr/
+https://codeseven.github.io/toastr/demo.html
