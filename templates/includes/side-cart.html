@@ -5,44 +5,65 @@
             <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
             <!-- Separator with title -->
             <div class="col text-center mt-1 text-primary">
-               <h2 class="logo-font"><i class="fas fa-shopping-cart"></i> Cart</h2><hr>
+               <h2 class="logo-font"><i class="fas fa-shopping-cart"></i> Cart</h2>
             </div>
-            {% for item in bag_items %}
-            <div class="card-body p-2 border border-primary rounded">
-               <a href="{% url 'view_bag' %}">
-                  <p class="pb-1 mb-1 text-center card-header">{{ item.developer.name }}</p>
-               </a>
-               {% if item.developer.language %}
-               <h6 class="text-muted">Languages:</h6>
-               <p class="mt-1 mb-0">
-                  {% for language in item.developer.language.all %}                            
-                  <strong>{{ language.friendly_name }}</strong>,
-                  {% endfor %}
-               </p>
-               {% endif %}
-               {% if item.developer.framework %}
-               <h6 class="text-muted">Frameworks:</h6>
-               <p class="mt-1 mb-0">
-                  {% for framework in item.developer.framework.all %}                            
-                  <strong>{{ framework.friendly_name }}</strong>,
-                  {% endfor %}
-               </p>
-               {% endif %}
-               <p class="mt-1 mb-0">
-                {{ item.quantity }} Hours
-                </p>
-               <p class="mt-1 mb-0">
-                Subtotal:€{{ item.developer.rate | calc_subtotal:item.quantity }}
-                </p>
-            </div>
-            <hr>
-            {% endfor %}
             <p class="my-2 text-center">
                 <strong>Total:€{{ total|floatformat:2 }}</strong>
             </p>
             <a href="{% url 'view_bag' %}" class="btn btn-block btn-primary">
             Checkout
             </a>
+            <hr>
+            {% for item in bag_items %}
+            <div class="card-body p-2 border border-primary rounded overflow-hidden">
+               <a href="{% url 'view_bag' %}">
+                  <p class="pb-1 mb-1 text-center card-header">{{ item.developer.name }}</p>
+               </a>
+               {% if item.developer.language %}
+               <h6 class="text-muted mb-0">Languages:</h6>
+               <p class="mb-2">
+                  {% for language in item.developer.language.all %}                            
+                  <strong>{{ language.friendly_name }}</strong>,
+                  {% endfor %}
+               </p>
+               {% endif %}
+               {% if item.developer.framework %}
+               <h6 class="text-muted mb-0">Frameworks:</h6>
+               <p class="mb-2">
+                  {% for framework in item.developer.framework.all %}                            
+                  <strong>{{ framework.friendly_name }}</strong>,
+                  {% endfor %}
+               </p>
+               {% endif %}
+               <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                           {% csrf_token %}
+                           <div class="form-group ">
+                              <div class="input-group">
+                                 <div class="input-group-prepend">
+                                    <button class="btn btn-sm bg-primary btn-left cart-decrement-qty decrement-qty_side_cart_{{ item.item_id }}" data-item_id="side_cart_{{ item.item_id }}">
+                                    <span><i class="fas fa-minus fa-sm text-white "></i></span>
+                                    </button>
+                                 </div>
+                                 <input class="form-control form-control-sm text-center qty_input_side_cart id_qty_side_cart_{{ item.item_id }}" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="side_cart_{{ item.item_id }}">
+                                 <div class="input-group-append">
+                                    <button class="btn btn-sm bg-primary btn-right cart-increment-qty increment-qty_side_cart_{{ item.item_id }}" data-item_id="side_cart_{{ item.item_id }}">
+                                    <span><i class="fas fa-plus text-white"></i></span>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                           <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </form>
+                         <a class="update-link text-primary c-pointer"><small>Update</small></a>
+                <a class="remove-item text-danger float-right c-pointer" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+               <p class="mt-1 mb-0">
+                Subtotal:€{{ item.developer.rate | calc_subtotal:item.quantity }}
+                </p>
+            </div>
+            <hr>
+            {% endfor %}
          </div>
          <!-- sidebar-container END -->
          {% endif %}
+{% include 'developers/includes/cart_scripts.html' %}
+

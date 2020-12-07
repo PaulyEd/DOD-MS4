@@ -35,6 +35,7 @@ def adjust_bag(request, item_id):
     developer = get_object_or_404(Developer, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
+    redirect_url = request.POST.get('redirect_url')
 
     if quantity > 0:
         bag[item_id] = quantity
@@ -44,7 +45,10 @@ def adjust_bag(request, item_id):
         messages.info(request, f'Removed {developer.name} from your bag')
 
     request.session['bag'] = bag
-    return redirect(reverse('view_bag'))
+    try:
+        return redirect(redirect_url)
+    except:
+        return redirect(reverse('view_bag'))
 
 
 def remove_from_bag(request, item_id):

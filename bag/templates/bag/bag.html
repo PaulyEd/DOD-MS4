@@ -20,10 +20,9 @@
             <table class="table table-striped">
                <thead>
                   <tr>
-                     <th scope="col"> </th>
-                     <th scope="col">Developer</th>
+                     <th colspan="2" class="text-center">Developer</th>
                      <th scope="col">Languages/Frameworks</th>
-                     <th scope="col" class="text-right">Rate</th>
+                     <th scope="col" class="text-center">Rate</th>
                      <th scope="col" class="text-center">Quantity</th>
                      <th scope="col" class="text-right">Subtotal</th>
                   </tr>
@@ -64,20 +63,20 @@
                         </p>
                         {% endif %}
                      </td>
-                     <td class="text-right">€{{ item.developer.rate }}</td>
+                     <td class="text-center">€{{ item.developer.rate }}</td>
                      <td>
                         <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                            {% csrf_token %}
                            <div class="form-group ">
                               <div class="input-group">
                                  <div class="input-group-prepend">
-                                    <button class="btn btn-sm bg-primary btn-left decrement-qty" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                    <button class="btn btn-sm bg-primary btn-left decrement-qty decrement-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
                                     <span><i class="fas fa-minus fa-sm text-white "></i></span>
                                     </button>
                                  </div>
-                                 <input class="form-control form-control-sm text-center qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                 <input class="form-control form-control-sm text-center qty_input id_qty_{{ item.item_id }}" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}">
                                  <div class="input-group-append">
-                                    <button class="btn btn-sm bg-primary btn-right increment-qty" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                    <button class="btn btn-sm bg-primary btn-right increment-qty increment-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
                                     <span><i class="fas fa-plus text-white"></i></span>
                                     </button>
                                  </div>
@@ -127,27 +126,5 @@
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
-{% include 'developers/includes/quantity_script.html' %}
-
-<script type="text/javascript">
-    // Update quantity on click
-    $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
-
-    // Remove item and reload on click
-    $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken};
-
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
-</script>
-
+{% include 'developers/includes/cart_scripts.html' %}
 {% endblock %}
