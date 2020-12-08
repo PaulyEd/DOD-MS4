@@ -335,9 +335,10 @@ li.nav-item > a:hover {
 }
 
 #toast-container>div{
-    opacity:.95;
+    opacity:1!important;
+    -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter:alpha(opacity=100);
 }
-
 
 /* TEST */
 #body-row {
