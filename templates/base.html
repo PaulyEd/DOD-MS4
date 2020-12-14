@@ -26,7 +26,7 @@
       {% endblock %}
       <title>Dev on Demand {% block extra_title %}{% endblock %}</title>
    </head>
-   <body>
+   <body class="bg-light">
       <header class="container-fluid sticky-top px-0">
          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,26 +46,7 @@
             </form>
          </div>
       </header>
-      <script type="text/javascript">
-         toastr.options = {
-             "closeButton": true,
-             "debug": false,
-             "newestOnTop": true,
-             "progressBar": true,
-             "positionClass": "toast-top-right-custom",
-             "preventDuplicates": false,
-             "onclick": null,
-             "showDuration": "300",
-             "hideDuration": "1000",
-             "timeOut": "5000",
-             "extendedTimeOut": "1000",
-             "showEasing": "swing",
-             "hideEasing": "linear",
-             "showMethod": "fadeIn",
-             "hideMethod": "fadeOut"
-         }
-         
-      </script>
+      {% include 'includes/toastr_scripts.html' %}
       {% if messages %}
         {% for message in messages %}
             {% if message.tags == 'success'%}

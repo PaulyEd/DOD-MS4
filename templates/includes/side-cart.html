@@ -15,7 +15,7 @@
             </a>
             <hr>
             {% for item in bag_items %}
-            <div class="card-body p-2 border border-primary rounded overflow-hidden">
+            <div class="card-body p-2 border border-primary rounded overflow-hidden bg-light">
                <a href="{% url 'view_bag' %}">
                   <p class="pb-1 mb-1 text-center card-header">{{ item.developer.name }}</p>
                </a>
@@ -66,4 +66,5 @@
          <!-- sidebar-container END -->
          {% endif %}
 {% include 'developers/includes/cart_scripts.html' %}
+
 
