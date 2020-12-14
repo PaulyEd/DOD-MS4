@@ -15,6 +15,7 @@ def all_developers(request):
     queries = None
     sort = None
     direction = None
+    redirect_url = request.GET.get('redirect_url')
 
     if request.GET:
         if 'sort' in request.GET:
@@ -42,7 +43,7 @@ def all_developers(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse('developers'))
+                return redirect(redirect_url)
             
             queries = Q(name__icontains=query) | Q(language__friendly_name__icontains=query) | Q(framework__friendly_name__icontains=query) | Q(spoken_language__name__icontains=query)
             developers = list(set(developers.filter(queries)))  # converting to a set then back to a list prevents object duplication for the search queries, .distict() could work similarly
