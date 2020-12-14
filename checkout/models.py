@@ -25,11 +25,13 @@ class Order(models.Model):
         """
         Generate a random, unique order number using UUID
         """
+        print("generate order")
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
         """
-        Update grand total each time a line item is added
+        Update grand total each time a line item is added,
+        accounting for delivery costs.
         """
         self.grand_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
         self.save()
@@ -41,6 +43,7 @@ class Order(models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
+        self.grand_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -62,4 +65,4 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.developer.id} on order {self.order.order_number}'
+        return f'Dev {self.developer.id} on order {self.order.order_number}'
