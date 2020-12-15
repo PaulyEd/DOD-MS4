@@ -208,6 +208,17 @@ li.nav-item > a:hover {
     margin:auto;
 }
 
+.circle-small {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+}
+
 .border-box{
     -webkit-box-shadow:inset 0px 0px 0px 1px rgba(0,0,0,.1);
     -moz-box-shadow:inset 0px 0px 0px 1px rgba(0,0,0,.1);

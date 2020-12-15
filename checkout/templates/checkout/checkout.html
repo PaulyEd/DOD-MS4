@@ -1,18 +1,201 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load bag_tools %}
 {% block page_header %}
 <div class="container">
-
 </div>
 {% endblock %}
-
 {% block content %}
-
+<div class="container mb-4">
+   <div class="row">
+      <div class="col-12 col-lg-6 my-2 my-md-5">
+         <p class="text-muted text-center">Please fill out the form below to complete your order</p>
+         <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+            {% csrf_token %}
+            <fieldset class="rounded px-3 mb-5">
+               <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-user"></i>
+                     </span>
+                  </div>
+                  {{ order_form.full_name }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-envelope"></i>
+                     </span>
+                  </div>
+                  {{ order_form.email }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-phone-alt"></i>
+                     </span>
+                  </div>
+                  {{ order_form.phone_number }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ order_form.country }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ order_form.postcode }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ order_form.town_or_city }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ order_form.street_address1 }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ order_form.street_address2 }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ order_form.county }}
+               </div>
+               <div class="form-check form-check-inline float-right mr-0">
+                  {% if user.is_authenticated %}
+                  <label class="form-check-label" for="id-save-info">Save this information to my profile</label>
+                  <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                  {% else %}
+                  <label class="form-check-label" for="id-save-info">
+                  <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                  <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                  </label>
+                  {% endif %}
+               </div>
+            </fieldset>
+            <fieldset class="px-3">
+               <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+               <!-- A Stripe card element will go here -->
+               <div class="mb-3" id="card-element"></div>
+               <!-- Used to display form errors -->
+               <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+            <div class="submit-button text-right mt-5 mb-2">
+               <a href="{% url 'view_bag' %}" class="btn btn-outline-primary text-primary">
+               <span class="icon">
+               <i class="fas fa-chevron-left"></i>
+               </span>
+               <span class="font-weight-bold">Adjust Bag</span>
+               </a>
+               <button id="submit-button" class="btn btn-warning">
+               <span class="font-weight-bold">Complete Order</span>
+               <span class="icon">
+               <i class="fas fa-lock"></i>
+               </span>
+               </button>
+               <p class="small text-danger my-0">
+                  <span class="icon">
+                  <i class="fas fa-exclamation-circle"></i>
+                  </span>
+                  <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+               </p>
+            </div>
+            </fieldset>
+         </form>
+      </div>
+      <div class="col-12 col-lg-6 my-2 my-md-5">
+         {% if bag_items %}
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-striped">
+                  <thead>
+                     <tr>
+                        <th colspan="2" class="text-left">Developer</th>
+                        <th scope="col" class="text-center">Subtotal</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {% for item in bag_items %}
+                     <tr>
+                        <td>
+                           <div class="circle-small">
+                              {% if item.developer.image %}
+                              <a href="{% url 'developer_detail' item.item_id %}">
+                              <img class="card-img-top rounded-circle" src="{{ item.developer.image.url }}" alt="{{ item.developer.name }}" width="100">
+                              </a>
+                              {% else %}
+                              <a href="{% url 'developer_detail' item.item_id %}">
+                              <img class="card-img-top rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.developer.name }}" width="100">
+                              </a>
+                              {% endif %}
+                           </div>
+                        </td>
+                        <td><a href="{% url 'developer_detail' item.item_id %}">{{ item.developer.name }}</a><br>
+                            €{{ item.developer.rate }}<br>
+                            Qty:{{ item.quantity }}<br>
+                            <p class="mt-1 mb-0">
+                            {% if item.developer.language %}
+                              {% for language in item.developer.language.all %}                            
+                              {{ language.friendly_name }}, 
+                              {% endfor %}
+                           {% endif %}
+                           {% if item.developer.framework %}
+                              {% for framework in item.developer.framework.all %}                            
+                              {{ framework.friendly_name }}, 
+                              {% endfor %}
+                           {% endif %}
+                            </p>
+                        </td>
+                        <td class="text-right">€{{ item.developer.rate | calc_subtotal:item.quantity }}</td>
+                     </tr>
+                     {% endfor %}
+                     <tr>
+                        <td></td>
+                        <td class="text-right"><strong>Total:</strong></td>
+                        <td class="text-right"><strong>€{{ total|floatformat:2 }}</strong></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         {% else %}
+         <p class="lead mb-5">Your bag is empty.</p>
+         <a href="{% url 'developers' %}" class="btn btn-outline-black rounded-0 btn-lg">
+         <span class="icon">
+         <i class="fas fa-chevron-left"></i>
+         </span>
+         <span class="text-uppercase">Keep Shopping</span>
+         </a>
+         {% endif %}
+      </div>
+   </div>
+</div>
 {% endblock %}
-
 {% block side-cart %}
 {% endblock %}
-
 {% block postloadjs %}
 {% endblock %}
