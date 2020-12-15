@@ -25,7 +25,6 @@ class Order(models.Model):
         """
         Generate a random, unique order number using UUID
         """
-        print("generate order")
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
@@ -43,7 +42,6 @@ class Order(models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
-        self.grand_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
         super().save(*args, **kwargs)
 
     def __str__(self):
