@@ -419,6 +419,10 @@ li.nav-item > a:hover {
   padding-left: 10px;
 }
 
+.checkout-element:focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
 
 /* /////References//// */
 https: ; //jsfiddle.net/bootstrapious/c7ash30w
@@ -439,6 +443,7 @@ https://stackoverflow.com/questions/4459703/how-to-make-lists-contain-only-disti
 https://bootsnipp.com/snippets/ZXKKD
 https://bbbootstrap.com/snippets/simple-toast-notification-toastr-76085299
 https://stackoverflow.com/questions/45004245/how-to-use-toastr-in-django-for-success-or-fail-message
+https://stripe.com/docs/js/appendix/style
 
 /* tools */
 https://jsonformatter.org/

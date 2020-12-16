@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 {% load bag_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="container">
 </div>
 {% endblock %}
 {% block content %}
+<div class="row">
+	<div class="col text-center mt-3">
+		<h2 class="logo-font">Checkout</h2>
+	</div>
+</div>
 <div class="container mb-4">
    <div class="row">
       <div class="col-12 col-lg-6 my-2 my-md-5">
@@ -99,11 +109,12 @@
                </div>
             </fieldset>
             <fieldset class="px-3">
-               <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-               <!-- A Stripe card element will go here -->
-               <div class="mb-3" id="card-element"></div>
-               <!-- Used to display form errors -->
-               <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
             <div class="submit-button text-right mt-5 mb-2">
                <a href="{% url 'view_bag' %}" class="btn btn-outline-primary text-primary">
                <span class="icon">
@@ -121,21 +132,23 @@
                   <span class="icon">
                   <i class="fas fa-exclamation-circle"></i>
                   </span>
-                  <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                  <span>Your card will be charged <strong>€{{ total|floatformat:2 }}</strong></span>
                </p>
             </div>
             </fieldset>
          </form>
       </div>
       <div class="col-12 col-lg-6 my-2 my-md-5">
+           <p class="text-muted text-center">Order Summary</p>
          {% if bag_items %}
          <div class="col-12">
+             <div class="card">
             <div class="table-responsive">
-               <table class="table table-striped">
+               <table class="table table-striped mb-0">
                   <thead>
                      <tr>
-                        <th colspan="2" class="text-left">Developer</th>
-                        <th scope="col" class="text-center">Subtotal</th>
+                        <th colspan="2" class="text-left border-top-0">Developer</th>
+                        <th scope="col" class="text-center border-top-0">Subtotal</th>
                      </tr>
                   </thead>
                   <tbody>
@@ -181,6 +194,7 @@
                   </tbody>
                </table>
             </div>
+            </div>
          </div>
          {% else %}
          <p class="lead mb-5">Your bag is empty.</p>
@@ -195,7 +209,10 @@
    </div>
 </div>
 {% endblock %}
-{% block side-cart %}
-{% endblock %}
+
 {% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
