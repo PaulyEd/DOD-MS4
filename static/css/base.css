@@ -424,6 +424,13 @@ li.nav-item > a:hover {
 }
 
 
+.text-primary-action:focus,
+.text-primary-action:hover,
+.text-primary-action:active
+{
+    color:#fff !important;
+}
+
 /* /////References//// */
 https: ; //jsfiddle.net/bootstrapious/c7ash30w
 https://stackoverflow.com/questions/25386119/whats-the-difference-between-a-onetoone-manytomany-and-a-foreignkey-field-in-d#:~:text=of%20the%20relationship.-,ForeignKey,may%20be%20related%20to%20one.

@@ -35,3 +35,35 @@ var style = {
 };
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
+
+// Handle realtime validation errors on the card element
+card.addEventListener('change', function (event) {
+    var errorDiv = document.getElementById('card-errors');
+    var errorBtn = document.getElementById('submit-button');
+    if (event.error) {
+        var htmlError = `
+            <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>${event.error.message}</span>
+        `;
+        var btnError = `
+               <span class="icon">
+               <i class="fas fa-exclamation-triangle"></i>
+               </span><span class="font-weight-bold">Error</span>
+        `
+        $(errorDiv).html(htmlError);
+        $(errorBtn).html(btnError);
+        $(errorBtn).addClass("btn-danger disabled");
+    } else {
+        errorDiv.textContent = '';
+        var btnSuccess = `
+               <span class="font-weight-bold">Complete Order</span>
+               <span class="icon">
+               <i class="fas fa-lock"></i>
+               </span>
+        `
+        $(errorBtn).html(btnSuccess);
+        $(errorBtn).removeClass("btn-danger disabled");
+    }
+});
