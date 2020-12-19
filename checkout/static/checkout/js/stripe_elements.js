@@ -3,37 +3,37 @@ var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
-  base: {
-    color: '#32325d',
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-    fontSmoothing: 'antialiased',
-    fontSize: '16px',
-    '::placeholder': {
-      color: '#aab7c4'
+    base: {
+        color: '#32325d',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#aab7c4'
+        },
+        ':-webkit-autofill': {
+            color: '#32325d',
+        },
     },
-    ':-webkit-autofill': {
-      color: '#32325d',
+    invalid: {
+        color: '#ff000',
+        iconColor: '#ff000',
+        ':-webkit-autofill': {
+            color: '#ff000',
+        },
     },
-  },
-  invalid: {
-    color: '#ff000',
-    iconColor: '#ff000',
-    ':-webkit-autofill': {
-      color: '#ff000',
-    },
-  },
-  complete: {
-    color: '#5cb85c',
-    iconColor: '#5cb85c',
-    ':-webkit-autofill': {
-      color: '#5cb85c',
-    },
-    '::placeholder': {
+    complete: {
         color: '#5cb85c',
+        iconColor: '#5cb85c',
+        ':-webkit-autofill': {
+            color: '#5cb85c',
+        },
+        '::placeholder': {
+            color: '#5cb85c',
+        },
     },
-  },
 };
-var card = elements.create('card', {style: style});
+var card = elements.create('card', { style: style });
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
@@ -71,15 +71,15 @@ card.addEventListener('change', function (event) {
 // Handle form submit
 var form = document.getElementById('payment-form');
 
-form.addEventListener('submit', function(ev) {
+form.addEventListener('submit', function (ev) {
     ev.preventDefault();
-    card.update({ 'disabled': true});
+    card.update({ 'disabled': true });
     $('#submit-button').attr('disabled', true);
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
         }
-    }).then(function(result) {
+    }).then(function (result) {
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
             var htmlError = `
@@ -88,9 +88,9 @@ form.addEventListener('submit', function(ev) {
             </span>
             <span>${result.error.message}</span>
         `;
-        $(errorDiv).html(htmlError);
-        card.update({ 'disabled': false});
-        $('#submit-button').attr('disabled', false);
+            $(errorDiv).html(htmlError);
+            card.update({ 'disabled': false });
+            $('#submit-button').attr('disabled', false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 form.submit();
