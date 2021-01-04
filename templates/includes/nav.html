@@ -86,7 +86,7 @@
 					<a href="/admin" class="dropdown-item">Admin</a>
 					{% endif %}
 					<a href="" class="dropdown-item">My Profile</a>
-					<a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+					<a data-target="#LogOutModal" data-toggle="modal" class="dropdown-item" href="#LogOutModal">Logout</a>
 					{% else %}
 					<a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
 					<a href="{% url 'account_login' %}" class="dropdown-item">Login</a>

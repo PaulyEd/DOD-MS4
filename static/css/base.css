@@ -431,6 +431,25 @@ li.nav-item > a:hover {
     color:#fff !important;
 }
 
+
+/* allAuth modal css */
+.btn-close {
+  width: 35px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #aaa;
+  float: right;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
 /* /////References//// */
 https: ; //jsfiddle.net/bootstrapious/c7ash30w
 https://stackoverflow.com/questions/25386119/whats-the-difference-between-a-onetoone-manytomany-and-a-foreignkey-field-in-d#:~:text=of%20the%20relationship.-,ForeignKey,may%20be%20related%20to%20one.
@@ -451,6 +470,9 @@ https://bootsnipp.com/snippets/ZXKKD
 https://bbbootstrap.com/snippets/simple-toast-notification-toastr-76085299
 https://stackoverflow.com/questions/45004245/how-to-use-toastr-in-django-for-success-or-fail-message
 https://stripe.com/docs/js/appendix/style
+https://stackoverflow.com/questions/39197723/how-to-move-singup-signin-templates-into-dropdown-menu/39235634#39235634
+https://www.youtube.com/watch?v=dXZim_jgaiI
+
 
 /* tools */
 https://jsonformatter.org/
