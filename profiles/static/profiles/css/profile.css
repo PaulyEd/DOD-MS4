@@ -1,0 +1,20 @@
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+    font-style: italic;
+    font-weight: 700!important;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #aab7c4 !important;
+}
+
+
+.placeholder-bold::-webkit-input-placeholder {
+    font-weight: 700!important;
+}
