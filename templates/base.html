@@ -102,62 +102,6 @@
             </div>
         </div>
     </div>
-    <!-- Sign In -->
-    <!-- <div class="modal" id="LogInModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="card border-0">
-                        <article class="card-body mx-auto" style="max-width: 400px;">
-                            <button type="button" class="btn btn-close" data-dismiss="modal">
-                                x
-                            </button>
-                            <h4 class="card-title mt-3 text-center">Sign In</h4>
-                            <form class="login" method="POST" action="{% url 'account_login' %}">
-                                {% csrf_token %}
-                                {% if redirect_field_value %}
-                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                                {% endif %}
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">
-                                            <i class="fa fa-envelope"></i>
-                                        </span>
-                                    </div>
-                                    <input id="id_login" class="form-control" name="login" placeholder="Username or e-mail" type="text" required />
-                                </div>
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">
-                                            <i class="fa fa-lock"></i>
-                                        </span>
-                                    </div>
-                                    <input id="id_password" class="form-control" name="password" placeholder="Password" type="password" required />
-                                </div>
-                                <label for="id_remember">Remember Me:</label>
-                                <input id="id_remember" name="remember" type="checkbox" />
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-block bg-primary text-white">
-                                        <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
-                                    </button>
-                                </div>
-                                <p class="text-center">
-                                    Don't have an account?
-    
-                                    <a class="themed-a" href="" data-dismiss="modal" data-toggle="modal"
-                                        data-target="#signup-modal">Create one!</a>
-                                </p>
-                                <p class="text-center">
-                                    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-                                </p>
-                            </form>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
       <footer class="bg-primary">
          <div class="container py-0 py-md-5">
             <div class="row py-1 py-md-4">

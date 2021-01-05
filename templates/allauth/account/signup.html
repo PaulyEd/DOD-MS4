@@ -5,10 +5,6 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block inner_content %}
-
-
-<div class="card border-0 mx-auto mb-5" style="width: 400px;">
-    <article class="card-body mx-auto" style="max-width: 400px;">
         <h4 class="card-title mt-3 text-center text-primary">{% trans "Sign Up" %}</h4>
         <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
@@ -23,6 +19,4 @@
             </div>
             <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
         </form>
-    </article>
-</div>
 {% endblock %}

@@ -5,6 +5,7 @@ html {
 }
 body{
     font-family: "Exo 2", sans-serif;
+    height: 100%;
 }
 
 .c-pointer{
@@ -355,6 +356,7 @@ li.nav-item > a:hover {
 #body-row {
     margin-left:0;
     margin-right:0;
+    min-height: 60%;
 }
 #sidebar-container {
     min-height: 100%;
@@ -451,7 +453,7 @@ li.nav-item > a:hover {
 }
 
 /* /////References//// */
-https: ; //jsfiddle.net/bootstrapious/c7ash30w
+https://jsfiddle.net/bootstrapious/c7ash30w
 https://stackoverflow.com/questions/25386119/whats-the-difference-between-a-onetoone-manytomany-and-a-foreignkey-field-in-d#:~:text=of%20the%20relationship.-,ForeignKey,may%20be%20related%20to%20one.
 https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/
 https://stackoverflow.com/questions/4270330/django-show-a-manytomanyfield-in-a-template
@@ -472,6 +474,7 @@ https://stackoverflow.com/questions/45004245/how-to-use-toastr-in-django-for-suc
 https://stripe.com/docs/js/appendix/style
 https://stackoverflow.com/questions/39197723/how-to-move-singup-signin-templates-into-dropdown-menu/39235634#39235634
 https://www.youtube.com/watch?v=dXZim_jgaiI
+https://css-tricks.com/snippets/css/sticky-footer/
 
 
 /* tools */

@@ -61,3 +61,7 @@ select option[value=""] {
     color: #aab7c4 !important;
     font-style: italic;
 }
+
+.form-control::-webkit-input-placeholder {
+  color: #aab7c4 !important;
+}

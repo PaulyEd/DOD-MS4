@@ -8,9 +8,6 @@
 
 
 {% get_providers as socialaccount_providers %}
-
-<div class="card border-0 mx-auto mb-5" style="width: 400px;">
-    <article class="card-body mx-auto" style="max-width: 400px;">
         <h4 class="card-title mt-3 text-center text-primary">{% trans "Sign In" %}</h4>
         <form class="login" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
@@ -41,6 +38,4 @@
                 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
             {% endif %}
         </form>
-    </article>
-</div>
 {% endblock %}
