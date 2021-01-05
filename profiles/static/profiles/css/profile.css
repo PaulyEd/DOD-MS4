@@ -18,3 +18,8 @@ select option[value=""] {
 .placeholder-bold::-webkit-input-placeholder {
     font-weight: 700!important;
 }
+
+.order-history {
+    max-height: 416px; /* height of profile form + submit button */
+    overflow-y: auto;
+}

@@ -23,15 +23,15 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
+        print("WEBHOOK ACTIVATED") #FOR DEBUGGING
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
-        # shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
-
+        print(billing_details)
         # Clean data in the shipping details
         for field, value in billing_details.address.items():
             if value == "":
@@ -60,7 +60,9 @@ class StripeWH_Handler:
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
+                print("ORDER NOT FOUND") #FOR DEBUGGING
         if order_exists:
+            print("ORDER FOUND") #FOR DEBUGGING
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)

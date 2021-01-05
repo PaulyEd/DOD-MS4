@@ -168,8 +168,26 @@
                         class="text-primary">{{ order.email }}</strong>.</p>
             </div>
         </div>
+        {% if from_profile %}
+        <div class="submit-button text-right mt-5 mb-2">
+            <a href="{% url 'profile' %}" id="submit-button" class="btn btn-outline-primary">
+                <span class="icon">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+                <span class="font-weight-bold">Back to Profile</span>
+            </a>
+        </div>
+        {% else %}
+        <div class="submit-button text-right mt-5 mb-2">
+            <a href="{% url 'developers' %}" class="btn btn-outline-primary">
+                <span class="font-weight-bold">More Developers</span>
+                <span class="icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+            </a>
+        </div>
+        {% endif %}
     </div>
-</div>
 </div>
 
 {% endblock %}
