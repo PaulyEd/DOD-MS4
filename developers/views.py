@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Developer, Language, Framework
 from django.db.models import Q
 from django.contrib import messages
+from .forms import DeveloperForm
 
 # Create your views here.
 
@@ -84,3 +85,14 @@ def developer_detail(request, developer_id):
     }
 
     return render(request, 'developers/developer_detail.html', context)
+
+    
+def add_developer(request):
+    """ Add a developer to the store """
+    form = DeveloperForm()
+    template = 'developers/add_developer.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
