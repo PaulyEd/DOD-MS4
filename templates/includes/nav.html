@@ -83,7 +83,8 @@
 				<div class="dropdown-menu border-0 bg-primary" aria-labelledby="user-options">
 					{% if request.user.is_authenticated %}
 					{% if request.user.is_superuser %}
-					<a href="/admin" class="dropdown-item">Admin</a>
+                    <a href="/admin" class="dropdown-item">Admin</a>
+                    <a href="{% url 'add_developer' %}" class="dropdown-item">Add developer</a>
 					{% endif %}
 					<a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
 					<a data-target="#LogOutModal" data-toggle="modal" class="dropdown-item" href="#LogOutModal">Logout</a>

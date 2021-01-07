@@ -89,7 +89,17 @@ def developer_detail(request, developer_id):
     
 def add_developer(request):
     """ Add a developer to the store """
-    form = DeveloperForm()
+    if request.method == 'POST':
+        form = DeveloperForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added developer!')
+            return redirect(reverse('add_developer'))
+        else:
+            messages.error(request, 'Failed to add developer. Please ensure the form is valid.')
+    else:
+        form = DeveloperForm()
+
     template = 'developers/add_developer.html'
     context = {
         'form': form,
