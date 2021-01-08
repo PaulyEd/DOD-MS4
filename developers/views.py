@@ -106,3 +106,27 @@ def add_developer(request):
     }
 
     return render(request, template, context)
+
+
+def edit_developer(request, developer_id):
+    """ Edit a developer in the store """
+    developer = get_object_or_404(Developer, pk=developer_id)
+    if request.method == 'POST':
+        form = DeveloperForm(request.POST, request.FILES, instance=developer)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated developer: {developer.name}')
+            return redirect(reverse('developer_detail', args=[developer.id]))
+        else:
+            messages.error(request, f'Failed to update developer: {developer.name}. Please ensure the form is valid.')
+    else:
+        form = DeveloperForm(instance=developer)
+        messages.info(request, f'You are editing {developer.name}')
+
+    template = 'developers/edit_developer.html'
+    context = {
+        'form': form,
+        'developer': developer,
+    }
+
+    return render(request, template, context)
