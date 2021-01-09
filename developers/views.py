@@ -135,6 +135,14 @@ def edit_developer(request, developer_id):
 def delete_developer(request, developer_id):
     """ Delete a developer from the store """
     developer = get_object_or_404(Developer, pk=developer_id)
-    developer.delete()
-    messages.success(request, 'developer deleted!')
-    return redirect(reverse('developers'))
+    if request.method == 'POST':
+        developer = get_object_or_404(Developer, pk=developer_id)
+        context = {
+            'developer': developer,
+            'confirm_delete': True,
+        }
+        return render(request, 'developers/developer_detail.html', context)
+    else:
+        developer.delete()
+        messages.success(request, 'developer deleted!')
+        return redirect(reverse('developers'))

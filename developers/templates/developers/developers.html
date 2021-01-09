@@ -75,7 +75,7 @@
                                         <p class="small mt-1 mb-0 dynamic-text">
                                             <u>Languages</u><br />
                                         </p>
-                                        <div class="content-container">
+                                        <div class="content-limiter">
                                             {% if developer.language %}
                                             {% for language in developer.language.all %}
                                             <p class="small mt-1 mb-0">
@@ -88,11 +88,11 @@
                                             {% endif %}
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 pl-0">
+                                    <div class="col-12 col-sm-6 pr-0">
                                         <p class="small mt-1 mb-0 dynamic-text">
                                             <u class="float-right">Frameworks</u><br />
                                         </p>
-                                        <div class="content-container">
+                                        <div class="content-limiter">
                                             {% if developer.framework %}
                                             {% for framework in developer.framework.all %}
                                             <p class="small mt-1 mb-0 text-right">
@@ -120,8 +120,11 @@
                                     <div class="col-12 pl-0 text-right">
                                         <small class="text-right">
                                             <a href="{% url 'edit_developer' developer.id %}">Edit</a> |
-                                            <a class="text-danger"
-                                                href="{% url 'delete_developer' developer.id %}">Delete</a>
+                                            <form method="POST" id="delete-form_{{ developer.id }}" action="{% url 'delete_developer' developer.id %}"
+                                                enctype="multipart/form-data" class="d-inline">
+                                                {% csrf_token %}
+                                                <a class="text-danger" style="cursor: pointer;" onclick="document.getElementById('delete-form_{{ developer.id }}').submit();">Delete</a>
+                                            </form>
                                         </small>
                                     </div>
                                     {% endif %}

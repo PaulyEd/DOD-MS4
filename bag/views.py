@@ -18,6 +18,10 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
     hours = ""
+    if "/delete" in redirect_url:
+        print("Tis'")
+        redirect_url = redirect_url.replace("/delete", "")
+
 
     if quantity == 1:
         hours = "hour"
@@ -42,6 +46,9 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
     redirect_url = request.POST.get('redirect_url')
+    if "/delete" in redirect_url:
+        print("Tis'")
+        redirect_url = redirect_url.replace("/delete", "")
 
     if quantity > 0:
         bag[item_id] = quantity

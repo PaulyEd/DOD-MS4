@@ -16,14 +16,14 @@ body{
    background-color: #f7f7f7;
 }
 
-.content-container{
+.content-limiter{
     max-height: 150px;
     overflow-y: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
 
-.content-container::-webkit-scrollbar {
+.content-limiter::-webkit-scrollbar {
   display: none;
 }
 
