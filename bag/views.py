@@ -18,8 +18,9 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
     hours = ""
+
+    """ensure delete is not resubmitted if user got to page via delete function - side cart"""
     if "/delete" in redirect_url:
-        print("Tis'")
         redirect_url = redirect_url.replace("/delete", "")
 
 
@@ -46,8 +47,9 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
     redirect_url = request.POST.get('redirect_url')
+    
+    """ensure delete is not resubmitted if user got to page via delete function - side cart"""
     if "/delete" in redirect_url:
-        print("Tis'")
         redirect_url = redirect_url.replace("/delete", "")
 
     if quantity > 0:
@@ -75,5 +77,5 @@ def remove_from_bag(request, item_id):
         return HttpResponse(status=200)
 
     except Exception as e:
-        messages.success(request, f'Error removing {e} from your bag')
+        messages.error(request, f'Error removing {e} from your bag')
         return HttpResponse(status=500)

@@ -117,7 +117,7 @@
                                         {% endif %}
                                     </div>
                                     {% if request.user.is_superuser %}
-                                    <div class="col-12 pl-0 text-right">
+                                    <div class="col-12 pr-0 text-right">
                                         <small class="text-right">
                                             <a href="{% url 'edit_developer' developer.id %}">Edit</a> |
                                             <form method="POST" id="delete-form_{{ developer.id }}" action="{% url 'delete_developer' developer.id %}"

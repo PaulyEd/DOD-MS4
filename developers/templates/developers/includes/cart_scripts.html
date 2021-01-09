@@ -12,9 +12,17 @@
         var url = `/bag/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
+        $currentUrl = $(location).attr('href');
+        
+        // prevent resubmission of delete function on removal of dev from bag in side side 
+        if ($currentUrl.toLowerCase().indexOf('/delete') >= 0) {
+            $currentUrl = $currentUrl.replace('/delete', '');
+        };
+
+
         $.post(url, data)
          .done(function() {
-             location.reload();
+             location.href = $currentUrl;
          });
     })
     // Disable +/- buttons outside 1-99 range
@@ -65,7 +73,6 @@
     // Disable +/- buttons outside 1-99 range
     function handleEnableDisableCart(itemId) {
         var currentValue = parseInt($(`.id_qty_${itemId}`).val());
-        console.log(currentValue)
         var minusDisabled = currentValue < 1;
         var plusDisabled = currentValue > 98;
         $(`.decrement-qty_${itemId}`).prop('disabled', minusDisabled);
@@ -92,7 +99,6 @@
        var currentValue = parseInt($(closestInput).val());
        $(closestInput).val(currentValue + 1);
        var itemId = $(this).data('item_id');
-       console.log(itemId)
        handleEnableDisableCart(itemId);
     });
 
@@ -103,7 +109,6 @@
        var currentValue = parseInt($(closestInput).val());
        $(closestInput).val(currentValue - 1);
        var itemId = $(this).data('item_id');
-       console.log(itemId)
        handleEnableDisableCart(itemId);
     });
 
