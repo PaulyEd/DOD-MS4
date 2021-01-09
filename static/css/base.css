@@ -13,7 +13,18 @@ body{
 }
 
 .bg-card{
-   background-color:  rgba(0,0,0,.03);
+   background-color: #f7f7f7;
+}
+
+.content-container{
+    max-height: 150px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.content-container::-webkit-scrollbar {
+  display: none;
 }
 
 .container {
@@ -452,6 +463,8 @@ li.nav-item > a:hover {
     display: none;
 }
 
+
+
 /* /////References//// */
 https://jsfiddle.net/bootstrapious/c7ash30w
 https://stackoverflow.com/questions/25386119/whats-the-difference-between-a-onetoone-manytomany-and-a-foreignkey-field-in-d#:~:text=of%20the%20relationship.-,ForeignKey,may%20be%20related%20to%20one.
@@ -475,7 +488,7 @@ https://stripe.com/docs/js/appendix/style
 https://stackoverflow.com/questions/39197723/how-to-move-singup-signin-templates-into-dropdown-menu/39235634#39235634
 https://www.youtube.com/watch?v=dXZim_jgaiI
 https://css-tricks.com/snippets/css/sticky-footer/
-
+https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
 
 /* tools */
 https://jsonformatter.org/

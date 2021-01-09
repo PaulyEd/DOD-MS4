@@ -9,132 +9,158 @@
 
 {% block content %}
 <div class="container">
-<div class="container">
-<div class="row">
-	<div class="col text-center mt-3">
-		<h2 class="logo-font">Developers</h2>
-	</div>
-</div>
-<hr class="w-75 mb-1">
-<div class="row mt-1 mb-2">
-	<div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-		<div class="sort-select-wrapper w-50">
-			<select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                <option value="rate_asc" {% if current_sorting == 'rate_asc' %}selected{% endif %}>Price/Rate (low to high)</option>
-                <option value="rate_desc" {% if current_sorting == 'rate_desc' %}selected{% endif %}>Price/Rate (high to low)</option>
-                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-            </select>
-		</div>
-	</div>
-	<div class="col-12 col-md-6 order-md-first">
-		<p class="text-muted mt-3 text-center text-md-left">
-			{% if search_term or current_selection or current_sorting != 'None_None' %}
-			<span class="small"><a href="{% url 'developers' %}">Developers</a> | </span>
-			{% endif %}
-			{{ developers|length }} Developers {% for c in current_selection %}for <strong>{{ c.friendly_name }},</strong>{% endfor %}
-		</p>
-	</div>
-</div>
-<div class="row my-3">
-    {% for developer in developers %}
-        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mx-auto">
-            <div class="card h-100 border-0 border-box">
-				<div class="card-body pb-5 pt-0 px-0">
-                <a href="{% url 'developer_detail' developer.id %}">
-                <p class="pb-1 mb-1 text-center dynamic-text-head card-header text-muted rounded-top">{{ developer.name }}</p>
-                </a>
-					<div class="circle">
-						{% if developer.image %}
-						<a href="{% url 'developer_detail' developer.id %}">
-							<img class="card-img-top rounded-circle" src="{{ developer.image.url }}" alt="{{ developer.name }}" width="170">
-				                </a>
-						{% else %}
-							<a href="{% url 'developer_detail' developer.id %}">
-								<img class="card-img-top rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ developer.name }}" width="170">
-				                </a>
-						{% endif %}
-					</div>
-				</div>
-                <div class="card-footer pt-0 border-0 text-left">
-                    <div class="row">
-                        <div class="col">
-							<div class="row">
-								<div class="col-6 pr-0">
-									{% if developer.language %}
-									{% for language in developer.language.all %}
-									<p class="small mt-1 mb-0">
-										<a class="text-muted dynamic-text" href="{% url 'developers' %}?language={{ language.name }}">
-											<i class="fas fa-code pr-1"></i>{{ language.friendly_name }}<br/>
-                                            </a>
-									</p>
-									{% endfor %}
-									{% endif %}
-								</div>
-                                <div class="col-6 pl-0">
-									{% if developer.framework %}
-									{% for framework in developer.framework.all %}
-									<p class="small mt-1 mb-0 text-right">
-										<a class="text-muted dynamic-text" href="{% url 'developers' %}?framework={{ framework.name }}">
-											{{ framework.friendly_name }}<i class="fas fa-box-open pl-1"></i><br/>
-                                        </a>
-									</p>
-									{% endfor %}
-									{% endif %}
-								</div>
-							</div>
-                            <div class="row">
-								<div class="col-6 pr-0">
-                                    {% if developer.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ developer.rating }} / 5</small>
-                                    {% else %}
+    <div class="container">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Developers</h2>
+            </div>
+        </div>
+        <hr class="w-75 mb-1">
+        <div class="row mt-1 mb-2">
+            <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                <div class="sort-select-wrapper w-50">
+                    <select id="sort-selector"
+                        class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                        </option>
+                        <option value="rate_asc" {% if current_sorting == 'rate_asc' %}selected{% endif %}>Price/Rate
+                            (low to high)</option>
+                        <option value="rate_desc" {% if current_sorting == 'rate_desc' %}selected{% endif %}>Price/Rate
+                            (high to low)</option>
+                        <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating
+                            (low to high)</option>
+                        <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating
+                            (high to low)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 order-md-first">
+                <p class="text-muted mt-3 text-center text-md-left">
+                    {% if search_term or current_selection or current_sorting != 'None_None' %}
+                    <span class="small"><a href="{% url 'developers' %}">Developers</a> | </span>
+                    {% endif %}
+                    {{ developers|length }} Developers {% for c in current_selection %}for
+                    <strong>{{ c.friendly_name }},</strong>{% endfor %}
+                </p>
+            </div>
+        </div>
+        <div class="row my-3">
+            {% for developer in developers %}
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mx-auto">
+                <div class="card h-100 border-0 border-box">
+                    <div class="card-body pb-5 pt-0 px-0">
+                        <a href="{% url 'developer_detail' developer.id %}">
+                            <p class="pb-1 mb-1 text-center dynamic-text-head card-header text-muted rounded-top">
+                                {{ developer.name }}</p>
+                        </a>
+                        <div class="circle">
+                            {% if developer.image %}
+                            <a href="{% url 'developer_detail' developer.id %}">
+                                <img class="card-img-top rounded-circle" src="{{ developer.image.url }}"
+                                    alt="{{ developer.name }}" width="170">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'developer_detail' developer.id %}">
+                                <img class="card-img-top rounded-circle" src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ developer.name }}" width="170">
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-footer pt-0 border-0 text-left">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 pl-0">
+                                        <p class="small mt-1 mb-0 dynamic-text">
+                                            <u>Languages</u><br />
+                                        </p>
+                                        <div class="content-container">
+                                            {% if developer.language %}
+                                            {% for language in developer.language.all %}
+                                            <p class="small mt-1 mb-0">
+                                                <a class="text-muted dynamic-text"
+                                                    href="{% url 'developers' %}?language={{ language.name }}">
+                                                    <i class="fas fa-code pr-1"></i>{{ language.friendly_name }}<br />
+                                                </a>
+                                            </p>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 pl-0">
+                                        <p class="small mt-1 mb-0 dynamic-text">
+                                            <u class="float-right">Frameworks</u><br />
+                                        </p>
+                                        <div class="content-container">
+                                            {% if developer.framework %}
+                                            {% for framework in developer.framework.all %}
+                                            <p class="small mt-1 mb-0 text-right">
+                                                <a class="text-muted dynamic-text"
+                                                    href="{% url 'developers' %}?framework={{ framework.name }}">
+                                                    {{ framework.friendly_name }}<i
+                                                        class="fas fa-box-open pl-1"></i><br />
+                                                </a>
+                                            </p>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 pr-0">
+                                        {% if developer.rating %}
+                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ developer.rating }}
+                                            / 5</small>
+                                        {% else %}
                                         <small class="text-muted">No Rating</small>
+                                        {% endif %}
+                                    </div>
+                                    {% if request.user.is_superuser %}
+                                    <div class="col-12 pl-0 text-right">
+                                        <small class="text-right">
+                                            <a href="{% url 'edit_developer' developer.id %}">Edit</a> |
+                                            <a class="text-danger"
+                                                href="{% url 'delete_developer' developer.id %}">Delete</a>
+                                        </small>
+                                    </div>
                                     {% endif %}
                                 </div>
-                            <div class="col-6 pl-0 text-right">
-                                {% if request.user.is_superuser %}
-                                <small class="text-right">
-                                    <a href="">Edit</a> | 
-                                    <a class="text-danger" href="">Delete</a>
-                                </small>
-                            {% endif %}
-                            </div>
                             </div>
                         </div>
                     </div>
+                    <p class="lead mb-0 font-weight-bold text-center bg-primary text-white rounded-bottom">
+                        €{{ developer.rate }} / Hr</p>
                 </div>
-                <p class="lead mb-0 font-weight-bold text-center bg-primary text-white rounded-bottom">€{{ developer.rate }} / Hr</p>
             </div>
-        </div>
-        {% if forloop.counter|divisibleby:1 %}
+            {% if forloop.counter|divisibleby:1 %}
             <div class="col-12 d-sm-none my-2">
                 <hr>
             </div>
-        {% endif %}                        
-        {% if forloop.counter|divisibleby:2 %}
+            {% endif %}
+            {% if forloop.counter|divisibleby:2 %}
             <div class="col-12 d-none d-sm-block d-md-block d-lg-none my-2">
                 <hr>
             </div>
-        {% endif %}
-        {% if forloop.counter|divisibleby:3 %}
+            {% endif %}
+            {% if forloop.counter|divisibleby:3 %}
             <div class="col-12 d-none d-lg-block d-xl-none my-2">
                 <hr>
             </div>
-        {% endif %}
-        {% if forloop.counter|divisibleby:4 %}
+            {% endif %}
+            {% if forloop.counter|divisibleby:4 %}
             <div class="col-12 d-none d-xl-block my-2">
                 <hr>
             </div>
-        {% endif %}
-    {% endfor %}
-</div>
-</div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
 <div class="row">
-	<div class="col text-center mb-3">
-		<span><a href="#">Back to top</a></span>
-	</div>
+    <div class="col text-center mb-3">
+        <span><a href="#">Back to top</a></span>
+    </div>
 </div>
 {% endblock %}
 
@@ -143,27 +169,27 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
+{{ block.super }}
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
 
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
 
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
 
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
 
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock %}

@@ -92,9 +92,9 @@ def add_developer(request):
     if request.method == 'POST':
         form = DeveloperForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            developer = form.save()
             messages.success(request, 'Successfully added developer!')
-            return redirect(reverse('add_developer'))
+            return redirect(reverse('developer_detail', args=[developer.id]))
         else:
             messages.error(request, 'Failed to add developer. Please ensure the form is valid.')
     else:
@@ -130,3 +130,11 @@ def edit_developer(request, developer_id):
     }
 
     return render(request, template, context)
+
+
+def delete_developer(request, developer_id):
+    """ Delete a developer from the store """
+    developer = get_object_or_404(Developer, pk=developer_id)
+    developer.delete()
+    messages.success(request, 'developer deleted!')
+    return redirect(reverse('developers'))

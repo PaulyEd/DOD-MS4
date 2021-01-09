@@ -52,6 +52,16 @@
                                     </div>
                                     <input type="submit" class="btn btn-primary text-uppercase mx-auto ml-lg-1 mb-1" value="Add to Cart">
                                 </div>
+                                <div class="row">
+                            {% if request.user.is_superuser %}
+                            <div class="col-12 pl-0 text-right">
+                                <small class="text-right">
+                                    <a href="{% url 'edit_developer' developer.id %}">Edit</a> | 
+                                    <a class="text-danger" href="{% url 'delete_developer' developer.id %}">Delete</a>
+                                </small>
+                            </div>
+                            {% endif %}
+                            </div>
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
