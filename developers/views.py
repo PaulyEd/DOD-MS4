@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Developer, Language, Framework
 from django.db.models import Q
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from .forms import DeveloperForm
 
 # Create your views here.
@@ -86,9 +88,14 @@ def developer_detail(request, developer_id):
 
     return render(request, 'developers/developer_detail.html', context)
 
-    
+
+@login_required
 def add_developer(request):
     """ Add a developer to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only staff can do that.')
+        return redirect(reverse('home'))
+        
     if request.method == 'POST':
         form = DeveloperForm(request.POST, request.FILES)
         if form.is_valid():
@@ -108,8 +115,13 @@ def add_developer(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_developer(request, developer_id):
     """ Edit a developer in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only staff can do that.')
+        return redirect(reverse('home'))
+
     developer = get_object_or_404(Developer, pk=developer_id)
     if request.method == 'POST':
         form = DeveloperForm(request.POST, request.FILES, instance=developer)
@@ -131,18 +143,21 @@ def edit_developer(request, developer_id):
 
     return render(request, template, context)
 
-
+@login_required
 def delete_developer(request, developer_id):
     """ Delete a developer from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only staff can do that.')
+        return redirect(reverse('home'))
+
     developer = get_object_or_404(Developer, pk=developer_id)
     if request.method == 'POST':
-        developer = get_object_or_404(Developer, pk=developer_id)
+        developer.delete()
+        messages.success(request, 'developer deleted!')
+        return redirect(reverse('developers'))
+    else:
         context = {
             'developer': developer,
             'confirm_delete': True,
         }
         return render(request, 'developers/developer_detail.html', context)
-    else:
-        developer.delete()
-        messages.success(request, 'developer deleted!')
-        return redirect(reverse('developers'))

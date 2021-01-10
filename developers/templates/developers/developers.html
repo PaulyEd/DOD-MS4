@@ -120,11 +120,7 @@
                                     <div class="col-12 pr-0 text-right">
                                         <small class="text-right">
                                             <a href="{% url 'edit_developer' developer.id %}">Edit</a> |
-                                            <form method="POST" id="delete-form_{{ developer.id }}" action="{% url 'delete_developer' developer.id %}"
-                                                enctype="multipart/form-data" class="d-inline">
-                                                {% csrf_token %}
-                                                <a class="text-danger" style="cursor: pointer;" onclick="document.getElementById('delete-form_{{ developer.id }}').submit();">Delete</a>
-                                            </form>
+                                            <a class="text-danger" href="{% url 'delete_developer' developer.id %}">Delete</a>
                                         </small>
                                     </div>
                                     {% endif %}
