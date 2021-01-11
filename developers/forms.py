@@ -1,5 +1,6 @@
 from django import forms
 from .models import Language, Spoken_Language, Framework, Developer
+from .widgets import CustomClearableFileInput
 
 
 class DeveloperForm(forms.ModelForm):
@@ -7,6 +8,8 @@ class DeveloperForm(forms.ModelForm):
     class Meta:
         model = Developer
         fields = '__all__'
+
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
