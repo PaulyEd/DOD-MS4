@@ -17,16 +17,16 @@
         <div class="card-body">
             <h5 class="card-title">Are you sure you want to delete developer {{ developer.name }}?</h5>
             <p class="card-text">This action cannot be undone!</p>
-            <form method="POST" id="delete-form_{{ developer.id }}"
-                    action="{% url 'delete_developer' developer.id %}" enctype="multipart/form-data" class="d-inline">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-light text-danger">
-                        <span class="font-weight-bold">Delete</span>
-                        <span class="icon">
-                            <i class="fas fa-trash-alt"></i>
-                        </span>
-                    </button>
-                </form>
+            <form method="POST" id="delete-form_{{ developer.id }}" action="{% url 'delete_developer' developer.id %}"
+                enctype="multipart/form-data" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-light text-danger">
+                    <span class="font-weight-bold">Delete</span>
+                    <span class="icon">
+                        <i class="fas fa-trash-alt"></i>
+                    </span>
+                </button>
+            </form>
         </div>
         <div class="card-footer bg-danger text-white">
         </div>
@@ -106,7 +106,8 @@
                                         </div>
                                     </form>
                                     {% endif %}
-                                    <a class="btn btn-primary" href="{% url 'add_review' developer.id %}">Review Me! {{ developer.id }}</a>
+                                    <a class="btn btn-primary" href="{% url 'add_review' developer.id %}">Review Me!
+                                        {{ developer.id }}</a>
                                 </div>
                             </div>
                         </div>
@@ -224,6 +225,44 @@
                             </div>
                         </div>
                     </div>
+                    {% if reviews %}
+                    <div class="row gutters-sm">
+                        <div class="col-12 mb-3">
+                            <div class="card h-100">
+                                <h4 class="d-flex align-items-center mb-3 card-header">Reviews</h4>
+                                 {% for review in reviews.all %}
+                                <div class="card-body m-3 p-1 bg-light border rounded border-primary">
+                                    <h5 class="mb-1">{{ review.review_header }} - <label {% if review.review_rating in "1,2,3,4,5" %} style="color: #fddb87"
+                                        {% endif %} id="rating-1" class="h4">
+                                        <span class="icon">★</span>
+                                    </label>
+                                    <label {% if review.review_rating in "2,3,4,5" %} style="color: #fddb87"
+                                        {% endif %} id="rating-2" class="h4">
+                                        <span class="icon">★</span>
+                                    </label>
+                                    <label {% if review.review_rating in "3,4,5" %} style="color: #fddb87" {% endif %}
+                                        id="rating-3" class="h4">
+                                        <span class="icon">★</span>
+                                    </label>
+                                    <label {% if review.review_rating in "4,5" %} style="color: #fddb87" {% endif %}
+                                        id="rating-4" class="h4">
+                                        <span class="icon">★</span>
+                                    </label>
+                                    <label {% if review.review_rating in "5" %} style="color: #fddb87" {% endif %}
+                                        id="rating-5" class="h4">
+                                        <span class="icon">★</span>
+                                    </label></h5>
+                                    <small class="text-muted">{{ review.review_date }}</small>
+                                    <br>
+                                    <p>{{ review.review_body }}</p>
+                                    <p class="text-muted text-right text-capitalize"> - {{ review.reviewer }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
                 </div>
             </div>
         </div>

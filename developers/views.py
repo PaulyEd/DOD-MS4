@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Developer, Language, Framework
+from reviews.models import Review
 from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -81,9 +82,10 @@ def developer_detail(request, developer_id):
     """ Return the a requested developer to dev detail page """
 
     developer = get_object_or_404(Developer, pk=developer_id)
-
+    reviews = Review.objects.all().filter(developer=developer.id)
     context = {
-        'developer' : developer,
+        'developer': developer,
+        'reviews': reviews
     }
 
     return render(request, 'developers/developer_detail.html', context)

@@ -10,6 +10,7 @@ from django.utils import timezone
 
 # Create your views here.
 
+@login_required
 def add_review(request, developer_id):
     """ Add a review to a developer """
     developer = get_object_or_404(Developer, pk=developer_id)
