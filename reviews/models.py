@@ -1,7 +1,6 @@
 from django.db import models
 from developers.models import Developer
 from profiles.models import UserProfile
-from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
 
 # Create your models here.
@@ -23,5 +22,13 @@ class Review(models.Model):
     review_rating = models.CharField(max_length=1, choices=RATING_CHOICES, default=0)
     review_date = models.DateTimeField(default=timezone.now, blank=True)
     reviewer = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the order number
+        if it hasn't been set already.
+        """
+        self.review_date = timezone.now()
+        super().save(*args, **kwargs)
 
 
