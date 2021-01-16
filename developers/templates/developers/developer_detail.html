@@ -53,7 +53,29 @@
                                     {% endif %}
                                 </div>
                                 <div class="mt-3 w-100">
-                                    <h4>{{ developer.name }}</h4>
+                                    <h4>{{ developer.name  }}</h4>
+                                    <label
+                                        {% if developer.rating|add:"0"|floatformat:"0"|stringformat:"i" in "1,2,3,4,5" %}
+                                        style="color: #fddb87" {% endif %} id="rating-1" class="h4">
+                                        <span class="icon">★</span>
+                                    </label>
+                                    <label
+                                        {% if developer.rating|add:"0"|floatformat:"0"|stringformat:"i" in "2,3,4,5" %}
+                                        style="color: #fddb87" {% endif %} id="rating-2" class="h4">
+                                        <span class="icon">★</span>
+                                    </label>
+                                    <label {% if developer.rating|add:"0"|floatformat:"0"|stringformat:"i" in "3,4,5" %}
+                                        style="color: #fddb87" {% endif %} id="rating-3" class="h4">
+                                        <span class="icon">★</span>
+                                    </label>
+                                    <label {% if developer.rating|add:"0"|floatformat:"0"|stringformat:"i" in "4,5" %}
+                                        style="color: #fddb87" {% endif %} id="rating-4" class="h4">
+                                        <span class="icon">★</span>
+                                    </label>
+                                    <label {% if developer.rating|add:"0"|floatformat:"0"|stringformat:"i" in "5" %}
+                                        style="color: #fddb87" {% endif %} id="rating-5" class="h4">
+                                        <span class="icon">★</span>
+                                    </label><small class="text-muted">({{ review_count }})</small>
                                     <p class="text-secondary mb-1">{{ developer.tagline }}</p>
                                     <p class="text-muted font-size-sm">{{ developer.bio }}</p>
                                     {% if not confirm_delete %}
@@ -106,48 +128,35 @@
                                         </div>
                                     </form>
                                     {% endif %}
-                                    <a class="btn btn-primary" href="{% url 'add_review' developer.id %}">Review Me!
-                                        {{ developer.id }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card mt-3">
+                    <div class="card mt-3 text-center">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0"><i class="fas fa-hand-holding-usd"></i> / <i class="far fa-clock"></i>
                                 </h6>
                                 <span class="text-secondary">€{{ developer.rate }}</span>
                             </li>
-                            <li
-                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap github">
-                                <h6 class="mb-0"><i class="fab fa-github"></i> Github</h6>
-                                <span class="text-secondary"><a class="" target="_blank"
-                                        href="{{ developer.github }}">Go!</a></span>
+                            <li class="list-group-item github">
+                                <h6 class="mb-0"><i class="fab fa-github"></i><a class="" target="_blank"
+                                        href="{{ developer.github }}"> Github</a></h6>
                             </li>
-                            <li
-                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap facebook">
-                                <h6 class="mb-0"><i class="fab fa-facebook-f"></i> Facebook</h6>
-                                <span class="text-secondary"><a class="" target="_blank"
-                                        href="{{ developer.facebook }}">Go!</a></span>
+                            <li class="list-group-item facebook">
+                                <h6 class="mb-0"><i class="fab fa-facebook-f"></i><a class="" target="_blank"
+                                        href="{{ developer.facebook }}"> Facebook</a></h6>
                             </li>
-                            <li
-                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap linkedin">
-                                <h6 class="mb-0"><i class="fab fa-linkedin-in"></i> Linkedin</h6>
-                                <span class="text-secondary"><a class="" target="_blank"
-                                        href="{{ developer.linkedin }}">Go!</a></span>
+                            <li class="list-group-item linkedin">
+                                <h6 class="mb-0"><i class="fab fa-linkedin-in"></i><a class="" target="_blank"
+                                        href="{{ developer.linkedin }}"> Linkedin</a></h6>
+                            <li class="list-group-item twitter">
+                                <h6 class="mb-0"><i class="fab fa-twitter"></i><a class="" target="_blank"
+                                        href="{{ developer.twitter }}"> Twitter</a></h6>
                             </li>
-                            <li
-                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap twitter">
-                                <h6 class="mb-0"><i class="fab fa-twitter"></i> Twitter</h6>
-                                <span class="text-secondary"><a class="" target="_blank"
-                                        href="{{ developer.twitter }}">Go!</a></span>
-                            </li>
-                            <li
-                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap website">
-                                <h6 class="mb-0"><i class="fas fa-globe"></i> Website</h6>
-                                <span class="text-secondary"><a class="" target="_blank"
-                                        href="{{ developer.website }}">Go!</a></span>
+                            <li class="list-group-item website">
+                                <h6 class="mb-0"><i class="fas fa-globe"></i><a class="" target="_blank"
+                                        href="{{ developer.website }}"> Website</a></h6>
                             </li>
                         </ul>
                     </div>
@@ -169,7 +178,11 @@
                                     <h6 class="mb-0">Email</h6>
                                 </div>
                                 <div class="col-sm-8 text-secondary">
+                                    {% if in_ord_history %}
                                     {{ developer.email }}
+                                    {% else %}
+                                    *** - Available after purchase
+                                    {% endif %}
                                 </div>
                             </div>
                             <!-- <hr> -->
@@ -225,44 +238,50 @@
                             </div>
                         </div>
                     </div>
-                    {% if reviews %}
                     <div class="row gutters-sm">
                         <div class="col-12 mb-3">
                             <div class="card h-100">
-                                <h4 class="d-flex align-items-center mb-3 card-header">Reviews</h4>
-                                 {% for review in reviews.all %}
+                                <div class="d-flex mb-3 card-header">
+                                    <h4>Reviews</h4>
+                                    {% if in_ord_history %}
+                                    <span class="ml-auto"><a class="btn btn-primary btn-sm"
+                                        href="{% url 'add_review' developer.id %}">Review Me!</a></span>
+                                        {% endif %}
+                                </div>
+                                {% if reviews %}
+                                {% for review in reviews.all %}
                                 <div class="card-body m-3 p-1 bg-light border rounded border-primary">
-                                    <h5 class="mb-1">{{ review.review_header }} - <label {% if review.review_rating in "1,2,3,4,5" %} style="color: #fddb87"
-                                        {% endif %} id="rating-1" class="h4">
-                                        <span class="icon">★</span>
-                                    </label>
-                                    <label {% if review.review_rating in "2,3,4,5" %} style="color: #fddb87"
-                                        {% endif %} id="rating-2" class="h4">
-                                        <span class="icon">★</span>
-                                    </label>
-                                    <label {% if review.review_rating in "3,4,5" %} style="color: #fddb87" {% endif %}
-                                        id="rating-3" class="h4">
-                                        <span class="icon">★</span>
-                                    </label>
-                                    <label {% if review.review_rating in "4,5" %} style="color: #fddb87" {% endif %}
-                                        id="rating-4" class="h4">
-                                        <span class="icon">★</span>
-                                    </label>
-                                    <label {% if review.review_rating in "5" %} style="color: #fddb87" {% endif %}
-                                        id="rating-5" class="h4">
-                                        <span class="icon">★</span>
-                                    </label></h5>
+                                    <h5 class="mb-1">{{ review.review_header }} - <label
+                                            {% if review.review_rating in "1,2,3,4,5" %} style="color: #fddb87"
+                                            {% endif %} id="rating-1" class="h4">
+                                            <span class="icon">★</span>
+                                        </label>
+                                        <label {% if review.review_rating in "2,3,4,5" %} style="color: #fddb87"
+                                            {% endif %} id="rating-2" class="h4">
+                                            <span class="icon">★</span>
+                                        </label>
+                                        <label {% if review.review_rating in "3,4,5" %} style="color: #fddb87"
+                                            {% endif %} id="rating-3" class="h4">
+                                            <span class="icon">★</span>
+                                        </label>
+                                        <label {% if review.review_rating in "4,5" %} style="color: #fddb87" {% endif %}
+                                            id="rating-4" class="h4">
+                                            <span class="icon">★</span>
+                                        </label>
+                                        <label {% if review.review_rating in "5" %} style="color: #fddb87" {% endif %}
+                                            id="rating-5" class="h4">
+                                            <span class="icon">★</span>
+                                        </label></h5>
                                     <small class="text-muted">{{ review.review_date }}</small>
                                     <br>
                                     <p>{{ review.review_body }}</p>
                                     <p class="text-muted text-right text-capitalize"> - {{ review.reviewer }}</p>
                                 </div>
                                 {% endfor %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
-                    {% endif %}
-
                 </div>
             </div>
         </div>
