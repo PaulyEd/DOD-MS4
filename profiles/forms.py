@@ -26,11 +26,13 @@ class UserProfileForm(forms.ModelForm):
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            self.fields[field].widget.attrs['class'] = 'form-control checkout-element'
+            self.fields[field].widget.attrs['class'] = 'form-control \
+                checkout-element'
             if field != 'default_country':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
-                    self.fields[field].widget.attrs['class'] = 'form-control checkout-element placeholder-bold'
+                    self.fields[field].widget.attrs['class'] = 'form-control \
+                        checkout-element placeholder-bold'
                 else:
                     placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder

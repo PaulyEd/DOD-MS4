@@ -1,12 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Developer, Language, Framework
 from reviews.models import Review
-from checkout.models import Order, OrderLineItem
+from checkout.models import OrderLineItem
 from profiles.models import UserProfile
 from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.admin.views.decorators import staff_member_required
 from .forms import DeveloperForm
 
 # Create your views here.
@@ -51,8 +50,14 @@ def all_developers(request):
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(redirect_url)
             
-            queries = Q(name__icontains=query) | Q(language__friendly_name__icontains=query) | Q(framework__friendly_name__icontains=query) | Q(spoken_language__name__icontains=query)
-            developers = list(set(developers.filter(queries)))  # converting to a set then back to a list prevents object duplication for the search queries, .distict() could work similarly
+            queries = (Q(name__icontains=query) |
+                       Q(language__friendly_name__icontains=query) |
+                       Q(framework__friendly_name__icontains=query) |
+                       Q(spoken_language__name__icontains=query))
+            """converting to a set then back to a list
+            prevents object duplication for the search queries,
+            .distict() could work similarly"""
+            developers = list(set(developers.filter(queries)))
 
     current_sorting = f'{sort}_{direction}'
 
@@ -122,7 +127,9 @@ def add_developer(request):
             messages.success(request, 'Successfully added developer!')
             return redirect(reverse('developer_detail', args=[developer.id]))
         else:
-            messages.error(request, 'Failed to add developer. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to add developer. \
+                           Please ensure the form is valid.')
     else:
         form = DeveloperForm()
 
@@ -146,10 +153,13 @@ def edit_developer(request, developer_id):
         form = DeveloperForm(request.POST, request.FILES, instance=developer)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Successfully updated developer: {developer.name}')
+            messages.success(request,
+                             f'Successfully updated \
+                             developer: {developer.name}')
             return redirect(reverse('developer_detail', args=[developer.id]))
         else:
-            messages.error(request, f'Failed to update developer: {developer.name}. Please ensure the form is valid.')
+            messages.error(request, f'Failed to update developer: \
+                           {developer.name}. Please ensure the form is valid.')
     else:
         form = DeveloperForm(instance=developer)
         messages.info(request, f'You are editing {developer.name}')
@@ -161,6 +171,7 @@ def edit_developer(request, developer_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_developer(request, developer_id):

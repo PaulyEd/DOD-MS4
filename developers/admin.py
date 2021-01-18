@@ -24,7 +24,7 @@ class DeveloperAdmin(admin.ModelAdmin):
 
     def get_framework(self, obj):
         return ", ".join([p.friendly_name for p in obj.framework.all()])
-        
+
     def get_language(self, obj):
         return ", ".join([p.friendly_name for p in obj.language.all()])
 

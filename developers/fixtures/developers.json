@@ -6,7 +6,7 @@
       "name": "Ashton Bingham",
       "bio": "10 years experience in Python development",
       "tagline": "Full Stack Developer",
-      "country": "Ireland",
+      "country": "IE",
       "spoken_language": [
         40,
         47
@@ -37,7 +37,7 @@
       "name": "Ben Parker",
       "bio": "15 years experience in PHP development",
       "tagline": "Full Stack Developer",
-      "country": "Germany",
+      "country": "DE",
       "spoken_language": [
         40,
         51
@@ -66,7 +66,7 @@
       "name": "Chalo Garcia",
       "bio": "5 years experience in Python development, 10 years in Javascript development",
       "tagline": "Full Stack Developer",
-      "country": "Brazil",
+      "country": "BR",
       "spoken_language": [
         40,
         148
@@ -97,7 +97,7 @@
       "name": "Chase Fade",
       "bio": "10 years experience in Python development",
       "tagline": "Full Stack Developer",
-      "country": "United States of America",
+      "country": "US",
       "spoken_language": [
         40
       ],
@@ -125,7 +125,7 @@
       "name": "Joseph Harps",
       "bio": "7 years experience in Ruby development",
       "tagline": "Full Stack Developer",
-      "country": "United Kingdom",
+      "country": "GB",
       "spoken_language": [
         40
       ],
@@ -155,7 +155,7 @@
       "name": "Joseph Gonzalez",
       "bio": "13 years experience in Java development",
       "tagline": "Full Stack Developer",
-      "country": "Spain",
+      "country": "ES",
       "spoken_language": [
         40,
         148,
@@ -186,7 +186,7 @@
       "name": "Mauro Paillex",
       "bio": "20 years experience in Python development",
       "tagline": "Full Stack Developer",
-      "country": "Mexico",
+      "country": "MX",
       "spoken_language": [
         40,
         148,
@@ -220,7 +220,7 @@
       "name": "Michellle Dam",
       "bio": "3 years experience in Swift development, 8 years experience in Javascript",
       "tagline": "Full Stack Developer",
-      "country": "Netherlands",
+      "country": "NL",
       "spoken_language": [
         40,
         39,
@@ -253,7 +253,7 @@
       "name": "Saiyed Gangan",
       "bio": "10 years experience in C# & C++ development",
       "tagline": "Full Stack Developer",
-      "country": "India",
+      "country": "IN",
       "spoken_language": [
         40,
         59
@@ -283,7 +283,7 @@
       "name": "Humphrey Muleba",
       "bio": "7 years experience in C# development, 3 years experience in Javascript",
       "tagline": "Full Stack Developer",
-      "country": "United Kingdom",
+      "country": "GB",
       "spoken_language": [
         40
       ],
@@ -313,7 +313,7 @@
       "name": "Zoe Fernandez",
       "bio": "10 years experience in C++ development",
       "tagline": "Full Stack Developer",
-      "country": "United States of America",
+      "country": "US",
       "spoken_language": [
         40,
         148
@@ -340,7 +340,7 @@
       "name": "Kelly Sikkema",
       "bio": "6 years experience in Python, Javascript & PHP development",
       "tagline": "Full Stack Developer",
-      "country": "Sweden",
+      "country": "SE",
       "spoken_language": [
         40,
         152

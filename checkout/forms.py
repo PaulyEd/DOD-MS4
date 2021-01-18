@@ -32,9 +32,11 @@ class OrderForm(forms.ModelForm):
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
-                self.fields[field].widget.attrs['class'] = 'form-control checkout-element placeholder-bold'
+                self.fields[field].widget.attrs['class'] = 'form-control \
+                checkout-element placeholder-bold'
             else:
                 placeholder = placeholders[field]
-                self.fields[field].widget.attrs['class'] = 'form-control checkout-element'
+                self.fields[field].widget.attrs['class'] = 'form-control \
+                checkout-element'
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False

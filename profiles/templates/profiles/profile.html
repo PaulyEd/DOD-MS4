@@ -1,197 +1,194 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
-
 {% block page_header %}
-<div class="container">
-</div>
+<div class="container"></div>
 {% endblock %}
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="col text-center mt-3">
-            <h2 class="logo-font">My Profile</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 {% if reviews %} col-xl-4 {% else %} col-xl-6 {% endif %} my-2 my-md-5">
-            <p class="text-muted text-center">User Information</p>
-            <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                {% csrf_token %}
-                <fieldset class="rounded px-3 mb-2">
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="fas fa-user"></i>
-                            </span>
-                        </div>
-                        {{ form.default_full_name }}
-                    </div>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="fas fa-phone-alt"></i>
-                            </span>
-                        </div>
-                        {{ form.default_phone_number }}
-                    </div>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                        {{ form.default_street_address1 }}
-                    </div>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                        {{ form.default_street_address2 }}
-                    </div>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                        {{ form.default_town_or_city }}
-                    </div>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                        {{ form.default_county }}
-                    </div>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                        {{ form.default_country }}
-                    </div>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                        {{ form.default_postcode }}
-                    </div>
-                </fieldset>
-                <fieldset class="px-3">
-                    <div class="submit-button text-right mt-1 mb-2">
-                        <button id="submit-button" class="btn btn-success">
-                            <span class="font-weight-bold">Update Profile</span>
-                            <span class="icon">
-                                <i class="fas fa-edit"></i>
-                            </span>
-                        </button>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-        <div class="col-12 {% if reviews %} col-lg-6 col-xl-4 {% else %} col-xl-6 {% endif %} my-2 my-md-5">
-            <p class="text-muted text-center">Order History</p>
-            <div class="order-history table-responsive">
-                <table class="table table-sm table-borderless">
-                    <thead>
-                        <tr>
-                            <th>Order Number</th>
-                            <th>Date</th>
-                            <th>Items</th>
-                            <th>Order Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for order in orders %}
-                        <tr>
-                            <td>
-                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
-                                    {{ order.order_number | truncatechars:6 }}
-                                </a>
-                            </td>
-                            <td class="small">{{ order.date | truncatechars:12}}</td>
-                            <td>
-                                <ul class="list-unstyled">
-                                    {% for item in order.lineitems.all %}
-                                    <li class="small">
-                                        {{ item.developer.name }} x{{ item.quantity }}
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                            <td>${{ order.grand_total }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-12 {% if reviews %} col-lg-6 col-xl-4 {% else %} col-xl-6 {% endif %} my-2 my-md-5">
-            <p class="text-muted text-center">My Reviews</p>
-            <div class="order-history table-responsive">
-                <table class="table table-sm table-borderless">
-                    <thead>
-                        <tr>
-                            <th>Review Title</th>
-                            <th>Date</th>
-                            <th>Developer</th>
-                            <th>Rating</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for review in reviews %}
-                        <tr>
-                            <td>
-                                <a
-                                    href="{% url 'add_review' review.developer.id %}">{{ review.review_header| truncatechars:25}}</a>
-                            </td>
-                            <td class="small">{{ review.review_date | truncatechars:12}}</td>
-                            <td class="small">{{ review.developer }}</td>
-                            <td>{{ review.review_rating }}/5</td>
-                            <td>
-                                <form method="POST" id="delete-review_{{ review.id }}"
-                                    action="{% url 'delete_review' review.id %}" enctype="multipart/form-data"
-                                    class="d-inline">
-                                    {% csrf_token %}
-                                    <div>
-                                    <a class="small" href="{% url 'add_review' review.developer.id %}" style="cursor: pointer;">Edit</a> | <a class="text-danger small delete_" style="cursor: pointer;">Delete</a>
-                                    </div>
-                                    <div class="d-none">
-                                    <a class="small cancel_" href="#">Cancel</a> | <a class="text-danger small" style="cursor: pointer;"
-                                        onclick="document.getElementById('delete-review_{{ review.id }}').submit();">Confirm?</a></div>
-                                </form>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+   <div class="row">
+      <div class="col text-center mt-3">
+         <h2 class="logo-font">My Profile</h2>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-12 {% if reviews %} col-xl-4 {% else %} col-xl-6 {% endif %} my-2 my-md-5">
+         <p class="text-muted text-center">User Information</p>
+         <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+            {% csrf_token %}
+            <fieldset class="rounded px-3 mb-2">
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-user"></i>
+                     </span>
+                  </div>
+                  {{ form.default_full_name }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-phone-alt"></i>
+                     </span>
+                  </div>
+                  {{ form.default_phone_number }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ form.default_street_address1 }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ form.default_street_address2 }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ form.default_town_or_city }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ form.default_county }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ form.default_country }}
+               </div>
+               <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text bg-primary text-white">
+                     <i class="fas fa-map-marker-alt"></i>
+                     </span>
+                  </div>
+                  {{ form.default_postcode }}
+               </div>
+            </fieldset>
+            <fieldset class="px-3">
+               <div class="submit-button text-right mt-1 mb-2">
+                  <button id="submit-button" class="btn btn-success">
+                  <span class="font-weight-bold">Update Profile</span>
+                  <span class="icon">
+                  <i class="fas fa-edit"></i>
+                  </span>
+                  </button>
+               </div>
+            </fieldset>
+         </form>
+      </div>
+      <div class="col-12 {% if reviews %} col-lg-6 col-xl-4 {% else %} col-xl-6 {% endif %} my-2 my-md-5">
+         <p class="text-muted text-center">Order History</p>
+         <div class="order-history table-responsive">
+            <table class="table table-sm table-borderless">
+               <thead>
+                  <tr>
+                     <th>Order Number</th>
+                     <th>Date</th>
+                     <th>Items</th>
+                     <th>Order Total</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for order in orders %}
+                  <tr>
+                     <td>
+                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                        {{ order.order_number | truncatechars:6 }}
+                        </a>
+                     </td>
+                     <td class="small">{{ order.date | truncatechars:12}}</td>
+                     <td>
+                        <ul class="list-unstyled">
+                           {% for item in order.lineitems.all %}
+                           <li class="small">
+                              {{ item.developer.name }} x{{ item.quantity }}
+                           </li>
+                           {% endfor %}
+                        </ul>
+                     </td>
+                     <td>${{ order.grand_total }}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <div class="col-12 {% if reviews %} col-lg-6 col-xl-4 {% else %} col-xl-6 {% endif %} my-2 my-md-5">
+         <p class="text-muted text-center">My Reviews</p>
+         <div class="order-history table-responsive">
+            <table class="table table-sm table-borderless">
+               <thead>
+                  <tr>
+                     <th>Review Title</th>
+                     <th>Date</th>
+                     <th>Developer</th>
+                     <th>Rating</th>
+                     <th>Delete</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for review in reviews %}
+                  <tr>
+                     <td>
+                        <a
+                           href="{% url 'add_review' review.developer.id %}">{{ review.review_header| truncatechars:25}}</a>
+                     </td>
+                     <td class="small">{{ review.review_date | truncatechars:12}}</td>
+                     <td class="small">{{ review.developer }}</td>
+                     <td>{{ review.review_rating }}/5</td>
+                     <td>
+                        <form method="POST" id="delete-review_{{ review.id }}"
+                           action="{% url 'delete_review' review.id %}" enctype="multipart/form-data"
+                           class="d-inline">
+                           {% csrf_token %}
+                           <div>
+                              <a class="small" href="{% url 'add_review' review.developer.id %}" style="cursor: pointer;">Edit</a> | <a class="text-danger small delete_" style="cursor: pointer;">Delete</a>
+                           </div>
+                           <div class="d-none">
+                              <a class="small cancel_" href="#">Cancel</a> | <a class="text-danger small" style="cursor: pointer;"
+                                 onclick="document.getElementById('delete-review_{{ review.id }}').submit();">Confirm?</a>
+                           </div>
+                        </form>
+                     </td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
 </div>
 {% endblock %}
-
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
-    $(".delete_").click(function () {
-        $(this).parent("div").addClass("d-none");
-        $(this).parent("div").next("div").removeClass("d-none");
-    })
-    $(".cancel_").click(function () {
-        $(this).parent("div").addClass("d-none");
-        $(this).parent("div").prev("div").removeClass("d-none");
-    })
+   $(".delete_").click(function () {
+       $(this).parent("div").addClass("d-none");
+       $(this).parent("div").next("div").removeClass("d-none");
+   })
+   $(".cancel_").click(function () {
+       $(this).parent("div").addClass("d-none");
+       $(this).parent("div").prev("div").removeClass("d-none");
+   })
 </script>
 {% endblock %}
