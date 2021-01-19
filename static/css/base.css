@@ -83,6 +83,30 @@ li.nav-item > a:hover {
 
 /* Social media links */
 
+.form-control::-webkit-input-placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.form-control::-moz-placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.form-control:-ms-input-placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.form-control::-ms-input-placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+}
+
 .form-control::placeholder {
     font-size: 0.95rem;
     color: #aaa;
@@ -90,7 +114,8 @@ li.nav-item > a:hover {
 }
 
 .form-control.shadow-0:focus {
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 
 .facebook,
@@ -214,10 +239,16 @@ li.nav-item > a:hover {
     height: 170px;
     width: 170px;
     overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: auto;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .circle-small {
@@ -225,15 +256,20 @@ li.nav-item > a:hover {
     height: 100px;
     width: 100px;
     overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: auto;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .border-box{
     -webkit-box-shadow:inset 0px 0px 0px 1px rgba(0,0,0,.1);
-    -moz-box-shadow:inset 0px 0px 0px 1px rgba(0,0,0,.1);
     box-shadow:inset 0px 0px 0px 1px rgba(0,0,0,.1);
 }
 
@@ -433,7 +469,8 @@ li.nav-item > a:hover {
 }
 
 .checkout-element:focus {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
+          box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 
@@ -491,6 +528,7 @@ li.nav-item > a:hover {
     border-color: #d9534f;
     border-radius: 0;
 }
+
 
 /* /////References//// */
 https://jsfiddle.net/bootstrapious/c7ash30w

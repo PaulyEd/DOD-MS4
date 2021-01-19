@@ -16,12 +16,15 @@ RATING_CHOICES = (
 
 class Review(models.Model):
     """Model to store review related fields"""
-    developer = models.ForeignKey(Developer, on_delete=models.SET_NULL, null=True, blank=True)
+    developer = models.ForeignKey(Developer, on_delete=models.SET_NULL,
+                                  null=True, blank=True)
     review_header = models.CharField(max_length=100, blank=False, default='')
     review_body = models.TextField(max_length=600, blank=False, default='')
-    review_rating = models.CharField(max_length=1, choices=RATING_CHOICES, default=0)
+    review_rating = models.CharField(max_length=1,
+                                     choices=RATING_CHOICES, default=0)
     review_date = models.DateTimeField(default=timezone.now, blank=True)
-    reviewer = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
+    reviewer = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                 null=True, blank=True)
 
     def save(self, *args, **kwargs):
         """
@@ -31,4 +34,5 @@ class Review(models.Model):
         self.review_date = timezone.now()
         super().save(*args, **kwargs)
 
-
+    def __str__(self):
+        return str(f'For:{self.developer} - By:{self.reviewer}')

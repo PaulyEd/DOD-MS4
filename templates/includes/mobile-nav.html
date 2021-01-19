@@ -1,54 +1,54 @@
 <li class="list-inline-item">
-    <a class="text-white nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center">
-            <div><i class="fas fa-search fa-lg"></i></div>
-            <p class="my-0">Search</p>
-        </div>
-    </a>
-    <div class="bg-primary dropdown-menu border-0 w-100 p-3 rounded-0 my-0 d-lg-none" aria-labelledby="mobile-search">
-        <form class="form" method="GET" action="{% url 'developers' %}">
-            <div class="input-group w-100">
-				<input type="search" class="form-control" placeholder="Search" name="q" aria-label="Search" aria-describedby="basic-search">
-				<div class="input-group-append">
-                    <button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
-				</div>
+   <a class="text-white nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="text-center">
+         <div><i class="fas fa-search fa-lg"></i></div>
+         <p class="my-0">Search</p>
+      </div>
+   </a>
+   <div class="bg-primary dropdown-menu border-0 w-100 p-3 rounded-0 my-0 d-lg-none" aria-labelledby="mobile-search">
+      <form class="form" method="GET" action="{% url 'developers' %}">
+         <div class="input-group w-100">
+            <input type="search" class="form-control" placeholder="Search" name="q" aria-label="Search" aria-describedby="basic-search">
+            <div class="input-group-append">
+               <button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
             </div>
-            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-        </form>
-    </div>
+         </div>
+         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+      </form>
+   </div>
 </li>
 <li class="list-inline-item dropdown">
-    <a class="text-white nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center">
-            <div><i class="fas fa-user fa-lg"></i></div>
-            <p class="my-0">My Account</p>
-        </div>
-    </a>
-    <div class="dropdown-menu border-0 bg-primary" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-                <a href="/admin" class="dropdown-item">Admin</a>
-                <a href="{% url 'add_developer' %}" class="dropdown-item">Add developer</a>
-            {% endif %}
-            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-            <a data-target="#LogOutModal" data-toggle="modal" class="dropdown-item" href="#LogOutModal">Logout</a>
-        {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-        {% endif %}
-    </div>
+   <a class="text-white nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="text-center">
+         <div><i class="fas fa-user fa-lg"></i></div>
+         <p class="my-0">My Account</p>
+      </div>
+   </a>
+   <div class="dropdown-menu border-0 bg-primary" aria-labelledby="user-options">
+      {% if request.user.is_authenticated %}
+      {% if request.user.is_superuser %}
+      <a href="/admin" class="dropdown-item">Admin</a>
+      <a href="{% url 'add_developer' %}" class="dropdown-item">Add developer</a>
+      {% endif %}
+      <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+      <a data-target="#LogOutModal" data-toggle="modal" class="dropdown-item" href="#LogOutModal">Logout</a>
+      {% else %}
+      <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+      <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+      {% endif %}
+   </div>
 </li>
 <li class="list-inline-item">
-    <a class="{% if total %}text-warning font-weight-bold{% else %}text-white{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
-        <div class="text-center">
-            <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-            <p class="my-0">
-                {% if total %}
-                    ${{ total|floatformat:2 }}
-                {% else %}
-                    $0.00
-                {% endif %}
-            </p>
-        </div>
-    </a>
+   <a class="{% if total %}text-warning font-weight-bold{% else %}text-white{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
+      <div class="text-center">
+         <div><i class="fas fa-shopping-cart fa-lg"></i></div>
+         <p class="my-0">
+            {% if total %}
+            ${{ total|floatformat:2 }}
+            {% else %}
+            $0.00
+            {% endif %}
+         </p>
+      </div>
+   </a>
 </li>

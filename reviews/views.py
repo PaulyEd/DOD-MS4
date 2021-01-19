@@ -12,6 +12,7 @@ from .forms import ReviewForm
 
 # Create your views here.
 
+
 @login_required
 def add_review(request, developer_id):
     """ Add a review to a developer """
@@ -21,8 +22,8 @@ def add_review(request, developer_id):
     order_hist = []
 
     for users_order in users_orders:
-        in_history = OrderLineItem.objects.all().filter(order=users_order.id,
-            developer=developer.id)
+        in_history = OrderLineItem.objects.all().filter(
+                     order=users_order.id, developer=developer.id)
         order_hist.append(in_history)
 
     if 'Dev' in str(order_hist):
@@ -39,35 +40,51 @@ def add_review(request, developer_id):
                         reviewer=reviewer,
                     )
                 instance = get_object_or_404(Review, id=review.id)
-                review_form = ReviewForm(request.POST or None, instance=instance)
+                review_form = ReviewForm(request.POST or None,
+                                         instance=instance)
                 if review_form.is_valid():
                     review_form.save()
 
-                    review_count = Review.objects.filter(developer=developer).count()
-                    rating_total = Review.objects.filter(developer=developer).aggregate(Sum('review_rating'))
-                    rating_average = float(int(rating_total['review_rating__sum'])/int(review_count))
+                    review_count = Review.objects.filter(
+                                   developer=developer).count()
+                    rating_total = Review.objects.filter(
+                                   developer=developer).aggregate(
+                                   Sum('review_rating'))
+                    rating_average = float(int(
+                                     rating_total['review_rating__sum'])/int(
+                                     review_count))
                     developer.rating = rating_average
                     developer.save()
 
-                    messages.success(request, f'You have updated your review for {developer.name}')
-                    return redirect(reverse('developer_detail', args=[developer.id]))
+                    messages.success(request, f'You have updated your\
+                                     review for {developer.name}')
+                    return redirect(reverse('developer_detail',
+                                            args=[developer.id]))
                 else:
-                    messages.error(request, 'Review failed, please ensure the form is valid.')
+                    messages.error(request, 'Review failed, please \
+                                            ensure the form is valid.')
                 """ Add new review """
             except Review.DoesNotExist:
                 if review_form.is_valid():
                     review_form.save()
 
-                    review_count = Review.objects.filter(developer=developer).count()
-                    rating_total = Review.objects.filter(developer=developer).aggregate(Sum('review_rating'))
-                    rating_average = float(int(rating_total['review_rating__sum'])/int(review_count))
+                    review_count = Review.objects.filter(
+                                   developer=developer).count()
+                    rating_total = Review.objects.filter(
+                                   developer=developer).aggregate(
+                                   Sum('review_rating'))
+                    rating_average = float(int(rating_total[
+                                     'review_rating__sum'])/int(review_count))
                     developer.rating = rating_average
                     developer.save()
 
-                    messages.success(request, f'Thank you for reviewing {developer.name}')
-                    return redirect(reverse('developer_detail', args=[developer.id]))
+                    messages.success(request, f'Thank you for \
+                                     reviewing {developer.name}')
+                    return redirect(reverse('developer_detail',
+                                            args=[developer.id]))
                 else:
-                    messages.error(request, 'Review failed, please ensure the form is valid.')
+                    messages.error(request, 'Review failed, please \
+                                            ensure the form is valid.')
         else:
             try:
                 review = Review.objects.get(
@@ -80,16 +97,18 @@ def add_review(request, developer_id):
             except Review.DoesNotExist:
                 review_form = ReviewForm()
 
-            messages.info(request, f'You are reviewing {developer.name}')  
+            messages.info(request,
+                          f'You are reviewing {developer.name}')
             template = 'reviews/add_review.html'
             context = {
                 'form': review_form,
                 'developer': developer,
             }
-            return render(request, template, context)     
+            return render(request, template, context)
     else:
         review_form = ReviewForm()
-        messages.info(request, 'Sorry, only users who have purchased time with this developer can a review to their page')
+        messages.info(request, 'Sorry, only users who have purchased time \
+                      with this developer can a review to their page')
         return redirect(reverse('developer_detail', args=[developer.id]))
 
 
@@ -106,10 +125,14 @@ def delete_review(request, review_id):
     if request.method == 'POST':
         review.delete()
         try:
-            review_count = Review.objects.filter(developer=developer).count()
-            rating_total = Review.objects.filter(developer=developer).aggregate(Sum('review_rating'))
-            rating_average = float(int(rating_total['review_rating__sum'])/int(review_count))
-        except:
+            review_count = Review.objects.filter(
+                           developer=developer).count()
+            rating_total = Review.objects.filter(
+                           developer=developer).aggregate(Sum('review_rating'))
+            rating_average = float(int(
+                             rating_total['review_rating__sum'])/int(
+                             review_count))
+        except Exception:
             rating_average = 0
         developer.rating = rating_average
         developer.save()
