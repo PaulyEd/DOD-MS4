@@ -5,7 +5,7 @@ from .models import Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        exclude = ('developer', 'reviewer', 'review_date')
+        exclude = ('developer', 'reviewer', 'review_date', 'review_status')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

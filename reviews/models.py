@@ -13,6 +13,12 @@ RATING_CHOICES = (
     ('5', '5 - Star'),
 )
 
+REVIEW_STATUS = (
+    ('Pending', 'Pending'),
+    ('Rejected', 'Rejected'),
+    ('Approved', 'Approved'),
+)
+
 
 class Review(models.Model):
     """Model to store review related fields"""
@@ -22,6 +28,8 @@ class Review(models.Model):
     review_body = models.TextField(max_length=600, blank=False, default='')
     review_rating = models.CharField(max_length=1,
                                      choices=RATING_CHOICES, default=0)
+    review_status = models.CharField(max_length=10,
+                                     choices=REVIEW_STATUS, default='Pending')
     review_date = models.DateTimeField(default=timezone.now, blank=True)
     reviewer = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                  null=True, blank=True)

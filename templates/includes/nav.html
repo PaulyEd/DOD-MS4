@@ -85,6 +85,7 @@
                   {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
                   <a href="/admin" class="dropdown-item">Admin</a>
+                  <a href="{% url 'review_moderation' %}" class="dropdown-item">Pending Reviews</a>
                   <a href="{% url 'add_developer' %}" class="dropdown-item">Add developer</a>
                   {% endif %}
                   <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>

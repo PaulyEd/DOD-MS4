@@ -33,6 +33,7 @@ def add_review(request, developer_id):
             review = review_form.save(commit=False)
             review.developer = developer
             review.reviewer = reviewer
+            review.review_status = 'Pending'
             """ If user already rated Dev, update existing review """
             try:
                 review = Review.objects.get(
@@ -44,7 +45,12 @@ def add_review(request, developer_id):
                                          instance=instance)
                 if review_form.is_valid():
                     review_form.save()
-
+                    review = Review.objects.get(
+                        developer=developer,
+                        reviewer=reviewer,
+                    )
+                    review.review_status = 'Pending'
+                    review.save()
                     review_count = Review.objects.filter(
                                    developer=developer).count()
                     rating_total = Review.objects.filter(
@@ -67,7 +73,13 @@ def add_review(request, developer_id):
             except Review.DoesNotExist:
                 if review_form.is_valid():
                     review_form.save()
-
+                    review_form.save()
+                    review = Review.objects.get(
+                        developer=developer,
+                        reviewer=reviewer,
+                    )
+                    review.review_status = 'Pending'
+                    review.save()
                     review_count = Review.objects.filter(
                                    developer=developer).count()
                     rating_total = Review.objects.filter(
@@ -144,3 +156,50 @@ def delete_review(request, review_id):
             'confirm_delete': True,
         }
         return render(request, 'developers/developer_detail.html', context)
+
+
+@login_required
+def review_moderation(request):
+    """ Display the user's profile. """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only staff can do that.')
+        return redirect(reverse('home'))
+
+    reviews = Review.objects.all().filter(review_status='Pending')
+
+    template = 'reviews/review_moderation.html'
+    context = {
+        'reviews': reviews,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def approve_review(request, review_id):
+    """ Display the user's profile. """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only staff can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        review = get_object_or_404(Review, pk=review_id)
+        review.review_status = 'Approved'
+        review.save()
+
+    return redirect(reverse('review_moderation'))
+
+
+@login_required
+def reject_review(request, review_id):
+    """ Display the user's profile. """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only staff can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        review = get_object_or_404(Review, pk=review_id)
+        review.review_status = 'Rejected'
+        review.save()
+
+    return redirect(reverse('review_moderation'))
