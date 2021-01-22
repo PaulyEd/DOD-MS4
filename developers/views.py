@@ -87,28 +87,41 @@ def all_developers(request):
 
 def developer_detail(request, developer_id):
     """ Return the a requested developer to dev detail page """
-    developer = get_object_or_404(Developer, pk=developer_id)
-    reviews = Review.objects.all().filter(developer=developer.id)
-    review_count = Review.objects.filter(developer=developer).count()
-    current_user = get_object_or_404(UserProfile, pk=request.user.id)
     in_ord_history = False
-    users_orders = current_user.orders.all()
-    order_hist = []
+    as_dev = False
+    try:
+        developer = get_object_or_404(Developer, pk=developer_id) or None
+        reviews = Review.objects.all().filter(developer=developer.id)
+        review_count = Review.objects.filter(developer=developer).count()
+        current_user = get_object_or_404(UserProfile, pk=request.user.id) or None
+        current_user_email = request.user.email
+        users_orders = current_user.orders.all()
+        order_hist = []
 
-    for users_order in users_orders:
-        in_history = OrderLineItem.objects.all().filter(order=users_order.id,
-            developer=developer_id)
-        order_hist.append(in_history)
-        
-    if 'Dev' in str(order_hist):
-        in_ord_history = True
+        for users_order in users_orders:
+            in_history = OrderLineItem.objects.all().filter(order=users_order.id,
+                developer=developer_id)
+            order_hist.append(in_history)
 
-    context = {
-        'developer': developer,
-        'reviews': reviews,
-        'review_count': review_count,
-        'in_ord_history': in_ord_history
-    }
+        if 'Dev' in str(order_hist):
+            in_ord_history = True
+
+        if current_user_email == developer.email:
+            as_dev = True
+
+        context = {
+            'developer': developer,
+            'reviews': reviews,
+            'review_count': review_count,
+            'in_ord_history': in_ord_history,
+            'as_dev': as_dev,
+        }
+    except Exception:
+        context = {
+            'developer': developer,
+            'reviews': reviews,
+            'as_dev': as_dev,
+        }
 
     return render(request, 'developers/developer_detail.html', context)
 

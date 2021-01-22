@@ -203,3 +203,23 @@ def reject_review(request, review_id):
         review.save()
 
     return redirect(reverse('review_moderation'))
+
+
+@login_required
+def dispute_review(request, review_id):
+    """ Display the user's profile. """
+    current_user = get_object_or_404(UserProfile, pk=request.user.id)
+    current_user_email = request.user.email
+    review = get_object_or_404(Review, pk=review_id)
+    developer = get_object_or_404(Developer, pk=review.developer.id)
+    
+    if not current_user_email == developer.email:
+        messages.error(request, 'Sorry, only the developer can do that!')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        review.review_status = 'Pending'
+        review.save()
+
+    messages.error(request, 'Site moderators will evaluate if this review is appropriate!')
+    return redirect(reverse('developer_detail', args=[developer.id]))

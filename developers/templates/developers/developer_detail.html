@@ -259,6 +259,26 @@
                                     <p>{{ review.review_body }}</p>
                                     <p class="text-muted text-right text-capitalize"> - {{ review.reviewer }},
                                         {{ review.review_date }}</p>
+                                    {% if as_dev %}
+                                    <form method="POST" id="approve-review_{{ review.id }}"
+                                        action="{% url 'dispute_review' review.id %}" enctype="multipart/form-data"
+                                        class="d-inline">
+                                        {% csrf_token %}
+                                        <span class="float-right"><a class="btn btn-sm btn-danger action_">
+                                                <span class="icon">
+                                                    <i class="fas fa-exclamation-circle"></i>
+                                                </span>
+                                                <span class="font-weight-bold">Dispute</span>
+                                            </a>
+                                        </span>
+                                        <button type="submit" class="float-right btn btn-sm btn-outline-danger d-none">
+                                            <span class="icon">
+                                                <i class="fas fa-exclamation-circle"></i>
+                                            </span>
+                                            <span class="font-weight-bold">Confirm</span>
+                                        </button>
+                                    </form>
+                                    {% endif %}
                                 </div>
                                 {% endif %}
                                 {% endfor %}
@@ -303,4 +323,11 @@
 {% include 'includes/side-cart.html' %}
 {% endblock %}
 {% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $(".action_").click(function () {
+        $(this).addClass("d-none");
+        $(this).parent("span").next("button").removeClass("d-none");
+    })
+</script>
 {% endblock %}
