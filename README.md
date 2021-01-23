@@ -7,7 +7,9 @@
 # RecipeMe
 
   
-<Dev_on_Demand> is a e-commerce Django web app with a CRUD based SQL backend. Its purpose is to allow consumers to buy time with varying developers across numerous code based disaplines/practices, the purpose of the time bought is entirely at the consumers discreation, this could range from consultation for a business enterprise application to assisting a computer science student in a mentor/technical guidance role.
+The purpse of this project is to demostrate the knowledge & skills developed in the final section of my course with The Code Institute. <Dev_on_Demand> is a e-commerce Django web app with a CRUD based SQL backend, its purpose is to allow freelance developers a place to market themselves and allow consumers to buy time with varying developers across numerous code based disaplines/practices, the purpose of the time bought is entirely at the consumers discreation, this could range from consultation for a business enterprise application to assisting a computer science student in a mentor/technical guidance role.
+
+Note: this project felt like a sizable leap from the previous one and as such I felt most comfortable coding along with the Code Institute 'Boutique Ado' project and tailoring it to my needs as I went.
 
 To test Stripe payment functionality in this project please use below details:
 - Card number: 4242 4242 4242 4242 (4000 0025 0000 3155 - for extra auth step)
@@ -21,22 +23,26 @@ To test Stripe payment functionality in this project please use below details:
 - [RecipeMe](#recipeme)
   * [Table of Contents](#table-of-contents)
   * [UX & FEATURES](#ux---features)
-    + [User](#user)
+    + [User Stories](#user-stories)
     + [Design](#design)
       - [Wireframes](#wireframes)
         * [Home](#home)
         * [Dashboard](#dashboard)
         * [Recipe](#recipe)
-      - [Database](#database)
-    + [Features](#features)
+      - [Primary Django Models](#primary-django-models)
+    + [Features / Design Choices](#features---design-choices)
       - [Navbar](#navbar)
-      - [Spotlight](#spotlight)
-      - [Featured](#featured)
+      - [Bootstrap](#bootstrap)
+      - [Colour Scheme](#colour-scheme)
       - [Search](#search)
-      - [Full Account Management](#full-account-management)
-      - [Dashboard Data](#dashboard-data)
-      - [Add Recipe](#add-recipe)
-      - [Edit Recipe / Copy & Edit Recipe / Delete Recipe](#edit-recipe---copy---edit-recipe---delete-recipe)
+      - [Side Bar Cart/Bag](#side-bar-cart-bag)
+      - [Admin](#admin)
+        * [Admin](#admin-1)
+        * [Add a developer](#add-a-developer)
+        * [Pending Reviews](#pending-reviews)
+      - [Cart](#cart)
+      - [Checkout + Stripe](#checkout---stripe)
+      - [Profile](#profile)
   * [TECHNOLOGIES USED](#technologies-used)
     + [Languages](#languages)
     + [APIs](#apis)
@@ -59,7 +65,6 @@ To test Stripe payment functionality in this project please use below details:
       - [Bootstrap:](#bootstrap-)
       - [Misc:](#misc-)
   * [FAIR USE DISCLAIMER](#fair-use-disclaimer)
-
 
 ## UX & FEATURES
 
@@ -85,23 +90,23 @@ To test Stripe payment functionality in this project please use below details:
 | 12                             | Customer    | Delete my review                                                  | Delete my previously created review as I may feel its no longer valid or reivewed in error |
 | 13                             | Developer   | Dispute a review                                                  | I may feel I have been harshly reviewed and want a site owner to remove / let me respond   |
 | Sorting and searching          |             |                                                                   |                                                                               |
-| 10                             | Shopper     | Sort the list of developer by rating or price                     | View the available developers by the rating and price                         |
-| 10                             | Shopper     | Search for a developer by language/framework                      | Quickly find the developer with the skills I need                             |
+| 14                             | Shopper     | Sort the list of developer by rating or price                     | View the available developers by the rating and price                         |
+| 15                             | Shopper     | Search for a developer by language/framework                      | Quickly find the developer with the skills I need                             |
 | Purchasing and Checkout        |             |                                                                   |                                                                               |
-| 10                             | Customer    | View items in my bag to be purchased                              | see the developers and total cost before I purchase                           |
-| 10                             | Customer    | Adjust the quantity or remove items in my bag                     | Easily make changes before checkout                                           |
-| 10                             | Customer    | Enter my payment information                                      | Check out easily with no problems                                             |
-| 10                             | Customer    | View an order confirmation after checkout                         | Verify there are no mistakes with my address, order, or payment information   |
+| 16                             | Customer    | View items in my bag to be purchased                              | see the developers and total cost before I purchase                           |
+| 17                             | Customer    | Adjust the quantity or remove items in my bag                     | Easily make changes before checkout                                           |
+| 18                             | Customer    | Enter my payment information                                      | To complete purchase                                                          |
+| 19                             | Customer    | View an order confirmation after checkout                         | Verify there are no mistakes with order or payment information                |
 | Admin and store management     |             |                                                                   |                                                                               |
-| 10                             | Store Owner | Add a developer                                                   | Add a new item to my store                                                    |
-| 10                             | Store Owner | Edit a developer                                                  | Change any details in the price or description                                |
-| 20                             | Store Owner | Delete a developer                                                | Remove items that are no longer available                                     |
-| 20                             | Store Owner | Moderate reviews                                                  | To prevent inappropriate comments on site and allow devs to dispute 'unfair' reviews |
+| 20                             | Store Owner | Add a developer                                                   | Add a new developers to the store                                             |
+| 21                             | Store Owner | Edit a developer                                                  | Change any details in the rate or description                                 |
+| 22                             | Store Owner | Delete a developer                                                | Remove developers that are no longer available                                |
+| 23                             | Store Owner | Moderate reviews                                                  | To prevent inappropriate comments on site and allow devs to dispute 'unfair' reviews |
 
 
 ### Design
 
-This Project is designed to allow users to conduct basic CRUD (Create, Read, Update, Delete) actions on a database. The database utilised for this app is [MongoDB](https://www.mongodb.com/what-is-mongodb), more on this [below](#database) . The Frontend of the project is mainly [Bootstrap](https://getbootstrap.com/) as it is modern, responsive and a template style a lot of web users would be familiar with.
+This Project is designed to allow users to find developers that meet their required skillset and experience, purchase time with those developers and review them to that other customers can see what other peoples experiences have been like with specific developers.
 
 #### Wireframes
 
@@ -124,134 +129,138 @@ For this project I used [Balsamiq](https://balsamiq.com/) to create my initial f
 | --------------------- | ------------------------ | 
 | <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599469893/Desktop_-_Recipe_bcwdio.png"  style="center"  width="100%"> | <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599469893/Mobile_-_Recipe_b6lbaa.png"  width="100%"> | 
 
-#### Database
+#### Primary Django Models
 
-For this project I used [MongoDB Atlas](https://account.mongodb.com/account/login) to host my database, see schema below:
+Order Model: Mirrored from 'Boutique Ado' project - used to maintain customer orders
+Developer Model: Similar to 'Products' from 'Boutique Ado' project in terms of primary offering for sale  - model that stores all the information related to the offering of the store
+UserProfile Model: Mirrored from 'Boutique Ado' project - used to maintain customer profiles
+Review Model: Entirely custom - used to store information related to customer reviews of developers
 
- <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599475537/Schema_-_Full_adwzjb.png"  style="center"  width="100%">
-
-### Features
+### Features / Design Choices
 
 #### Navbar
 
-Stored on the base.html file to create consistency across all of the pages, provides quick access to home, spotlight, featured, and all recipes.
-
-Also provides entry point for [account management](#full-account-management) and [search](#search) functionality outlined below.
+Central navigation point of the project, split into different files for desktop and mobile variations, provides quick access to all the major link/functions of the site.
 
  <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599476966/Nav_bi150b.png"  style="center"  width="100%">
 
-#### Spotlight
+#### Bootstrap
 
-Shows which user is currently the highest-rated and that users highest rated recipe.
+This was an intensive project, and I had to put most of my time into learning Django, therefore Bootstrap was leveraged heavily in this project so time wasnt lost on custom HTML/CSS to much. 
 
  <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599476970/Spotlight_awkwmw.png"  style="center"  width="70%">
  
-#### Featured
+#### Colour Scheme
 
-Shows the top 3 rated recipes on the app.
+Bootstrap Primary, White and off-white was the main colour scheme used on this site as I felt the colour was appropriate, had a nice contrast and most importantly given the timeframe, was native to bootstrap and such was a quick solution.
 
  <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599476969/Featured_iicnpw.png"  style="center"  width="70%">
 
 #### Search
 
-Allows users to enter a term(s) and return results based off of the entered data, the search creates an index to check against recipe name, description & ingredients 
+Allows users to enter a term(s) and return results a developers name, what languages they speak and what languages or frameworks they are experienced in.
 
 <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599477745/search_il0m5y.png"  style="center"  width="70%">
 
-#### Full Account Management
+#### Side Bar Cart/Bag
 
-Full CRUD actions available for a user account, and [Flask](https://flask.palletsprojects.com/en/1.1.x/) utilized to facilitate user log n / log out via sessions.
+Shows users what they current have in their bag at all times in a non-intrusive manner
 
  <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599476608/Account_Managment_ia0xlu.png"  style="center"  width="100%">
 
-#### Dashboard Data
+#### Admin
 
-Upon logging in if a user has created recipes they will be presented with graphical data regarding how users have interacted with their recipes in terms of ratings. These graphs show the rating distribution (number of each rating given to users recipes) and most rated recipes (users recipes that have had the highest number of votes registered)
+##### Admin
 
- <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599477850/Charts_pl7i73.png"  style="center"  width="100%">
+Link for admin to easily get the Django admin site if they needed functionality beyond that built into primary store frontend.
 
-#### Add Recipe
+##### Add a developer
 
-For users to add a recipe they first need to be logged in, this could be seen as a potential barrier for frivolous users, but it encourages users to be more active and engaged with the app by creating an account.
+Section for site owners to add new developers to their site.
 
-To add a new recipe the user can simply click the dropdown under their name and select "Add recipe" from anywhere on the site, this will then prompt a tabbed modal to appear where the recipe can be added in three sections, images can be added after the recipe is added.
+##### Pending Reviews
+
+Section for site owners to to moderate customer reviews on the developers.
+
+#### Cart
+
+Store customer selections and show details include price and quantity of developers they intend to purchase 
 
  <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599478300/recipemodal_l2gb5e.png"  style="center"  width="100%">
 
-#### Edit Recipe / Copy & Edit Recipe / Delete Recipe
+#### Checkout + Stripe
 
-When on a recipe page:
-1.  The owner of the recipe is presented with an option to edit a recipe that will bring the user to a new page similar to the add recipe modal, where whatever is already in the recipe, will be populated and available for editing. They also here have the option to upload an image for their recipe here. This works through [Cloudinary](https://cloudinary.com/) API, if there is no image a new image will be uploaded to Cloudinary and the image URL will be stored in the database on the recipe document, if an image already exists it will delete the existing image, upload the new image and update the database will the new images URL. Also, only the owner of a recipe will be presented with the option to delete a recipe that will fully remove the recipe and all ratings for the associated recipe from the database.
+Allow users to complete their purchase via stripe API, have their order confimed and a summary of the order available on theur profile and emailed to them
  
  <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599493670/upload_image_ewmd3n.png"  style="center"  width="100%">
 
-2. A signed up (not-recipe owner) user will be presented with the option to copy a recipe, this fundamentally work very similar to the edit recipe except this does not overwrite the original recipe, it adds a new instance of it with a new ID and the author/owner of this new version is the user who copied it.
+#### Profile
 
- <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599493331/edit_copy_recipe_zv70zy.png"  style="center"  width="100%">
+Section where customers can see activity on their account such as previous orders and review they have left on developers they have previously worked with.
 
-3. A non-signed up user will only be able to view the recipe, attempts to do actions that are limited to signed up users will redirect them to the home page.
 
 ## TECHNOLOGIES USED
 
   
-
 ### Languages
 
-*  [HTML](https://en.wikipedia.org/wiki/HTML) - Struture of the page.
+*   [HTML](https://en.wikipedia.org/wiki/HTML) - Struture of the page.
 
-*  [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - Style of the page.
+*   [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - Style of the page.
 
-*  [Javascript](https://en.wikipedia.org/wiki/JavaScript) - User and API interaction/animation.
+*   [Javascript](https://en.wikipedia.org/wiki/JavaScript) - User and API interaction/animation.
 
-*  [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) 3.8.3 - Backend of app.  
-
-* [Jinja2](https://pypi.org/project/Jinja2/) 2.11.2 - Templating language.
+*   [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) 3.8.6 - Backend of app.  
 
 ### APIs
 
-*  [Cloudinary](https://cloudinary.com/)
+*   [Stripe](https://stripe.com/en-ie)
 
 ### Frameworks
-*	[Flask 1.1.2](https://flask.palletsprojects.com/en/1.1.x/)
+*   [Django](https://www.djangoproject.com/)
 
 ### Libraries
 
-*  [Bootstrap 4.5](https://getbootstrap.com/)
+*   [Bootstrap 4.5.3](https://getbootstrap.com/)
 
-*  [Font Awesome 5.14](https://fontawesome.com/)
+*   [Font Awesome 5.15.2](https://fontawesome.com/)
 
-*  [JQuery 3.5.1](https://jquery.com/)
+*   [JQuery 3.5.1](https://jquery.com/)
 
-*  [Chart.js 2.8.0](https://www.chartjs.org/)
+*   [Toastr.js 2.1.3](https://github.com/CodeSeven/toastr)
 
 
 ### Tools
 
-* [Github](https://github.com/) - Repository Hosting.
+*   [Github](https://github.com/) - Repository Hosting.
 
-* [Gitpod](https://www.gitpod.io/) - IDE.
+*   [Gitpod](https://www.gitpod.io/) - IDE.
 
-* [Google Chrome developer tools](https://developers.google.com/web/tools/chrome-devtools) - UX Testing.
+*   [Google Chrome developer tools](https://developers.google.com/web/tools/chrome-devtools) - UX Testing.
 
-* [Responsive Test Tools](http://responsivetesttool.com/) - UX Testing.
+*   [Responsive Test Tools](http://responsivetesttool.com/) - UX Testing.
 
-* [W3C - HTML Validator](https://validator.w3.org/) - Validate HTML.
+*   [W3C - HTML Validator](https://validator.w3.org/) - Validate HTML.
 
-* [W3C - CSS Validator](https://jigsaw.w3.org/css-validator/) - Validate CSS.
+*   [W3C - CSS Validator](https://jigsaw.w3.org/css-validator/) - Validate CSS.
 
-* [Codebeautify](https://codebeautify.org/css-beautify-minify) - Format CSS.
+*   [Codebeautify](https://codebeautify.org/css-beautify-minify) - Format CSS.
 
-* [AutoPrefixer](https://autoprefixer.github.io/) - Add vendor prefixes to CSS.
+*   [AutoPrefixer](https://autoprefixer.github.io/) - Add vendor prefixes to CSS.
 
-* [Codepen](https://codepen.io/) - Isolated code testing.
+*   [Codepen](https://codepen.io/) - Isolated frontent code testing.
 
-* [Balsamiq](https://balsamiq.com/) - Wireframes.
+*   [Balsamiq](https://balsamiq.com/) - Wireframes.
 
-* [Stackedit](https://stackedit.io/) - Live markdown editor.
+*   [Stackedit](https://stackedit.io/) - Live markdown editor.
 
-* [vecteezy](https://www.vecteezy.com/) - App graphics.
+*   [Pexels](www.pexels.com) - Developer Pictures.
 
-* [GitGuardian.com](https://dashboard.gitguardian.com/) - Monitor repo commits for senstive information(API keys etc).
+*   [GitGuardian.com](https://dashboard.gitguardian.com/) - Monitor repo commits for senstive information(API keys etc).
+
+*   [GitGuardian.com](https://dashboard.gitguardian.com/) - Monitor repo commits for senstive information(API keys etc).
+
+*   [Markdown - TOC](https://ecotrust-canada.github.io/markdown-toc/) - Generate table of contents for README.md.
 
 > Note: Additional dependencies per requirements.txt file
 
