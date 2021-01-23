@@ -6,6 +6,7 @@
 {% endblock %}
 {% block content %}
 <div class="container">
+    <!-- if got to page via delete developer funcitonality, option to complete deletion -->
     {% if confirm_delete %}
     <div class="card text-center my-3 bg-danger text-white">
         <div class="card-header bg-danger text-white">
@@ -29,6 +30,7 @@
         </div>
     </div>
     {% endif %}
+    <!-- Developer details section -->
     <div class="container py-5">
         <div class="main-body my-5">
             <div class="row gutters-sm">
@@ -233,6 +235,7 @@
                         <div class="col-12 mb-3">
                             <div class="card h-100">
                                 <div class="d-flex mb-3 card-header">
+                                    <!-- Reviews section -->
                                     <h4>Reviews</h4>
                                     {% if in_ord_history %}
                                     <span class="ml-auto"><a class="btn btn-primary btn-sm"
@@ -259,6 +262,7 @@
                                     <p>{{ review.review_body }}</p>
                                     <p class="text-muted text-right text-capitalize"> - {{ review.reviewer }},
                                         {{ review.review_date }}</p>
+                                    <!-- if user email matches developer email option to dispute review id hasnt alreayd been disputed -->
                                     {% if as_dev %}
                                     {% if review.dispute_history != True %}
                                     <form method="POST" id="approve-review_{{ review.id }}"
@@ -298,6 +302,7 @@
         </div>
     </div>
 </div>
+<!-- Modal to confirm delete if did not get to page via delete developer funcitonality -->
 {% if not confirm_delete %}
 <div class="modal" id="confirmDelete" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">

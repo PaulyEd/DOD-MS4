@@ -75,7 +75,7 @@ class StripeWH_Handler:
                 profile.default_street_address2 = billing_details.address.line2
                 profile.default_county = billing_details.address.state
                 profile.save()
-        
+        # check if order exists 5 times, if not create order
         order_exists = False
         attempt = 1
         while attempt <= 5:

@@ -1,6 +1,10 @@
 from django.db import models
 from django_countries.fields import CountryField
-
+"""
+Models for store data related to the developer,
+similar to that of the product models in
+code institute project: Boutique Ado
+"""
 
 class Language(models.Model):
     name = models.CharField(max_length=254)
@@ -55,7 +59,8 @@ class Developer(models.Model):
     facebook = models.CharField(max_length=254, null=True, blank=True)
     email = models.EmailField(max_length=254, null=True, blank=True)
     rate = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(max_digits=6,
+                                 decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 

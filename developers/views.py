@@ -24,6 +24,7 @@ def all_developers(request):
     redirect_url = request.GET.get('redirect_url')
 
     if request.GET:
+        # for searching and sorting via various data points
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
@@ -91,9 +92,15 @@ def developer_detail(request, developer_id):
     in_ord_history = False
     as_dev = False
     developer = get_object_or_404(Developer, pk=developer_id)
-    reviews = Review.objects.all().filter(developer=developer.id, review_status='Approved')
+    reviews = Review.objects.all().filter(developer=developer.id,
+                                          review_status='Approved')
     review_count = reviews.count()
-
+    """
+    if logged in user, check if user has this
+    dev in order history - allows for reviewing
+    if logged in user, check if user is the developer
+    allows for disputing reviews
+    """
     if request.user.is_authenticated:
         current_user = get_object_or_404(UserProfile, pk=request.user.id)
         current_user_email = request.user.email
@@ -101,8 +108,8 @@ def developer_detail(request, developer_id):
         order_hist = []
 
         for users_order in users_orders:
-            in_history = OrderLineItem.objects.all().filter(order=users_order.id,
-                developer=developer_id)
+            in_history = OrderLineItem.objects.all().filter(
+                         order=users_order.id, developer=developer_id)
             order_hist.append(in_history)
 
         if 'Dev' in str(order_hist):
@@ -110,7 +117,7 @@ def developer_detail(request, developer_id):
 
         if current_user_email == developer.email:
             as_dev = True
-    
+
     context = {
         'developer': developer,
         'reviews': reviews,
@@ -128,7 +135,7 @@ def add_developer(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only staff can do that.')
         return redirect(reverse('home'))
-        
+
     if request.method == 'POST':
         form = DeveloperForm(request.POST, request.FILES)
         if form.is_valid():

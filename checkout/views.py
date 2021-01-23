@@ -35,7 +35,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-
+        # Submit order to database
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],

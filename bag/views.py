@@ -23,7 +23,7 @@ def add_to_bag(request, item_id):
     hours = ""
 
     """ensure delete is not resubmitted if user got
-     to page via delete function - side cart"""
+    to page via delete function - side cart"""
     if "/delete" in redirect_url:
         redirect_url = redirect_url.replace("/delete", "")
 
@@ -59,7 +59,7 @@ def adjust_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
 
     """ensure delete is not resubmitted if
-     user got to page via delete function - side cart"""
+    user got to page via delete function - side cart"""
     if "/delete" in redirect_url:
         redirect_url = redirect_url.replace("/delete", "")
 

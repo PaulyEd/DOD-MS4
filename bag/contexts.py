@@ -3,7 +3,11 @@ from developers.models import Developer
 
 
 def bag_contents(request):
-    """" Try/Except block to catch if a developer has been deleted whilst in user bag to prevent session 404"""
+    """"
+    Try/Except block to catch if a developer 
+    has been deleted whilst in user bag 
+    to prevent session 404
+    """
 
     bag_items = []
     total = 0

@@ -13,6 +13,7 @@ class DeveloperForm(forms.ModelForm):
                              widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
+        # use user friendly names in form
         super().__init__(*args, **kwargs)
         frameworks = Framework.objects.all()
         f_friendly_names = [(c.id, c.get_friendly_name()) for c in frameworks]

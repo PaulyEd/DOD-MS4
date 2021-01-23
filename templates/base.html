@@ -27,6 +27,7 @@
       {% endblock %}
       <title>Dev on Demand {% block extra_title %}{% endblock %}</title>
    </head>
+   <!-- Main nav with variations for mobile and desktop screens -->
    <body class="bg-light">
       <header class="container-fluid sticky-top px-0">
          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -48,6 +49,7 @@
             </form>
          </div>
       </header>
+      <!-- toastr messages -->
       {% include 'includes/toastr_scripts.html' %}
       {% if messages %}
       {% for message in messages %}
@@ -63,14 +65,14 @@
       {% endfor %}
       {% endif %}
       <div class="row" id="body-row">
-         <!-- MAIN -->
+         <!-- main section dvided in page content and side bar if items in cart -->
          <div class="col p-0">
             {% block page_header %}
             {% endblock %}
             {% block content %}
             {% endblock %}
          </div>
-         <div class="div">
+         <div class="d-none d-lg-block">
             {% block side-cart %}
             {% endblock %}
          </div>
@@ -100,6 +102,7 @@
             </div>
          </div>
       </div>
+      <!-- page footer with social media and standard footer links -->
       <footer class="bg-primary">
          <div class="container py-0 py-md-5">
             <div class="row py-1 py-md-4">
@@ -141,6 +144,7 @@
                      <li class="mb-2"><a href="#" class="text-white">Our Devs</a></li>
                   </ul>
                </div>
+               <!-- FOR DISPLAY PURPOSELY ONLY TO FILL OUT FOOTER ON REAL STORE WOULD HAVE FUNCTIONALITY -->
                <div class="col-lg-4 col-md-6 mb-lg-0 text-center">
                   <h6 class="text-uppercase font-weight-bold mb-4">Newsletter</h6>
                   <p class="text-white mb-4">Sign up to say up to date with all our latest promotions and insights from our devs!</p>

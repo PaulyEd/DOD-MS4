@@ -268,11 +268,11 @@ li.nav-item > a:hover {
             align-items: center;
 }
 
+/* Misc */
 .border-box{
     -webkit-box-shadow:inset 0px 0px 0px 1px rgba(0,0,0,.1);
     box-shadow:inset 0px 0px 0px 1px rgba(0,0,0,.1);
 }
-
 
 .dynamic-text {
     font-size: .8vw;
@@ -296,6 +296,19 @@ li.nav-item > a:hover {
 
 .l-0{
     line-height: inherit !important;
+}
+
+.checkout-element:focus {
+  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
+          box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+
+.text-primary-action:focus,
+.text-primary-action:hover,
+.text-primary-action:active
+{
+    color:#fff !important;
 }
 
 /* Media Queries */
@@ -399,12 +412,14 @@ li.nav-item > a:hover {
     filter:alpha(opacity=100);
 }
 
-/* TEST */
+
+/* Sidebar */
 #body-row {
     margin-left:0;
     margin-right:0;
     min-height: 60%;
 }
+
 #sidebar-container {
     min-height: 100%;
     max-height: 1200px;   
@@ -414,71 +429,8 @@ li.nav-item > a:hover {
     overflow-y: auto;
 }
 
-/* Sidebar sizes when expanded and expanded */
 .sidebar-expanded {
     width: 230px;
-}
-.sidebar-collapsed {
-    width: 60px;
-}
-
-/* Menu item*/
-#sidebar-container .list-group a {
-    height: 50px;
-    color: white;
-}
-
-/* Submenu item*/
-#sidebar-container .list-group .sidebar-submenu a {
-    height: 45px;
-    padding-left: 30px;
-}
-.sidebar-submenu {
-    font-size: 0.9rem;
-}
-
-/* Separators */
-.sidebar-separator-title {
-    background-color: #333;
-    height: 35px;
-}
-.sidebar-separator {
-    background-color: #333;
-    height: 25px;
-}
-.logo-separator {
-    background-color: #333;    
-    height: 60px;
-}
-
-/* Closed submenu icon */
-#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
-  content: " \f0d7";
-  font-family: FontAwesome;
-  display: inline;
-  text-align: right;
-  padding-left: 10px;
-}
-/* Opened submenu icon */
-#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
-  content: " \f0da";
-  font-family: FontAwesome;
-  display: inline;
-  text-align: right;
-  padding-left: 10px;
-}
-
-.checkout-element:focus {
-  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
-          box-shadow: 0 1px 3px 0 #cfd7df;
-}
-
-
-.text-primary-action:focus,
-.text-primary-action:hover,
-.text-primary-action:active
-{
-    color:#fff !important;
 }
 
 

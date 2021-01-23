@@ -10,7 +10,6 @@ from profiles.models import UserProfile
 from checkout.models import Order, OrderLineItem
 from .forms import ReviewForm
 
-# Create your views here.
 
 
 @login_required
@@ -20,7 +19,7 @@ def add_review(request, developer_id):
     reviewer = get_object_or_404(UserProfile, pk=request.user.id)
     users_orders = reviewer.orders.all()
     order_hist = []
-
+    """ check if dev is in current users purchase history """
     for users_order in users_orders:
         in_history = OrderLineItem.objects.all().filter(
                      order=users_order.id, developer=developer.id)
@@ -51,6 +50,7 @@ def add_review(request, developer_id):
                     )
                     review.review_status = 'Pending'
                     review.save()
+                    # Update developer rating & count
                     review_count = Review.objects.filter(
                                    developer=developer).count()
                     rating_total = Review.objects.filter(
@@ -69,7 +69,7 @@ def add_review(request, developer_id):
                 else:
                     messages.error(request, 'Review failed, please \
                                             ensure the form is valid.')
-                """ Add new review """
+                """ If first time reviewing dev, Add new review """
             except Review.DoesNotExist:
                 if review_form.is_valid():
                     review_form.save()
@@ -80,6 +80,7 @@ def add_review(request, developer_id):
                     )
                     review.review_status = 'Pending'
                     review.save()
+                    # Update developer rating & count
                     review_count = Review.objects.filter(
                                    developer=developer).count()
                     rating_total = Review.objects.filter(
@@ -99,13 +100,14 @@ def add_review(request, developer_id):
                                             ensure the form is valid.')
         else:
             try:
+                """ pre-populate form if updating review """
                 review = Review.objects.get(
                         developer=developer,
                         reviewer=reviewer,
                     )
                 instance = get_object_or_404(Review, id=review.id)
                 review_form = ReviewForm(instance=instance)
-                """ Add new review """
+                """ display blank form """
             except Review.DoesNotExist:
                 review_form = ReviewForm()
 
@@ -126,6 +128,7 @@ def add_review(request, developer_id):
 
 @login_required
 def delete_review(request, review_id):
+    """ Delete review and update developer rating and rating count """
     review = get_object_or_404(Review, pk=review_id)
     reviewer = get_object_or_404(UserProfile, pk=request.user.id)
     developer = get_object_or_404(Developer, pk=review.developer.id)
@@ -160,7 +163,7 @@ def delete_review(request, review_id):
 
 @login_required
 def review_moderation(request):
-    """ Display the user's profile. """
+    """ show all reviews with status of pending or disputed """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only staff can do that.')
         return redirect(reverse('home'))
@@ -179,7 +182,8 @@ def review_moderation(request):
 
 @login_required
 def approve_review(request, review_id):
-    """ Display the user's profile. """
+    """ approve review and flag if has been approved
+    after dispute to prevent dispute spamming """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only staff can do that.')
         return redirect(reverse('home'))
@@ -196,7 +200,7 @@ def approve_review(request, review_id):
 
 @login_required
 def reject_review(request, review_id):
-    """ Display the user's profile. """
+    """ reject a review so it will not be displayed """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only staff can do that.')
         return redirect(reverse('home'))
@@ -211,23 +215,28 @@ def reject_review(request, review_id):
 
 @login_required
 def dispute_review(request, review_id):
-    """ Display the user's profile. """
-    current_user = get_object_or_404(UserProfile, pk=request.user.id)
+    """
+    For developers to contest a review if they
+    believe to be unjust or inappropriate
+    """
     current_user_email = request.user.email
     review = get_object_or_404(Review, pk=review_id)
     developer = get_object_or_404(Developer, pk=review.developer.id)
-    
+    """check that current user is developer"""
     if not current_user_email == developer.email:
         messages.error(request, 'Sorry, only the developer can do that!')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        if review.dispute_history == True:
-            messages.error(request, 'Sorry, this review has already gone through dispute resolution process!')
+        """check if review has been disputed before"""
+        if review.dispute_history is True:
+            messages.error(request, 'Sorry, this review has already gone \
+                                    through dispute resolution process!')
             return redirect(reverse('developer_detail', args=[developer.id]))
         review.dispute_comment = request.POST.get('text')
         review.review_status = 'Disputed'
         review.save()
 
-    messages.error(request, 'Site moderators will evaluate if this review is appropriate!')
+    messages.error(request, 'Site moderators will evaluate if \
+                            this review is appropriate!')
     return redirect(reverse('developer_detail', args=[developer.id]))

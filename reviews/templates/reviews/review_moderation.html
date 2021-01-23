@@ -4,6 +4,7 @@
 <div class="container"></div>
 {% endblock %}
 {% block content %}
+<!-- Page for store owners to Approve/Reject Reviews -->
 <div class="container">
     <div class="row">
         <div class="col text-center mt-3">
@@ -13,6 +14,7 @@
     <div class="row">
         <div class="col-12 my-2 my-md-5 h-100">
             <div class="row gutters-sm">
+                <!-- Pending reivews section -->
                 {% if pending_reviews %}
                 <div class="{% if disputed_reviews %} col-6 {% else %} col-12 {% endif%} mb-3">
                     <div class="card">
@@ -86,6 +88,7 @@
                     </div>
                 </div>
                 {% endif %}
+                <!-- Disputed reivews section -->
                 {% if disputed_reviews %}
                 <div class="{% if pending_reviews %} col-6 {% else %} col-12 {% endif%} mb-3">
                     <div class="card">
@@ -169,6 +172,7 @@
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
+<!-- used to as confirm on actions, hides orginal button and displays submit button for forms, helps against accidental action -->
 <script type="text/javascript">
     $(".action_").click(function () {
         $(this).addClass("d-none");

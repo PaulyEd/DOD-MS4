@@ -2,8 +2,10 @@ from django.db import models
 from developers.models import Developer
 from profiles.models import UserProfile
 from django.utils import timezone
-
-# Create your models here.
+"""
+Review model to store datapoints related to review
+and review dispute resolution
+"""
 
 RATING_CHOICES = (
     ('1', '1 - Star'),
@@ -39,8 +41,8 @@ class Review(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the order number
-        if it hasn't been set already.
+        Override the original save method to update the time
+        if the review has been updated
         """
         self.review_date = timezone.now()
         super().save(*args, **kwargs)

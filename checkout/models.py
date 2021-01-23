@@ -9,6 +9,10 @@ from profiles.models import UserProfile
 
 from django_countries.fields import CountryField
 
+"""
+Order & Order line item models based on models built as 
+part of the code institute Project: Boutique Ado
+"""
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)

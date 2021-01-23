@@ -7,6 +7,7 @@
 <div class="container"></div>
 {% endblock %}
 {% block content %}
+<!-- User dasboard to see there deatils, order history & review they have created -->
 <div class="container">
     <div class="row">
         <div class="col text-center mt-3">
@@ -181,6 +182,7 @@
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
+<!-- used to as confirm on actions, hides orginal button and displays submit button for forms, helps against accidental action -->
 <script type="text/javascript">
     $(".delete_").click(function () {
         $(this).parent("div").addClass("d-none");
