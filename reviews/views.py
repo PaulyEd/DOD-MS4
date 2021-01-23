@@ -165,11 +165,13 @@ def review_moderation(request):
         messages.error(request, 'Sorry, only staff can do that.')
         return redirect(reverse('home'))
 
-    reviews = Review.objects.all().filter(review_status='Pending')
+    pending_reviews = Review.objects.all().filter(review_status='Pending')
+    disputed_reviews = Review.objects.all().filter(review_status='Disputed')
 
     template = 'reviews/review_moderation.html'
     context = {
-        'reviews': reviews,
+        'pending_reviews': pending_reviews,
+        'disputed_reviews': disputed_reviews,
     }
 
     return render(request, template, context)
@@ -184,6 +186,8 @@ def approve_review(request, review_id):
 
     if request.method == 'POST':
         review = get_object_or_404(Review, pk=review_id)
+        if review.review_status == 'Disputed':
+            review.dispute_history = True
         review.review_status = 'Approved'
         review.save()
 
@@ -218,7 +222,11 @@ def dispute_review(request, review_id):
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        review.review_status = 'Pending'
+        if review.dispute_history == True:
+            messages.error(request, 'Sorry, this review has already gone through dispute resolution process!')
+            return redirect(reverse('developer_detail', args=[developer.id]))
+        review.dispute_comment = request.POST.get('text')
+        review.review_status = 'Disputed'
         review.save()
 
     messages.error(request, 'Site moderators will evaluate if this review is appropriate!')

@@ -6,6 +6,7 @@ from profiles.models import UserProfile
 from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate
 from .forms import DeveloperForm
 
 # Create your views here.
@@ -89,11 +90,12 @@ def developer_detail(request, developer_id):
     """ Return the a requested developer to dev detail page """
     in_ord_history = False
     as_dev = False
-    try:
-        developer = get_object_or_404(Developer, pk=developer_id) or None
-        reviews = Review.objects.all().filter(developer=developer.id)
-        review_count = Review.objects.filter(developer=developer).count()
-        current_user = get_object_or_404(UserProfile, pk=request.user.id) or None
+    developer = get_object_or_404(Developer, pk=developer_id)
+    reviews = Review.objects.all().filter(developer=developer.id, review_status='Approved')
+    review_count = reviews.count()
+
+    if request.user.is_authenticated:
+        current_user = get_object_or_404(UserProfile, pk=request.user.id)
         current_user_email = request.user.email
         users_orders = current_user.orders.all()
         order_hist = []
@@ -108,20 +110,14 @@ def developer_detail(request, developer_id):
 
         if current_user_email == developer.email:
             as_dev = True
-
-        context = {
-            'developer': developer,
-            'reviews': reviews,
-            'review_count': review_count,
-            'in_ord_history': in_ord_history,
-            'as_dev': as_dev,
-        }
-    except Exception:
-        context = {
-            'developer': developer,
-            'reviews': reviews,
-            'as_dev': as_dev,
-        }
+    
+    context = {
+        'developer': developer,
+        'reviews': reviews,
+        'review_count': review_count,
+        'in_ord_history': in_ord_history,
+        'as_dev': as_dev,
+    }
 
     return render(request, 'developers/developer_detail.html', context)
 

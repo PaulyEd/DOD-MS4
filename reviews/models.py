@@ -17,6 +17,7 @@ REVIEW_STATUS = (
     ('Pending', 'Pending'),
     ('Rejected', 'Rejected'),
     ('Approved', 'Approved'),
+    ('Disputed', 'Disputed'),
 )
 
 
@@ -33,6 +34,8 @@ class Review(models.Model):
     review_date = models.DateTimeField(default=timezone.now, blank=True)
     reviewer = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                  null=True, blank=True)
+    dispute_comment = models.TextField(max_length=250, blank=True, default='')
+    dispute_history = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         """

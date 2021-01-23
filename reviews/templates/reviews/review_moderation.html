@@ -11,43 +11,44 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 my-2 my-md-5">
+        <div class="col-12 my-2 my-md-5 h-100">
             <div class="row gutters-sm">
-                <div class="col-12 mb-3">
-                    <div class="card h-100">
+                {% if pending_reviews %}
+                <div class="{% if disputed_reviews %} col-6 {% else %} col-12 {% endif%} mb-3">
+                    <div class="card">
                         <div class="d-flex mb-3 card-header">
-                            <h4 class="mx-auto">Reviews</h4>
+                            <h4 class="mx-auto">Pending Reviews</h4>
                         </div>
-                        {% if reviews %}
-                        {% for review in reviews.all %}
+                        {% for pending_review in pending_reviews.all %}
                         <div class="card-body m-3 p-1 bg-light border rounded border-primary">
-                            <h5 class="mb-1">{{ review.developer }} - {{ review.review_header }} - <label
-                                    {% if review.review_rating in "1,2,3,4,5" %} style="color: #fddb87" {% endif %}
-                                    id="rating-1" class="h4">
+                            <h5 class="mb-1">{{ pending_review.developer }} - {{ pending_review.review_header }} -
+                                <label {% if pending_review.review_rating in "1,2,3,4,5" %} style="color: #fddb87"
+                                    {% endif %} id="rating-1" class="h4">
                                     <span class="icon">★</span>
                                 </label>
-                                <label {% if review.review_rating in "2,3,4,5" %} style="color: #fddb87" {% endif %}
-                                    id="rating-2" class="h4">
+                                <label {% if pending_review.review_rating in "2,3,4,5" %} style="color: #fddb87"
+                                    {% endif %} id="rating-2" class="h4">
                                     <span class="icon">★</span>
                                 </label>
-                                <label {% if review.review_rating in "3,4,5" %} style="color: #fddb87" {% endif %}
-                                    id="rating-3" class="h4">
+                                <label {% if pending_review.review_rating in "3,4,5" %} style="color: #fddb87"
+                                    {% endif %} id="rating-3" class="h4">
                                     <span class="icon">★</span>
                                 </label>
-                                <label {% if review.review_rating in "4,5" %} style="color: #fddb87" {% endif %}
+                                <label {% if pending_review.review_rating in "4,5" %} style="color: #fddb87" {% endif %}
                                     id="rating-4" class="h4">
                                     <span class="icon">★</span>
                                 </label>
-                                <label {% if review.review_rating in "5" %} style="color: #fddb87" {% endif %}
+                                <label {% if pending_review.review_rating in "5" %} style="color: #fddb87" {% endif %}
                                     id="rating-5" class="h4">
                                     <span class="icon">★</span>
                                 </label>
                             </h5>
                             <br>
-                            <p>{{ review.review_body }}</p>
-                            <p class="text-muted text-right text-capitalize"> - {{ review.reviewer }}, {{ review.review_date }}</p>
-                            <form method="POST" id="approve-review_{{ review.id }}"
-                                action="{% url 'approve_review' review.id %}" enctype="multipart/form-data"
+                            <p>{{ pending_review.review_body }}</p>
+                            <p class="text-muted text-right text-capitalize"> - {{ pending_review.reviewer }},
+                                {{ pending_review.review_date }}</p>
+                            <form method="POST" id="approve-review_{{ pending_review.id }}"
+                                action="{% url 'approve_review' pending_review.id %}" enctype="multipart/form-data"
                                 class="d-inline">
                                 {% csrf_token %}
                                 <a class="btn btn-sm btn-success action_">
@@ -63,8 +64,8 @@
                                     <span class="font-weight-bold">Confirm</span>
                                 </button>
                             </form>
-                            <form method="POST" id="reject-review_{{ review.id }}"
-                                action="{% url 'reject_review' review.id %}" enctype="multipart/form-data"
+                            <form method="POST" id="reject-review_{{ pending_review.id }}"
+                                action="{% url 'reject_review' pending_review.id %}" enctype="multipart/form-data"
                                 class="d-inline">
                                 {% csrf_token %}
                                 <a class="btn btn-sm btn-danger float-right action_">
@@ -82,9 +83,85 @@
                             </form>
                         </div>
                         {% endfor %}
-                        {% endif %}
                     </div>
                 </div>
+                {% endif %}
+                {% if disputed_reviews %}
+                <div class="{% if pending_reviews %} col-6 {% else %} col-12 {% endif%} mb-3">
+                    <div class="card">
+                        <div class="d-flex mb-3 card-header">
+                            <h4 class="mx-auto">Disputed Reviews</h4>
+                        </div>
+                        {% for disputed_review in disputed_reviews.all %}
+                        <div class="card-body m-3 p-1 bg-light border rounded border-primary">
+                            <h5 class="mb-1">{{ disputed_review.developer }} - {{ disputed_review.review_header }} -
+                                <label {% if disputed_review.review_rating in "1,2,3,4,5" %} style="color: #fddb87"
+                                    {% endif %} id="rating-1" class="h4">
+                                    <span class="icon">★</span>
+                                </label>
+                                <label {% if disputed_review.review_rating in "2,3,4,5" %} style="color: #fddb87"
+                                    {% endif %} id="rating-2" class="h4">
+                                    <span class="icon">★</span>
+                                </label>
+                                <label {% if disputed_review.review_rating in "3,4,5" %} style="color: #fddb87"
+                                    {% endif %} id="rating-3" class="h4">
+                                    <span class="icon">★</span>
+                                </label>
+                                <label {% if disputed_review.review_rating in "4,5" %} style="color: #fddb87"
+                                    {% endif %} id="rating-4" class="h4">
+                                    <span class="icon">★</span>
+                                </label>
+                                <label {% if disputed_review.review_rating in "5" %} style="color: #fddb87" {% endif %}
+                                    id="rating-5" class="h4">
+                                    <span class="icon">★</span>
+                                </label>
+                            </h5>
+                            <br>
+                            <p>{{ disputed_review.review_body }}</p>
+                            <p class="text-muted text-right text-capitalize"> - {{ disputed_review.reviewer }},
+                                {{ disputed_review.review_date }}</p>
+                            <div class="card-footer text-muted mb-2">
+                                <strong>Developer dispute comment:</strong> {{ disputed_review.dispute_comment }}
+                            </div>
+                            <form method="POST" id="approve-review_{{ disputed_review.id }}"
+                                action="{% url 'approve_review' disputed_review.id %}" enctype="multipart/form-data"
+                                class="d-inline">
+                                {% csrf_token %}
+                                <a class="btn btn-sm btn-success action_">
+                                    <span class="icon">
+                                        <i class="far fa-check-circle"></i>
+                                    </span>
+                                    <span class="font-weight-bold">Approve</span>
+                                </a>
+                                <button type="submit" class="btn btn-sm btn-outline-success d-none">
+                                    <span class="icon">
+                                        <i class="far fa-check-circle"></i>
+                                    </span>
+                                    <span class="font-weight-bold">Confirm</span>
+                                </button>
+                            </form>
+                            <form method="POST" id="reject-review_{{ disputed_review.id }}"
+                                action="{% url 'reject_review' disputed_review.id %}" enctype="multipart/form-data"
+                                class="d-inline">
+                                {% csrf_token %}
+                                <a class="btn btn-sm btn-danger float-right action_">
+                                    <span class="icon">
+                                        <i class="far fa-times-circle"></i>
+                                    </span>
+                                    <span class="font-weight-bold">Reject</span>
+                                </a>
+                                <button type="submit" class="btn btn-sm btn-outline-danger float-right d-none">
+                                    <span class="icon">
+                                        <i class="far fa-times-circle"></i>
+                                    </span>
+                                    <span class="font-weight-bold">Confirm</span>
+                                </button>
+                            </form>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

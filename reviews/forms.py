@@ -5,7 +5,7 @@ from .models import Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        exclude = ('developer', 'reviewer', 'review_date', 'review_status')
+        exclude = ('developer', 'reviewer', 'review_date', 'review_status', 'dispute_comment', 'dispute_history')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -20,3 +20,4 @@ class ReviewForm(forms.ModelForm):
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
+
