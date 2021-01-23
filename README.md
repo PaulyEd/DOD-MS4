@@ -256,6 +256,12 @@ Section where customers can see activity on their account such as previous order
 
 *   [Pexels](www.pexels.com) - Developer Pictures.
 
+*   [JSONFormatter](https://jsonformatter.org/) - Format fixture files.
+
+*   CSV/JSON Tools [1](https://csvjson.com/csv2json), [2](https://json-csv.com/), [3](https://www.convertcsv.com/csv-to-json.html) - Multiple tools used to help me create and convert fixture files from csv to json.
+
+*   [Pexels](www.pexels.com) - Developer Pictures.
+
 *   [GitGuardian.com](https://dashboard.gitguardian.com/) - Monitor repo commits for senstive information(API keys etc).
 
 *   [GitGuardian.com](https://dashboard.gitguardian.com/) - Monitor repo commits for senstive information(API keys etc).
@@ -396,13 +402,50 @@ I received inspiration for this project from the below websites:
 Below links helped me in various parts of the project to overcome issues:
 
 #### Javascript / JQuery:
-
+*   https://stackoverflow.com/questions/45004245/how-to-use-toastr-in-django-for-success-or-fail-message
+*   https://bbbootstrap.com/snippets/simple-toast-notification-toastr-76085299
+*   https://stripe.com/docs/js/appendix/style
+https://stackoverflow.com/questions/406192/get-current-url-with-jquery
 
 #### Python / Django:
+*   https://stackoverflow.com/questions/25386119/whats-the-difference-between-a-onetoone-manytomany-and-a-foreignkey-field-in-d#:~:text=of%20the%20relationship.-,ForeignKey,may%20be%20related%20to%20one.
+*   https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/
+*   https://stackoverflow.com/questions/4270330/django-show-a-manytomanyfield-in-a-template
+*   https://stackoverflow.com/questions/3217492/list-of-language-codes-in-yaml-or-json
+*   https://stackoverflow.com/questions/8368937/change-model-class-name-in-django-admin-interface/8369031
+*   https://stackoverflow.com/questions/35288084/how-to-display-a-manytomany-fields-in-the-template
+*   https://stackoverflow.com/questions/27149984/django-how-to-get-count-for-manytomany-field
+*   https://stackoverflow.com/questions/15507171/django-filter-query-foreign-key
+*   https://stackoverflow.com/questions/4459703/how-to-make-lists-contain-only-distinct-element-in-python
+*   https://stackoverflow.com/questions/39197723/how-to-move-singup-signin-templates-into-dropdown-menu/39235634#39235634
+*   https://www.youtube.com/watch?v=dXZim_jgaiI
+*   https://stackoverflow.com/questions/57192979/remove-substring-from-string-if-substring-is-contained-in-a-list
+*   https://www.reddit.com/r/django/comments/2q5u0p/way_to_make_a_min_and_max_values_restriction_on_a/
+*   https://stackoverflow.com/questions/849142/how-to-limit-the-maximum-value-of-a-numeric-field-in-a-django-model
+*   https://docs.djangoproject.com/en/3.1/ref/models/fields/
+*   https://stackoverflow.com/questions/31130706/dropdown-in-django-model
+*   https://stackoverflow.com/questions/4673985/how-to-update-an-object-from-edit-form-in-django
+*   https://docs.djangoproject.com/en/3.1/topics/db/queries/
+*   https://stackoverflow.com/questions/3965104/not-none-test-in-python
+*   https://stackoverflow.com/questions/4843158/check-if-a-python-list-item-contains-a-string-inside-another-string
+*   https://stackoverflow.com/questions/37867447/how-can-i-update-a-django-models-datetimefield-when-another-specific-field-in-t
+*   https://stackoverflow.com/questions/27771000/django-template-convert-to-string
+*   https://stackoverflow.com/questions/10556940/succinct-way-of-updating-a-single-field-of-a-django-model-object
+*   https://stackoverflow.com/questions/8616343/django-calculate-the-sum-of-the-column-values-through-query
+*   https://docs.djangoproject.com/en/dev/ref/templates/builtins/#floatformat
+*   https://stackoverflow.com/questions/28515470/wsgirequest-object-has-no-attribute-get
 
 
-#### Bootstrap:
-
+#### Bootstrap / HTML / CSS:
+*   https://jsfiddle.net/bootstrapious/c7ash30w
+*   https://www.bootdey.com/snippets/view/profile-with-data-and-skills#preview
+*   https://freefrontend.com/bootstrap-profiles/
+*   https://stackoverflow.com/questions/10989238/center-image-horizontally-within-a-div
+*   https://stackoverflow.com/questions/37920332/force-image-tag-to-be-perfect-circle
+*   https://stackoverflow.com/questions/37261988/force-text-to-stay-on-one-line
+*   https://bootsnipp.com/snippets/ZXKKD
+*   https://css-tricks.com/snippets/css/sticky-footer/
+*   https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
 
 #### Misc:
 
