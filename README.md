@@ -4,7 +4,7 @@
 
   
 
-# RecipeMe
+# <Dev_on_Demand>
 
   
 The purpse of this project is to demostrate the knowledge & skills developed in the final section of my course with The Code Institute. <Dev_on_Demand> is a e-commerce Django web app with a CRUD based SQL backend, its purpose is to allow freelance developers a place to market themselves and allow consumers to buy time with varying developers across numerous code based disaplines/practices, the purpose of the time bought is entirely at the consumers discreation, this could range from consultation for a business enterprise application to assisting a computer science student in a mentor/technical guidance role.
@@ -116,18 +116,13 @@ For this project I used [Balsamiq](https://balsamiq.com/) to create my initial f
 
 | Desktop / Tablet      | Mobile                 | 
 | --------------------- | ------------------------ | 
-|<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599469893/Desktop_-_Home_pxnxue.png"  style="center"  width="100%"> | <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599469893/Mobile_-_Home_xr5z6a.png"  style="center"  width="100%"> |
+|<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611493587/Home_-_Desktop_kuzcbx.png"  style="center"  width="100%"> | <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611493586/Home_-_Mobile_zgzluj.png"  style="center"  width="100%"> |
  
-##### Dashboard
+##### Developers
 | Desktop / Tablet      | Mobile                 | 
 | --------------------- | ------------------------ | 
-|x<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599469893/Desktop_-_Dashboard_j0jgtp.png"  style="center"  width="100%">| <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599469893/Mobile_-_Dashboard_j68gyr.png"  style="center"  width="100%">|
+|x<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611493585/Devs_-_Desktop_acyd7s.png"  style="center"  width="100%">| <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611493585/Devs_-_Mobile_a0ywav.png"  style="center"  width="100%">|
  
-##### Recipe
-
-| Desktop / Tablet         | Mobile                 | 
-| --------------------- | ------------------------ | 
-| <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599469893/Desktop_-_Recipe_bcwdio.png"  style="center"  width="100%"> | <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599469893/Mobile_-_Recipe_b6lbaa.png"  width="100%"> | 
 
 #### Primary Django Models
 
@@ -142,7 +137,7 @@ Review Model: Entirely custom - used to store information related to customer re
 
 Central navigation point of the project, split into different files for desktop and mobile variations, provides quick access to all the major link/functions of the site.
 
- <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599476966/Nav_bi150b.png"  style="center"  width="100%">
+ <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611493594/Navbar_fbd3fe.png"  style="center"  width="100%">
 
 #### Bootstrap
 
@@ -160,19 +155,21 @@ Bootstrap Primary, White and off-white was the main colour scheme used on this s
 
 Allows users to enter a term(s) and return results a developers name, what languages they speak and what languages or frameworks they are experienced in.
 
-<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599477745/search_il0m5y.png"  style="center"  width="70%">
+<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611493594/Navbar_Search_cf7gdl.png"  style="center"  width="70%">
 
 #### Side Bar Cart/Bag
 
 Shows users what they current have in their bag at all times in a non-intrusive manner
 
- <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599476608/Account_Managment_ia0xlu.png"  style="center"  width="100%">
+ <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611493942/SideCart2_lpbqeq.png"  style="center"  width="40%">
 
 #### Admin
 
 ##### Admin
 
 Link for admin to easily get the Django admin site if they needed functionality beyond that built into primary store frontend.
+
+<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611493594/Admin_options_pk97i1.png"  style="center"  width="70%">
 
 ##### Add a developer
 
@@ -186,13 +183,13 @@ Section for site owners to to moderate customer reviews on the developers.
 
 Store customer selections and show details include price and quantity of developers they intend to purchase 
 
- <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599478300/recipemodal_l2gb5e.png"  style="center"  width="100%">
+ <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611494192/cart_ced3ts.png"  style="center"  width="70%">
 
 #### Checkout + Stripe
 
 Allow users to complete their purchase via stripe API, have their order confimed and a summary of the order available on theur profile and emailed to them
  
- <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599493670/upload_image_ewmd3n.png"  style="center"  width="100%">
+ <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611494192/checkout_ifrw42.png"  style="center"  width="70%">
 
 #### Profile
 

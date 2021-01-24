@@ -4,8 +4,8 @@ from developers.models import Developer
 
 def bag_contents(request):
     """"
-    Try/Except block to catch if a developer 
-    has been deleted whilst in user bag 
+    Try/Except block to catch if a developer
+    has been deleted whilst in user bag
     to prevent session 404
     """
 
@@ -16,8 +16,8 @@ def bag_contents(request):
     try:
         for item_id, quantity in bag.items():
             developer = get_object_or_404(Developer, pk=item_id)
-            total = quantity * developer.rate
-            bag_item_count = quantity
+            total += quantity * developer.rate
+            bag_item_count += quantity
             bag_items.append(
                 {
                     "item_id": item_id,
