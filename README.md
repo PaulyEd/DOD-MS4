@@ -68,7 +68,6 @@ To test Stripe payment functionality in this project please use below details:
 
 ## UX & FEATURES
 
-  
 
 ### User Stories
 
@@ -110,7 +109,7 @@ This Project is designed to allow users to find developers that meet their requi
 
 #### Wireframes
 
-For this project I used [Balsamiq](https://balsamiq.com/) to create my initial frontend design using wireframes, very basic setup was done initially and the wireframes were updated as the project progressed along with my vision for how I wanted the app to look.
+For this project I used [Mockplus](https://www.mockplus.com/) to create my initial frontend design using wireframes, very basic setup was done initially and the wireframes were updated as the project progressed along with my vision for how I wanted the app to look.
 
 ##### Home
 
@@ -149,7 +148,6 @@ This was an intensive project, and I had to put most of my time into learning Dj
 
 Bootstrap Primary, White and off-white was the main colour scheme used on this site as I felt the colour was appropriate, had a nice contrast and most importantly given the timeframe, was native to bootstrap and such was a quick solution.
 
- <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599476969/Featured_iicnpw.png"  style="center"  width="70%">
 
 #### Search
 
@@ -247,9 +245,7 @@ Section where customers can see activity on their account such as previous order
 
 *   [Codepen](https://codepen.io/) - Isolated frontent code testing.
 
-*   [Balsamiq](https://balsamiq.com/) - Wireframes.
-
-*   [Stackedit](https://stackedit.io/) - Live markdown editor.
+*   [Mockplus](https://www.mockplus.com/) - Wireframes.
 
 *   [Pexels](www.pexels.com) - Developer Pictures.
 
@@ -267,53 +263,78 @@ Section where customers can see activity on their account such as previous order
 
 > Note: Additional dependencies per requirements.txt file
 
+
 ## TESTING / ISSUE RESOLUTION
 
   
+My aim for this project was to have most of the testing for this done via coded testing but due to time contraints I have not had time to write test code and as such all of my testing was done manually and the scenarios and finding to which are shown below:
 
-Each section has had extensive individual testing across multiple browsers including the use of chrome developer tools & [Website Responsive Testing Tool](http://responsivetesttool.com/) to test on a wide variety for sizes and aspect ratios, please see some key points to note below:
+General Functionality Testing:
 
-  
+| Action                     | Sub-action                                    | Scenario                                 | Expected outcome                | Result | Fix required |
+|----------------------------|-----------------------------------------------|------------------------------------------|---------------------------------|--------|--------------|
+| Sign up                    | Sign up                                       | Auth User                                | Login Fail                      |        |              |
+|                            | Sign up                                       | Non-Auth User                            | Login Pass                      |        |              |
+| Login                      | Login                                         | Non-Auth User                            | Login Fail                      |        |              |
+|                            | Login                                         | Auth User                                | Login Pass                      |        |              |
+|                            | Login                                         | Store owner                              | Login Pass                      |        |              |
+| Developer                  | Full process - Add/Update/Delete              | Non-Auth User                            | Not Available / Not Actionable  |        |              |
+|                            | Full process - Add/Update/Delete              | Auth User                                | Not Available / Not Actionable  |        |              |
+|                            | Full process - Add/Update/Delete              | Store Owner                              | All Actions Successful          |        |              |
+| Rating/Review              | Full process - Add/Update/Delete              | Non-Auth User                            | Not Available / Not Actionable  |        |              |
+|                            | Full process - Add/Update/Delete              | Auth User - Non-Purchase                 | Not Available / Not Actionable  |        |              |
+|                            | Full process - Add/Update/Delete              | Auth User - Purchase                     | All Actions Successful          |        |              |
+| Moderation - Rating/Review | Dispute a review                              | Non-Auth User                            | Not Available / Not Actionable  |        |              |
+|                            | Dispute a review                              | Auth User                                | Not Available / Not Actionable  |        |              |
+|                            | Dispute a review                              | Auth User - Developer (only own reviews) | Dispute Successful              |        |              |
+|                            | Approve/Reject Reviews                        | Non-Auth User                            | Not Available / Not Actionable  |        |              |
+|                            | Approve/Reject Reviews                        | Auth User                                | Not Available / Not Actionable  |        |              |
+|                            | Approve/Reject Reviews                        | Auth User - Developer (only own reviews) | Not Available / Not Actionable  |        |              |
+|                            | Approve/Reject Reviews                        | Store Owner                              | All Actions Successful          |        |              |
+| Search                     | By name                                       | All User types                           | Return based on criteria        |        |              |
+|                            | By Language (code)                            | All User types                           | Return based on criteria        |        |              |
+|                            | By Language (Spoken)                          | All User types                           | Return based on criteria        |        |              |
+|                            | By Framework (Spoken)                         | All User types                           | Return based on criteria        |        |              |
+| Bag/Cart                   | Full process - Add/Update/Delete              | Non-Auth User                            | All Actions Successful          |        |              |
+|                            | Full process - Add/Update/Delete              | Auth User                                | All Actions Successful          |        |              |
+|                            | Developer updated whilst in bag               | Any User                                 | Cost should be new cost         |        |              |
+|                            | Developer deleted whilst in bag               | Any User                                 | Bag Reset                       |        |              |
+| Checkout                   | Order Creation                                | Non-Auth User - Success                  | 1 order in system               |        |              |
+|                            | Order Creation                                | Non-Auth User - Failed before complete   | 1 order in system - via webhook |        |              |
+|                            | Order Creation                                | Auth User - Success                      | 1 order in system               |        |              |
+|                            | Order Creation                                | Auth User - Failed before complete       | 1 order in system - via webhook |        |              |
+|                            | Store Details                                 | Auth User                                | Updates user profile            |        |              |
+|                            | Store Details                                 | Non-Auth User                            | not available                   |        |              |
+|                            | Stripe - Payment                              | Auth User                                | Success                         |        |              |
+|                            | Stripe - Payment                              | Non-Auth User                            | Success                         |        |              |
+|                            | Developer with only required fields populated | Any User                                 | Success                         |        |              |
+|                            | Developer required field (Rate)               | Any User                                 | Fail                            |        |              |
+| Profiles                   | Update                                        | Auth User                                |                                 |        |              |
+|                            | Create                                        | Non-Auth User                            |                                 |        |              |
 
-1. Sensitive Data - upon deploying the live version of the site I noticed that my env.py file (containing API keys, Secrets etc.) had been committing to my repo despite being included in my git ignore file, after discovering this my plan was to rewrite the files out of my git history with `git filter-branch --index-filter 'git rm --cached --ignore-unmatch env.py' HEAD` but after consulting with Code Institute it was determined the best approach would be to remove the latest file and change all my keys, which I did.
+>**This were not only tested once project was full completed but also as each functionality was initially created.
 
-  
+UX/UI Testing:
+|Screen/View                 |Only Visable to…                        |Links|Responsive|Issues / Potential Enhancements       |
+|----------------------------|----------------------------------------|-----|----------|--------------------------------------|
+|Home                        |All                                     |     |Mostly    |Navbar warpping on tablet size screens|
+|Login / Sign up             |Non-Auth User                           |     |          |                                      |
+|Log out                     |Auth User                               |N/A  |          |                                      |
+|Developers                  |All                                     |     |          |                                      |
+|Developer Detail            |All                                     |     |          |                                      |
+|Add Developer               |Store Owner                             |     |          |                                      |
+|Edit Developer              |Store Owner                             |     |          |                                      |
+|Delete Developer            |Store Owner                             |     |          |                                      |
+|Add Review                  |Auth User - Purchased Dev               |     |          |                                      |
+|Dispute Review              |Auth User - Developer (only own reviews)|     |          |                                      |
+|Cart / Side Cart            |All                                     |     |          |                                      |
+|Checkout                    |All                                     |     |          |                                      |
+|Profile                     |Auth User                               |     |          |                                      |
+|Order History               |Auth User (only own purchases)          |     |          |                                      |
+|Review History & Edit/Delete|Auth User (only own reviews)            |     |          |                                      |
+|Pending Reviews             |Store Owner                             |     |          |                                      |
 
-2. User Testing - after deploying the live version of the site I had several family/friends try to use the app without instruction and based on these there was several fixes and updates to be made. in terms of fixes, the most notable was if a user was the "Top Chef" on the site and then delete their account, instead of the next highest rated user becoming top chef the section would just be blank, this behaviour was rectified. There was also a lot of feedback in terms of "expected behaviour", where a user would try click something they expected to be a link (such as recipe name, chef name) it wasn't set up as a nav link, this was also updated.
-
-  
-
-3. Session Testing - this was a major part of this project, ensuring only users who were authorised to do certain actions could do certain actions. Some of the key scenarios for testing were as follows:
-`No Account User`  to ensure they only had read the ability to the site, this user cannot add, update, delete any recipes without first signing up for an account and being in an active session. This goes beyond ti just presenting the link to the user but having server site code to detect if the user manual tried to access the functions via manual input of the URL.
-`Account User` be able to add a new recipe, rate recipes, be able to be top chef, be able to save other users recipes as for easy access, ensure dashboard populates correctly if the user has rated recipes.**
-`Account User - Recipe Owner` to ensure only the owner of a recipe could edit/delete a recipe and add an image for that recipe.
-`Account User - Not Recipe Owner` to be able to copy and create their own version of another users recipe without it impacting the original recipe.
-
->**As part of this testing it was discovered that the dashboard was populating based on ratings given out by the user instead of ratings for the users' recipes, this was rectified.
-  
-
-5. General UX Testing - Validating links: - TO BE UPDATED
-
-| Element/Link| Linked to / Action| 
-| - | - | 
-|Logo|Home|
-|Spotlight/Featured|Homepage sections|
-|All Recipes|All recipes function|
-|Sign In|Sign In modal|
-|Sign In button|Sign in function|
-|Create one button|Create account modal|
-|Create Account button|Create account function|
-|Password Fields|JS to validate match|
-|Password visable icons|Display password on hover|
-|Rating Stars|Highlight on hover / Rating function on click|
-|Add/Edit/Copy/Delete/Save/Unsave recipes|Linked to appropriate functions|
-|Sign Out|End session|
-|Edit Account|Edit account modal|
-|Update Account button|Update account function|
-|Delete Account|Delete account modal|
-|Delete Account button|Delete account function|
-|Username links|Display that users recipes|
-
+>**Auth = Logged in user, Non-Auth = Not logged in user
 
 
 

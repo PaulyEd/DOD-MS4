@@ -311,6 +311,11 @@ li.nav-item > a:hover {
     color:#fff !important;
 }
 
+.custom-input {
+    min-width: 120px;
+}
+
+
 /* Media Queries */
 
 @media (min-width: 1400px) {
@@ -396,6 +401,13 @@ li.nav-item > a:hover {
         font-size: 0.85rem;
     }
     #hero-image {
+    }
+}
+
+@media (max-width: 475px){
+    .nav-link-custom {
+        padding: 0;
+        font-size: 1.2rem;
     }
 }
 

@@ -71,7 +71,7 @@
                            action="{% url 'adjust_bag' item.item_id %}">
                            {% csrf_token %}
                            <div class="form-group ">
-                              <div class="input-group">
+                              <div class="input-group custom-input">
                                  <div class="input-group-prepend">
                                     <button
                                        class="btn btn-sm bg-primary btn-left decrement-qty decrement-qty_{{ item.item_id }}"
