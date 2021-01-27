@@ -64,8 +64,7 @@ def add_review(request, developer_id):
 
                     messages.success(request, f'You have updated your\
                                      review for {developer.name}')
-                    return redirect(reverse('developer_detail',
-                                            args=[developer.id]))
+                    return redirect(reverse('home'))
                 else:
                     messages.error(request, 'Review failed, please \
                                             ensure the form is valid.')
@@ -93,8 +92,7 @@ def add_review(request, developer_id):
 
                     messages.success(request, f'Thank you for \
                                      reviewing {developer.name}')
-                    return redirect(reverse('developer_detail',
-                                            args=[developer.id]))
+                    return redirect(reverse('home'))
                 else:
                     messages.error(request, 'Review failed, please \
                                             ensure the form is valid.')
@@ -123,7 +121,7 @@ def add_review(request, developer_id):
         review_form = ReviewForm()
         messages.info(request, 'Sorry, only users who have purchased time \
                       with this developer can a review to their page')
-        return redirect(reverse('developer_detail', args=[developer.id]))
+        return redirect(reverse('home'))
 
 
 @login_required
@@ -232,11 +230,11 @@ def dispute_review(request, review_id):
         if review.dispute_history is True:
             messages.error(request, 'Sorry, this review has already gone \
                                     through dispute resolution process!')
-            return redirect(reverse('developer_detail', args=[developer.id]))
+           return redirect(reverse('home'))
         review.dispute_comment = request.POST.get('text')
         review.review_status = 'Disputed'
         review.save()
 
     messages.error(request, 'Site moderators will evaluate if \
                             this review is appropriate!')
-    return redirect(reverse('developer_detail', args=[developer.id]))
+    return redirect(reverse('home'))
