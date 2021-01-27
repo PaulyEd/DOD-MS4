@@ -64,7 +64,8 @@ def add_review(request, developer_id):
 
                     messages.success(request, f'You have updated your\
                                      review for {developer.name}')
-                    return redirect(reverse('home'))
+                    return redirect(reverse('developer_detail',
+                                            args=[developer.id]))
                 else:
                     messages.error(request, 'Review failed, please \
                                             ensure the form is valid.')
@@ -121,7 +122,7 @@ def add_review(request, developer_id):
         review_form = ReviewForm()
         messages.info(request, 'Sorry, only users who have purchased time \
                       with this developer can a review to their page')
-        return redirect(reverse('home'))
+        return redirect(reverse('developer_detail', args=[developer.id]))
 
 
 @login_required
