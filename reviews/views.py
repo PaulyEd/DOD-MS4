@@ -230,11 +230,11 @@ def dispute_review(request, review_id):
         if review.dispute_history is True:
             messages.error(request, 'Sorry, this review has already gone \
                                     through dispute resolution process!')
-           return redirect(reverse('home'))
+            return redirect(reverse('developer_detail', args=[developer.id]))
         review.dispute_comment = request.POST.get('text')
         review.review_status = 'Disputed'
         review.save()
 
     messages.error(request, 'Site moderators will evaluate if \
                             this review is appropriate!')
-    return redirect(reverse('home'))
+    return redirect(reverse('developer_detail', args=[developer.id]))
