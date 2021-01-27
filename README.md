@@ -1,7 +1,6 @@
 
 
-[![alt text](https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611064945/DOD_n69qw3.png)](https://DOD-pe.herokuapp.com/)
-
+[<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611064945/DOD_n69qw3.png"  style="center"  width="100%">](https://DOD-pe.herokuapp.com/)
   
 
 # <Dev_on_Demand>
@@ -257,9 +256,10 @@ Section where customers can see activity on their account such as previous order
 
 *   [GitGuardian.com](https://dashboard.gitguardian.com/) - Monitor repo commits for senstive information(API keys etc).
 
-*   [GitGuardian.com](https://dashboard.gitguardian.com/) - Monitor repo commits for senstive information(API keys etc).
-
 *   [Markdown - TOC](https://ecotrust-canada.github.io/markdown-toc/) - Generate table of contents for README.md.
+
+*   [ConvertCSV](https://www.convertcsv.com/csv-to-markdown.htm) - Convert CSV table to markdown table.
+
 
 > Note: Additional dependencies per requirements.txt file
 

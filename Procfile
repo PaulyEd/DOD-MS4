@@ -1,0 +1,1 @@
+web: gunicorn dev_on_demand.wsgi:application
