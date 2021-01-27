@@ -50,18 +50,6 @@ def add_review(request, developer_id):
                     )
                     review.review_status = 'Pending'
                     review.save()
-                    # Update developer rating & count
-                    review_count = Review.objects.filter(
-                                   developer=developer).count()
-                    rating_total = Review.objects.filter(
-                                   developer=developer).aggregate(
-                                   Sum('review_rating'))
-                    rating_average = float(int(
-                                     rating_total['review_rating__sum'])/int(
-                                     review_count))
-                    developer.rating = rating_average
-                    developer.save()
-
                     messages.success(request, f'You have updated your\
                                      review for {developer.name}')
                     return redirect(reverse('developer_detail',
@@ -73,27 +61,16 @@ def add_review(request, developer_id):
             except Review.DoesNotExist:
                 if review_form.is_valid():
                     review_form.save()
-                    review_form.save()
                     review = Review.objects.get(
                         developer=developer,
                         reviewer=reviewer,
                     )
                     review.review_status = 'Pending'
                     review.save()
-                    # Update developer rating & count
-                    review_count = Review.objects.filter(
-                                   developer=developer).count()
-                    rating_total = Review.objects.filter(
-                                   developer=developer).aggregate(
-                                   Sum('review_rating'))
-                    rating_average = float(int(rating_total[
-                                     'review_rating__sum'])/int(review_count))
-                    developer.rating = rating_average
-                    developer.save()
-
                     messages.success(request, f'Thank you for \
                                      reviewing {developer.name}')
-                    return redirect(reverse('home'))
+                    return redirect(reverse('developer_detail',
+                                            args=[developer.id]))
                 else:
                     messages.error(request, 'Review failed, please \
                                             ensure the form is valid.')
@@ -139,13 +116,14 @@ def delete_review(request, review_id):
     if request.method == 'POST':
         review.delete()
         try:
-            review_count = Review.objects.filter(
-                           developer=developer).count()
-            rating_total = Review.objects.filter(
-                           developer=developer).aggregate(Sum('review_rating'))
-            rating_average = float(int(
-                             rating_total['review_rating__sum'])/int(
-                             review_count))
+            all_dev_reviews = Review.objects.filter(
+                                   developer=developer, review_status='Approved')
+            review_count = all_dev_reviews.count()
+            rating_total = 0
+            for all_dev_review in all_dev_reviews:
+                rating_total += int(all_dev_review.review_rating)
+            rating_average = float(int(rating_total)/int(
+                                     review_count))
         except Exception:
             rating_average = 0
         developer.rating = rating_average
@@ -194,6 +172,17 @@ def approve_review(request, review_id):
         review.review_status = 'Approved'
         review.save()
 
+        developer = get_object_or_404(Developer, pk=review.developer.id)
+        all_dev_reviews = Review.objects.filter(
+                          developer=developer, review_status='Approved')
+        review_count = all_dev_reviews.count()
+        rating_total = 0
+        for all_dev_review in all_dev_reviews:
+            rating_total += int(all_dev_review.review_rating)
+        rating_average = float(int(rating_total)/int(
+                            review_count))
+        developer.rating = rating_average
+        developer.save()
     return redirect(reverse('review_moderation'))
 
 
@@ -208,7 +197,17 @@ def reject_review(request, review_id):
         review = get_object_or_404(Review, pk=review_id)
         review.review_status = 'Rejected'
         review.save()
-
+        developer = get_object_or_404(Developer, pk=review.developer.id)
+        all_dev_reviews = Review.objects.filter(
+                          developer=developer, review_status='Approved')
+        review_count = all_dev_reviews.count()
+        rating_total = 0
+        for all_dev_review in all_dev_reviews:
+            rating_total += int(all_dev_review.review_rating)
+        rating_average = float(int(rating_total)/int(
+                            review_count))
+        developer.rating = rating_average
+        developer.save()
     return redirect(reverse('review_moderation'))
 
 
