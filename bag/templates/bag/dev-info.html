@@ -1,0 +1,17 @@
+{% if item.developer.language %}
+<h6 class="text-muted">Languages:</h6>
+<p class="mt-1 mb-0 dynamic-text">
+    {% for language in item.developer.language.all %}
+    <strong>{{ language.friendly_name }}</strong>,
+    {% endfor %}
+</p>
+{% endif %}
+<br>
+{% if item.developer.framework %}
+<h6 class="text-muted">Frameworks:</h6>
+<p class="mt-1 mb-0 dynamic-text">
+    {% for framework in item.developer.framework.all %}
+    <strong>{{ framework.friendly_name }}</strong>,
+    {% endfor %}
+</p>
+{% endif %}

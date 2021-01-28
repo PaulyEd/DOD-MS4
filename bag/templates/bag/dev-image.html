@@ -1,0 +1,13 @@
+<div class="circle">
+    {% if item.developer.image %}
+    <a href="{% url 'developer_detail' item.item_id %}">
+        <img class="card-img-top rounded-circle" src="{{ item.developer.image.url }}" alt="{{ item.developer.name }}"
+            width="170">
+    </a>
+    {% else %}
+    <a href="{% url 'developer_detail' item.item_id %}">
+        <img class="card-img-top rounded-circle" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.developer.name }}"
+            width="170">
+    </a>
+    {% endif %}
+</div>

@@ -60,8 +60,9 @@ def adjust_bag(request, item_id):
 
     """ensure delete is not resubmitted if
     user got to page via delete function - side cart"""
-    if "/delete" in redirect_url:
-        redirect_url = redirect_url.replace("/delete", "")
+    if redirect_url:
+        if "/delete" in redirect_url:
+            redirect_url = redirect_url.replace("/delete", "")
 
     if quantity > 0:
         bag[item_id] = quantity

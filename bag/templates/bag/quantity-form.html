@@ -1,0 +1,24 @@
+<form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+    {% csrf_token %}
+    <div class="form-group ">
+        <div class="input-group custom-input">
+            <div class="input-group-prepend">
+                <button class="btn btn-sm bg-primary btn-left decrement-qty decrement-qty_{{ item.item_id }}"
+                    data-item_id="{{ item.item_id }}">
+                    <span><i class="fas fa-minus fa-sm text-white "></i></span>
+                </button>
+            </div>
+            <input class="form-control form-control-sm text-center qty_input id_qty_{{ item.item_id }}" type="number"
+                name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}">
+            <div class="input-group-append">
+                <button class="btn btn-sm bg-primary btn-right increment-qty increment-qty_{{ item.item_id }}"
+                    data-item_id="{{ item.item_id }}">
+                    <span><i class="fas fa-plus text-white"></i></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+</form>
+<a class="update-link text-primary c-pointer"><small>Update</small></a>
+<a class="remove-item text-danger float-right c-pointer" id="remove_{{ item.item_id }}"><small>Remove</small></a>
