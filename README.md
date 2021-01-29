@@ -1,9 +1,10 @@
 
 
-[<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611064945/DOD_n69qw3.png"  style="center"  width="100%">](https://DOD-pe.herokuapp.com/)
+[<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611064945/DOD_n69qw3.png"  style="center"  width="100%">](https://dev-od.herokuapp.com/)
   
 
 # <Dev_on_Demand>
+Live Project:https://dev-od.herokuapp.com/
 
   
 The purpse of this project is to demostrate the knowledge & skills developed in the final section of my course with The Code Institute. <Dev_on_Demand> is a e-commerce Django web app with a CRUD based SQL backend, its purpose is to allow freelance developers a place to market themselves and allow consumers to buy time with varying developers across numerous code based disaplines/practices, the purpose of the time bought is entirely at the consumers discreation, this could range from consultation for a business enterprise application to assisting a computer science student in a mentor/technical guidance role.
@@ -19,15 +20,14 @@ To test Stripe payment functionality in this project please use below details:
 
 ## Table of Contents
   
-- [RecipeMe](#recipeme)
+- [<Dev_on_Demand>](#-dev-on-demand-)
   * [Table of Contents](#table-of-contents)
   * [UX & FEATURES](#ux---features)
     + [User Stories](#user-stories)
     + [Design](#design)
       - [Wireframes](#wireframes)
         * [Home](#home)
-        * [Dashboard](#dashboard)
-        * [Recipe](#recipe)
+        * [Developers](#developers)
       - [Primary Django Models](#primary-django-models)
     + [Features / Design Choices](#features---design-choices)
       - [Navbar](#navbar)
@@ -51,20 +51,24 @@ To test Stripe payment functionality in this project please use below details:
   * [TESTING / ISSUE RESOLUTION](#testing---issue-resolution)
   * [DEPLOYMENT](#deployment)
     + [Hosting](#hosting)
-    + [Environment Variables - TO BE UPDATED](#environment-variables---to-be-updated)
     + [Requirements](#requirements)
     + [Cloning a Repository](#cloning-a-repository)
     + [Installing Dependencies](#installing-dependencies)
+    + [Django Required Steps](#django-required-steps)
+      - [Database Migration](#database-migration)
+      - [Create SuperUser](#create-superuser)
+      - [Load Fixtures](#load-fixtures)
+    + [Environment Variables](#environment-variables)
   * [CREDITS](#credits)
     + [Media](#media)
     + [Acknowledgements](#acknowledgements)
     + [Code Snippets / References](#code-snippets---references)
       - [Javascript / JQuery:](#javascript---jquery-)
       - [Python / Django:](#python---django-)
-      - [Bootstrap:](#bootstrap-)
+      - [Bootstrap / HTML / CSS:](#bootstrap---html---css-)
       - [Misc:](#misc-)
   * [FAIR USE DISCLAIMER](#fair-use-disclaimer)
-
+  
 ## UX & FEATURES
 
 
@@ -141,12 +145,10 @@ Central navigation point of the project, split into different files for desktop 
 
 This was an intensive project, and I had to put most of my time into learning Django, therefore Bootstrap was leveraged heavily in this project so time wasnt lost on custom HTML/CSS to much. 
 
- <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599476970/Spotlight_awkwmw.png"  style="center"  width="70%">
  
 #### Colour Scheme
 
 Bootstrap Primary, White and off-white was the main colour scheme used on this site as I felt the colour was appropriate, had a nice contrast and most importantly given the timeframe, was native to bootstrap and such was a quick solution.
-
 
 #### Search
 
@@ -260,6 +262,8 @@ Section where customers can see activity on their account such as previous order
 
 *   [ConvertCSV](https://www.convertcsv.com/csv-to-markdown.htm) - Convert CSV table to markdown table.
 
+*   [Cloudinary](https://cloudinary.com/) - Host images for Readme.MD file.
+
 
 > Note: Additional dependencies per requirements.txt file
 
@@ -271,112 +275,94 @@ My aim for this project was to have most of the testing for this done via coded 
 
 General Functionality Testing:
 
-| Action                     | Sub-action                                    | Scenario                                 | Expected outcome                | Result | Fix required |
-|----------------------------|-----------------------------------------------|------------------------------------------|---------------------------------|--------|--------------|
-| Sign up                    | Sign up                                       | Auth User                                | Login Fail                      |        |              |
-|                            | Sign up                                       | Non-Auth User                            | Login Pass                      |        |              |
-| Login                      | Login                                         | Non-Auth User                            | Login Fail                      |        |              |
-|                            | Login                                         | Auth User                                | Login Pass                      |        |              |
-|                            | Login                                         | Store owner                              | Login Pass                      |        |              |
-| Developer                  | Full process - Add/Update/Delete              | Non-Auth User                            | Not Available / Not Actionable  |        |              |
-|                            | Full process - Add/Update/Delete              | Auth User                                | Not Available / Not Actionable  |        |              |
-|                            | Full process - Add/Update/Delete              | Store Owner                              | All Actions Successful          |        |              |
-| Rating/Review              | Full process - Add/Update/Delete              | Non-Auth User                            | Not Available / Not Actionable  |        |              |
-|                            | Full process - Add/Update/Delete              | Auth User - Non-Purchase                 | Not Available / Not Actionable  |        |              |
-|                            | Full process - Add/Update/Delete              | Auth User - Purchase                     | All Actions Successful          |        |              |
-| Moderation - Rating/Review | Dispute a review                              | Non-Auth User                            | Not Available / Not Actionable  |        |              |
-|                            | Dispute a review                              | Auth User                                | Not Available / Not Actionable  |        |              |
-|                            | Dispute a review                              | Auth User - Developer (only own reviews) | Dispute Successful              |        |              |
-|                            | Approve/Reject Reviews                        | Non-Auth User                            | Not Available / Not Actionable  |        |              |
-|                            | Approve/Reject Reviews                        | Auth User                                | Not Available / Not Actionable  |        |              |
-|                            | Approve/Reject Reviews                        | Auth User - Developer (only own reviews) | Not Available / Not Actionable  |        |              |
-|                            | Approve/Reject Reviews                        | Store Owner                              | All Actions Successful          |        |              |
-| Search                     | By name                                       | All User types                           | Return based on criteria        |        |              |
-|                            | By Language (code)                            | All User types                           | Return based on criteria        |        |              |
-|                            | By Language (Spoken)                          | All User types                           | Return based on criteria        |        |              |
-|                            | By Framework (Spoken)                         | All User types                           | Return based on criteria        |        |              |
-| Bag/Cart                   | Full process - Add/Update/Delete              | Non-Auth User                            | All Actions Successful          |        |              |
-|                            | Full process - Add/Update/Delete              | Auth User                                | All Actions Successful          |        |              |
-|                            | Developer updated whilst in bag               | Any User                                 | Cost should be new cost         |        |              |
-|                            | Developer deleted whilst in bag               | Any User                                 | Bag Reset                       |        |              |
-| Checkout                   | Order Creation                                | Non-Auth User - Success                  | 1 order in system               |        |              |
-|                            | Order Creation                                | Non-Auth User - Failed before complete   | 1 order in system - via webhook |        |              |
-|                            | Order Creation                                | Auth User - Success                      | 1 order in system               |        |              |
-|                            | Order Creation                                | Auth User - Failed before complete       | 1 order in system - via webhook |        |              |
-|                            | Store Details                                 | Auth User                                | Updates user profile            |        |              |
-|                            | Store Details                                 | Non-Auth User                            | not available                   |        |              |
-|                            | Stripe - Payment                              | Auth User                                | Success                         |        |              |
-|                            | Stripe - Payment                              | Non-Auth User                            | Success                         |        |              |
-|                            | Developer with only required fields populated | Any User                                 | Success                         |        |              |
-|                            | Developer required field (Rate)               | Any User                                 | Fail                            |        |              |
-| Profiles                   | Update                                        | Auth User                                |                                 |        |              |
-|                            | Create                                        | Non-Auth User                            |                                 |        |              |
+|Action                    |Sub-action                                   |Scenario                                |Expected outcome               |Result  |
+|--------------------------|---------------------------------------------|----------------------------------------|-------------------------------|--------|
+|Sign up                   |Sign up                                      |Auth User                               |Login Fail                     |**Pass**|
+|                          |Sign up                                      |Non-Auth User                           |Login Pass                     |**Pass**|
+|Login                     |Login                                        |Non-Auth User                           |Login Fail                     |**Pass**|
+|                          |Login                                        |Auth User                               |Login Pass                     |**Pass**|
+|                          |Login                                        |Store owner                             |Login Pass                     |**Pass**|
+|Developer                 |Full process - Add/Update/Delete             |Non-Auth User                           |Not Available / Not Actionable |**Pass**|
+|                          |Full process - Add/Update/Delete             |Auth User                               |Not Available / Not Actionable |**Pass**|
+|                          |Full process - Add/Update/Delete             |Store Owner                             |All Actions Successful         |**Pass**|
+|Rating/Review             |Full process - Add/Update/Delete             |Non-Auth User                           |Not Available / Not Actionable |**Pass**|
+|                          |Full process - Add/Update/Delete             |Auth User - Non-Purchased Dev           |Not Available / Not Actionable |**Pass**|
+|                          |Full process - Add/Update/Delete             |Auth User - Purchased Dev               |All Actions Successful         |**Pass**|
+|Moderation - Rating/Review|Dispute a review                             |Non-Auth User                           |Not Available / Not Actionable |**Pass**|
+|                          |Dispute a review                             |Auth User                               |Not Available / Not Actionable |**Pass**|
+|                          |Dispute a review                             |Auth User - Developer (only own reviews)|Dispute Successful             |**Pass**|
+|                          |Approve/Reject Reviews                       |Non-Auth User                           |Not Available / Not Actionable |**Pass**|
+|                          |Approve/Reject Reviews                       |Auth User                               |Not Available / Not Actionable |**Pass**|
+|                          |Approve/Reject Reviews                       |Auth User - Developer (only own reviews)|Not Available / Not Actionable |**Pass**|
+|                          |Approve/Reject Reviews                       |Store Owner                             |All Actions Successful         |**Pass**|
+|Search                    |By name                                      |All User types                          |Return based on criteria       |**Pass**|
+|                          |By Language (code)                           |All User types                          |Return based on criteria       |**Pass**|
+|                          |By Language (Spoken)                         |All User types                          |Return based on criteria       |**Pass**|
+|                          |By Framework (Spoken)                        |All User types                          |Return based on criteria       |**Pass**|
+|Cart / Side Cart          |Full process - Add/Update/Delete             |Non-Auth User                           |All Actions Successful         |**Pass**|
+|                          |Full process - Add/Update/Delete             |Auth User                               |All Actions Successful         |**Pass**|
+|                          |Developer updated whilst in bag              |Any User                                |Cost should be new cost        |**Pass**|
+|                          |Developer deleted whilst in bag              |Any User                                |Bag Reset                      |**Pass**|
+|Checkout                  |Order Creation                               |Non-Auth User - Success                 |1 order in system              |**Pass**|
+|                          |Order Creation                               |Non-Auth User - Failed before complete  |1 order in system - via webhook|**Pass**|
+|                          |Order Creation                               |Auth User - Success                     |1 order in system              |**Pass**|
+|                          |Order Creation                               |Auth User - Failed before complete      |1 order in system - via webhook|**Pass**|
+|                          |Store Details                                |Auth User                               |Updates user profile           |**Pass**|
+|                          |Store Details                                |Non-Auth User                           |not available                  |**Pass**|
+|                          |Stripe - Payment                             |Auth User                               |Success                        |**Pass**|
+|                          |Stripe - Payment                             |Non-Auth User                           |Success                        |**Pass**|
+|                          |Developer with only required fields populated|Any User                                |Success                        |**Pass**|
+|                          |Developer required field (Rate)              |Any User                                |Fail                           |**Pass**|
+|Profiles                  |Update                                       |Auth User                               |Success                        |**Pass**|
+|                          |Create                                       |Non-Auth User                           |Success                        |**Pass**|
+
 
 >**This were not only tested once project was full completed but also as each functionality was initially created.
 
 UX/UI Testing:
-|Screen/View                 |Only Visable to…                        |Links|Responsive|Issues / Potential Enhancements       |
-|----------------------------|----------------------------------------|-----|----------|--------------------------------------|
-|Home                        |All                                     |     |Mostly    |Navbar warpping on tablet size screens|
-|Login / Sign up             |Non-Auth User                           |     |          |                                      |
-|Log out                     |Auth User                               |N/A  |          |                                      |
-|Developers                  |All                                     |     |          |                                      |
-|Developer Detail            |All                                     |     |          |                                      |
-|Add Developer               |Store Owner                             |     |          |                                      |
-|Edit Developer              |Store Owner                             |     |          |                                      |
-|Delete Developer            |Store Owner                             |     |          |                                      |
-|Add Review                  |Auth User - Purchased Dev               |     |          |                                      |
-|Dispute Review              |Auth User - Developer (only own reviews)|     |          |                                      |
-|Cart / Side Cart            |All                                     |     |          |                                      |
-|Checkout                    |All                                     |     |          |                                      |
-|Profile                     |Auth User                               |     |          |                                      |
-|Order History               |Auth User (only own purchases)          |     |          |                                      |
-|Review History & Edit/Delete|Auth User (only own reviews)            |     |          |                                      |
-|Pending Reviews             |Store Owner                             |     |          |                                      |
+|Screen/View               |Only Visable to…                             |Links                                   |Responsive                     |Comments|
+|--------------------------|---------------------------------------------|----------------------------------------|-------------------------------|-------------------------------|
+|Home                      |All                                          |                                        |Mostly                         |Navbar warpping on tablet size screens|
+|Login / Sign up           |Non-Auth User                                |                                        |Yes                            |                               |
+|Log out                   |Auth User                                    |N/A                                     |Yes                            |                               |
+|Developers                |All                                          |                                        |Yes                            |                               |
+|Developer Detail          |All                                          |                                        |Yes                            |Not 100% happy with layout but not experience hindering|
+|Add Developer             |Store Owner                                  |                                        |Yes                            |                               |
+|Edit Developer            |Store Owner                                  |                                        |Yes                            |                               |
+|Delete Developer          |Store Owner                                  |                                        |Yes                            |                               |
+|Add Review                |Auth User - Purchased Dev                    |                                        |Yes                            |                               |
+|Dispute Review            |Auth User - Developer (only own reviews)     |                                        |Yes                            |                               |
+|Cart / Side Cart          |All                                          |                                        |N/a                            |Only on Large & above          |
+|Checkout                  |All                                          |                                        |Yes                            |                               |
+|Profile                   |Auth User                                    |                                        |Yes                            |Not 100% happy with layout but not experience hindering|
+|Order History             |Auth User (only own purchases)               |                                        |Yes                            |                               |
+|Review History & Edit/Delete|Auth User (only own reviews)                 |                                        |Yes                            |                               |
+|Pending Reviews           |Store Owner                                  |                                        |Yes                            |                               |
+
 
 >**Auth = Logged in user, Non-Auth = Not logged in user
 
+As a result of testing in the live enviroment I was able to find a fix a few bugs, most notably the ones below:
+1. Adding a review to a dev: There appeared to be an issue with the way I wrote the code to calculate the developer rating when adding a new review for the developer, this issue was only in the production environemnt and not dev, therefore I believe it something to do with going from sqlite in dev to Postgresql in Prod. I was able to refactor my code to circumvent this, and also moved the developer rating calc to the review approval stage instead of review creation stage whic seemed more appropriate.
 
+2. No home button on mobile: As part of my responsiveness testing I notice there was no option to go bakc to home screen on mobile view, I updated the nav dropdown to include one.
+
+3. Cart/Bag on Moble: Existing view was not very responsible for smaller screens, update the view to appear more user friendly on screen below mid size.
+
+4. Review Moderation: Page was not user friendly on mobile, tried to cram two sections into columns that didnt translate well on smaller screens.
 
 ## DEPLOYMENT
 
-  
 
 ### Hosting
 As this app depending on backend python code it requires hosting on a server that can run this code, there are several options available here such as [AWS](https://aws.amazon.com/getting-started/hands-on/launch-an-app/), [Azure](https://azure.microsoft.com/en-us/free/python/search/?&ef_id=CjwKCAjwnef6BRAgEiwAgv8mQYQ2u3TBwNQaph4w1PVAZ0mpLjV_Ja8FpqxLBB1hcLB261n1nIeUeBoCmRYQAvD_BwE:G:s&OCID=AID2100059_SEM_CjwKCAjwnef6BRAgEiwAgv8mQYQ2u3TBwNQaph4w1PVAZ0mpLjV_Ja8FpqxLBB1hcLB261n1nIeUeBoCmRYQAvD_BwE:G:s&dclid=CMKMnZyr3usCFYNjFQgd1iUP2A) & [Heroku](https://www.heroku.com/). This project has been hosting on Heroku.
 
 
-  
-### Environment Variables - TO BE UPDATED
-
-You will need to set up the following environment variables on your system.
-
-| Variable name         | Used for                 | Notes                                                        |
-| --------------------- | ------------------------ | ------------------------------------------------------------ |
-| CLOUDINARY_API_KEY| Cloudinary Image package | Found in your Cloudinary account dashboard                    |
-| CLOUDINARY_API_SECRET| Cloudinary Image package | Found in your Cloudinary account dashboard                    |
-| CLOUDINARY_CLOUD_NAME| Cloudinary Image package | Found in your Cloudinary account dashboard                    |
-| db_name**| Mongo DB | This is the name of your database collection |
-| MONGO_URI**| Mongo DB | Found in the connect button on the database cluster          |
-| secret_key**| Flask   | This is a unique secret used for session encryption,  you can use any random string for this |
-| IP                    | Flask                    | You can use `0.0.0.0` here to indicate a local IP address    |
-| PORT                  | Flask                    | You can use the default port `5000`                          |
-
-
-
-
-**From MongoDB:
-1. db_name:
-<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599732673/DBname_rlobu4.png"  style="center"  width="15%">
-2. MONGO_URI:
-<img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1599732964/MongoURI_atcgyp.png"  style="center"  width="70%">
-3. secret_key:
-Can be generated in terminal via `python -c 'import os; print(os.urandom(16))'` There is a good answer on StackExchange for this [here](https://unix.stackexchange.com/questions/230673/how-to-generate-a-random-string) which give options to include/exclude certain characters.
-
 ### Requirements
 1. Python 3.8.3 or later
 2. Git
 3. IDE (Integrated Development Environment) or code editor
+
 
 ### Cloning a Repository
 
@@ -388,32 +374,78 @@ Can be generated in terminal via `python -c 'import os; print(os.urandom(16))'` 
 
 4. Press **Enter** and the clone will be created
 
-  
+
 ### Installing Dependencies
 For the code to run the dependencies will need to be installed, to do this in the terminal use `pip3 install -r requirements.txt`, if updates are made and further dependencies have been added please use `pip3 freeze --local > requirements.txt`to update the requirements.txt file
+
+### Django Required Steps 
+
+#### Database Migration
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+#### Create SuperUser
+```
+python3 manage.py createsuperuser
+```
+
+#### Load Fixtures
+```
+python manage.py loaddata spoken_languages
+python manage.py loaddata languges
+python manage.py loaddata frameworks
+python manage.py loaddata developers
+```
+
+
+### Environment Variables
+
+You will need to set up the following environment variables on your system.
+
+|Variable name        |Used for                                                  |
+|---------------------|----------------------------------------------------------|
+|AWS_ACCESS_KEY_ID    |AWS Static files hosting                                  |
+|AWS_SECRET_ACCESS_KEY|AWS Static files hosting                                  |
+|DATABASE_URL         |Heroku Postgres Database Url                              |
+|EMAIL_HOST_PASS      |Sending emails                                            |
+|EMAIL_HOST_USER      |Sending emails                                            |
+|SECRET_KEY           |Secret key used for your Django project                   |
+|STRIPE_PUBLIC_KEY    |Complete Stripe payments                                  |
+|STRIPE_SECRET_KEY    |Complete Stripe payments                                  |
+|STRIPE_WH_SECRET     |Complete Stripe payments                                  |
+|USE_AWS              |Differentiate from Dev to Prod enviroment for static files|
+
+```
+For local deployment create env.py file(at same level as manage.py) with below code and add env.py to .gitignore file. 
+import os
+
+os.environ['AWS_ACCESS_KEY_ID'] = 'your value'
+os.environ['AWS_SECRET_ACCESS_KEY'] = 'your value'
+os.environ['DATABASE_URL'] = 'your value'
+os.environ['SECRET_KEY'] = 'your value'
+os.environ['STRIPE_PUBLIC_KEY'] = 'your value'
+os.environ['STRIPE_SECRET_KEY'] = 'your value'
+os.environ['STRIPE_WH_SECRET'] = 'your value'
+os.environ['USE_AWS'] = False
+
+```
+
+  
+
 
 ## CREDITS
 
   
-
 ### Media
 
-- The images/icons/graphics used in this site were obtained from [INSERT](https://www.INSERT.com/) (See Fair Use Disclaimer)
+- The images/icons/graphics used in this site were obtained from [Pexels](https://www.Pexels.com/) (See Fair Use Disclaimer)
 
-  
 
 ### Acknowledgements
 
-  
-
-I received inspiration for this project from the below websites:
-
-
-1.  [XXX](https://www.INSERT.co.uk/food)
-
-2.  [XXX](https://www.INSERT.com/)
-
-> Also big thanks to 
+> Big thank you everybody at The Code Institute
 
 ### Code Snippets / References
 
@@ -423,7 +455,7 @@ Below links helped me in various parts of the project to overcome issues:
 *   https://stackoverflow.com/questions/45004245/how-to-use-toastr-in-django-for-success-or-fail-message
 *   https://bbbootstrap.com/snippets/simple-toast-notification-toastr-76085299
 *   https://stripe.com/docs/js/appendix/style
-https://stackoverflow.com/questions/406192/get-current-url-with-jquery
+*   https://stackoverflow.com/questions/406192/get-current-url-with-jquery
 
 #### Python / Django:
 *   https://stackoverflow.com/questions/25386119/whats-the-difference-between-a-onetoone-manytomany-and-a-foreignkey-field-in-d#:~:text=of%20the%20relationship.-,ForeignKey,may%20be%20related%20to%20one.

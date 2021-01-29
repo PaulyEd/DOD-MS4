@@ -16,7 +16,7 @@
             <div class="row gutters-sm">
                 <!-- Pending reivews section -->
                 {% if pending_reviews %}
-                <div class="{% if disputed_reviews %} col-6 {% else %} col-12 {% endif%} mb-3">
+                <div class="col-12 {% if disputed_reviews %} col-md-6 {% else %} col-md-12 {% endif%} mb-3">
                     <div class="card">
                         <div class="d-flex mb-3 card-header">
                             <h4 class="mx-auto">Pending Reviews</h4>
@@ -90,7 +90,7 @@
                 {% endif %}
                 <!-- Disputed reivews section -->
                 {% if disputed_reviews %}
-                <div class="{% if pending_reviews %} col-6 {% else %} col-12 {% endif%} mb-3">
+                <div class="col-12 {% if pending_reviews %} col-md-6 {% else %} col-md-12 {% endif%} mb-3">
                     <div class="card">
                         <div class="d-flex mb-3 card-header">
                             <h4 class="mx-auto">Disputed Reviews</h4>
