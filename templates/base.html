@@ -131,18 +131,18 @@
                <div class="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 text-center">
                   <h6 class="text-uppercase font-weight-bold mb-4">Languages</h6>
                   <ul class="list-unstyled mb-0">
-                     <li class="mb-2"><a href="#" class="text-white">Python</a></li>
-                     <li class="mb-2"><a href="#" class="text-white">Javascript</a></li>
-                     <li class="mb-2"><a href="#" class="text-white">Ruby</a></li>
-                     <li class="mb-2"><a href="#" class="text-white">PHP</a></li>
+                     <li class="mb-2"><a href="{% url 'developers' %}?language=python" class="text-white">Python</a></li>
+                     <li class="mb-2"><a href="{% url 'developers' %}?language=javascript" class="text-white">Javascript</a></li>
+                     <li class="mb-2"><a href="{% url 'developers' %}?language=ruby" class="text-white">Ruby</a></li>
+                     <li class="mb-2"><a href="{% url 'developers' %}?language=php" class="text-white">PHP</a></li>
                   </ul>
                </div>
                <div class="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 text-center">
                   <h6 class="text-uppercase font-weight-bold mb-4">Company</h6>
                   <ul class="list-unstyled mb-0">
-                     <li class="mb-2"><a href="#" class="text-white">Login</a></li>
-                     <li class="mb-2"><a href="#" class="text-white">Register</a></li>
-                     <li class="mb-2"><a href="#" class="text-white">Our Devs</a></li>
+                     <li class="mb-2"><a href="{% url 'account_login' %}" class="text-white">Login</a></li>
+                     <li class="mb-2"><a href="{% url 'account_signup' %}" class="text-white">Register</a></li>
+                     <li class="mb-2"><a href="{% url 'developers' %}" class="text-white">Our Devs</a></li>
                   </ul>
                </div>
                <!-- FOR DISPLAY PURPOSELY ONLY TO FILL OUT FOOTER ON REAL STORE WOULD HAVE FUNCTIONALITY -->
