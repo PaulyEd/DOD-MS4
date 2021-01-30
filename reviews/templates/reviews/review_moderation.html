@@ -15,12 +15,13 @@
         <div class="col-12 my-2 my-md-5 h-100">
             <div class="row gutters-sm">
                 <!-- Pending reivews section -->
-                {% if pending_reviews %}
-                <div class="col-12 {% if disputed_reviews %} col-md-6 {% else %} col-md-12 {% endif%} mb-3">
+                
+                <div class="col-12 {% if pending_reviews and disputed_reviews %} col-md-6 {% else %} col-md-12 {% endif%} mb-3">
                     <div class="card">
                         <div class="d-flex mb-3 card-header">
                             <h4 class="mx-auto">Pending Reviews</h4>
                         </div>
+                        {% if pending_reviews %}
                         {% for pending_review in pending_reviews.all %}
                         <div class="card-body m-3 p-1 bg-light border rounded border-primary">
                             <h5 class="mb-1">{{ pending_review.developer }} - {{ pending_review.review_header }} -
@@ -85,16 +86,18 @@
                             </form>
                         </div>
                         {% endfor %}
+                        {% else %}
+                        <p class="text-center">No reviews pending approval</p>
+                        {% endif %}
                     </div>
                 </div>
-                {% endif %}
                 <!-- Disputed reivews section -->
-                {% if disputed_reviews %}
-                <div class="col-12 {% if pending_reviews %} col-md-6 {% else %} col-md-12 {% endif%} mb-3">
+                <div class="col-12 {% if pending_reviews and disputed_reviews %} col-md-6 {% else %} col-md-12 {% endif%} mb-3">
                     <div class="card">
                         <div class="d-flex mb-3 card-header">
                             <h4 class="mx-auto">Disputed Reviews</h4>
                         </div>
+                        {% if disputed_reviews %}
                         {% for disputed_review in disputed_reviews.all %}
                         <div class="card-body m-3 p-1 bg-light border rounded border-primary">
                             <h5 class="mb-1">{{ disputed_review.developer }} - {{ disputed_review.review_header }} -
@@ -162,9 +165,11 @@
                             </form>
                         </div>
                         {% endfor %}
+                        {% else %}
+                        <p class="text-center">No disputed reviews</p>
+                        {% endif %}
                     </div>
                 </div>
-                {% endif %}
             </div>
         </div>
     </div>

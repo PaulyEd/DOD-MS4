@@ -148,6 +148,19 @@ def review_moderation(request):
     pending_reviews = Review.objects.all().filter(review_status='Pending')
     disputed_reviews = Review.objects.all().filter(review_status='Disputed')
 
+    """removes reviews in system for developer that
+     no longer exist the resets variable to return"""
+    for pending_review in pending_reviews:
+        if pending_review.developer is None:
+            pending_review.delete()
+
+    for disputed_review in disputed_reviews:
+        if disputed_review.developer is None:
+            disputed_review.delete()
+
+    pending_reviews = Review.objects.all().filter(review_status='Pending')
+    disputed_reviews = Review.objects.all().filter(review_status='Disputed')
+
     template = 'reviews/review_moderation.html'
     context = {
         'pending_reviews': pending_reviews,

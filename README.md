@@ -7,14 +7,14 @@
 Live Project:https://dev-od.herokuapp.com/
 
   
-The purpse of this project is to demostrate the knowledge & skills developed in the final section of my course with The Code Institute. <Dev_on_Demand> is a e-commerce Django web app with a CRUD based SQL backend, its purpose is to allow freelance developers a place to market themselves and allow consumers to buy time with varying developers across numerous code based disaplines/practices, the purpose of the time bought is entirely at the consumers discreation, this could range from consultation for a business enterprise application to assisting a computer science student in a mentor/technical guidance role.
+The purpose of this project is to demonstrate the knowledge & skills developed in the final section of my course with The Code Institute. <Dev_on_Demand> is an e-commerce Django web app with a CRUD based SQL backend, its purpose is to allow freelance developers a place to market themselves and allow consumers to buy time with varying developers across numerous code based disciplines/practices, the purpose of the time bought is entirely at the consumer's discretion, this could range from a consultation for a business enterprise application to assisting a computer science student in a mentor/technical guidance role.
 
 Note: this project felt like a sizable leap from the previous one and as such I felt most comfortable coding along with the Code Institute 'Boutique Ado' project and tailoring it to my needs as I went.
 
 To test Stripe payment functionality in this project please use below details:
 - Card number: 4242 4242 4242 4242 (4000 0025 0000 3155 - for extra auth step)
 - CVC: any 3 digit number
-- Exparation Date: any future date
+- Expiration Date: any future date
 - Address: any address details
 
 
@@ -80,7 +80,7 @@ To test Stripe payment functionality in this project please use below details:
 | 1                              | Shopper     | View a list of Developers                                         | To see options available to me                                                |
 | 2                              | Shopper     | View Developer details                                            | Identify price, developer skills & experiences                                |
 | 3                              | Shopper     | Quick view and detail view of cart/bag                            | To manage/control my potential purchase                                       |
-| 4                              | Shopper     | Adjust cart/bag anytime to control my potenial outlay             | To manage/control my potential purchase                                       |
+| 4                              | Shopper     | Adjust cart/bag anytime to control my potential outlay             | To manage/control my potential purchase                                       |
 | Registration and User Accounts |             |                                                                   |                                                                               |
 | 5                              | Site User   | Register for an account                                           | Have a personal account to view my profile                                    |
 | 6                              | Site User   | Login and Logout                                                  | Easily access my personal information                                         |
@@ -89,26 +89,26 @@ To test Stripe payment functionality in this project please use below details:
 | 9                              | Site User   | Have a personalized user profile                                  | To view my personal information such as payment information and order history |
 | 10                             | Customer    | Leave a review                                                    | Leave my testimonial and support this small business                          |
 | 11                             | Customer    | Edit my review                                                    | Edit my previously created review with new details                            |
-| 12                             | Customer    | Delete my review                                                  | Delete my previously created review as I may feel its no longer valid or reivewed in error |
+| 12                             | Customer    | Delete my review                                                  | Delete my previously created review as I may feel its no longer valid or reviewed in error |
 | 13                             | Developer   | Dispute a review                                                  | I may feel I have been harshly reviewed and want a site owner to remove / let me respond   |
 | Sorting and searching          |             |                                                                   |                                                                               |
-| 14                             | Shopper     | Sort the list of developer by rating or price                     | View the available developers by the rating and price                         |
+| 14                             | Shopper     | Sort the list of developers by rating or price                     | View the available developers by the rating and price                         |
 | 15                             | Shopper     | Search for a developer by language/framework                      | Quickly find the developer with the skills I need                             |
 | Purchasing and Checkout        |             |                                                                   |                                                                               |
 | 16                             | Customer    | View items in my bag to be purchased                              | see the developers and total cost before I purchase                           |
 | 17                             | Customer    | Adjust the quantity or remove items in my bag                     | Easily make changes before checkout                                           |
 | 18                             | Customer    | Enter my payment information                                      | To complete purchase                                                          |
-| 19                             | Customer    | View an order confirmation after checkout                         | Verify there are no mistakes with order or payment information                |
+| 19                             | Customer    | View an order confirmation after checkout                         | Verify there are no mistakes with an order or payment information                |
 | Admin and store management     |             |                                                                   |                                                                               |
-| 20                             | Store Owner | Add a developer                                                   | Add a new developers to the store                                             |
+| 20                             | Store Owner | Add a developer                                                   | Add new developers to the store                                             |
 | 21                             | Store Owner | Edit a developer                                                  | Change any details in the rate or description                                 |
 | 22                             | Store Owner | Delete a developer                                                | Remove developers that are no longer available                                |
-| 23                             | Store Owner | Moderate reviews                                                  | To prevent inappropriate comments on site and allow devs to dispute 'unfair' reviews |
+| 23                             | Store Owner | Moderate reviews                                                  | To prevent inappropriate comments on-site and allow devs to dispute 'unfair' reviews |
 
 
 ### Design
 
-This Project is designed to allow users to find developers that meet their required skillset and experience, purchase time with those developers and review them to that other customers can see what other peoples experiences have been like with specific developers.
+This Project is designed to allow users to find developers that meet their required skill set and experience, purchase time with those developers and review them to that other customers can see what other peoples experiences have been like with specific developers.
 
 #### Wireframes
 
@@ -129,7 +129,7 @@ For this project I used [Mockplus](https://www.mockplus.com/) to create my initi
 #### Primary Django Models
 
 Order Model: Mirrored from 'Boutique Ado' project - used to maintain customer orders
-Developer Model: Similar to 'Products' from 'Boutique Ado' project in terms of primary offering for sale  - model that stores all the information related to the offering of the store
+Developer Model: Similar to 'Products' from 'Boutique Ado' project in terms of primary offering for sale  - a model that stores all the information related to the offering of the store
 UserProfile Model: Mirrored from 'Boutique Ado' project - used to maintain customer profiles
 Review Model: Entirely custom - used to store information related to customer reviews of developers
 
@@ -143,7 +143,7 @@ Central navigation point of the project, split into different files for desktop 
 
 #### Bootstrap
 
-This was an intensive project, and I had to put most of my time into learning Django, therefore Bootstrap was leveraged heavily in this project so time wasnt lost on custom HTML/CSS to much. 
+This was an intensive project, and I had to put most of my time into learning Django, therefore Bootstrap was leveraged heavily in this project so time wasn't lost on custom HTML/CSS too much. 
 
  
 #### Colour Scheme
@@ -158,7 +158,7 @@ Allows users to enter a term(s) and return results a developers name, what langu
 
 #### Side Bar Cart/Bag
 
-Shows users what they current have in their bag at all times in a non-intrusive manner
+Shows users what they currently have in their bag at all times in a non-intrusive manner
 
  <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611493942/SideCart2_lpbqeq.png"  style="center"  width="40%">
 
@@ -176,7 +176,7 @@ Section for site owners to add new developers to their site.
 
 ##### Pending Reviews
 
-Section for site owners to to moderate customer reviews on the developers.
+Section for site owners to moderate customer reviews on the developers.
 
 #### Cart
 
@@ -186,13 +186,13 @@ Store customer selections and show details include price and quantity of develop
 
 #### Checkout + Stripe
 
-Allow users to complete their purchase via stripe API, have their order confimed and a summary of the order available on theur profile and emailed to them
+Allow users to complete their purchase via stripe API, have their order confirmed and a summary of the order available on their profile and emailed to them
  
  <img  src="https://res.cloudinary.com/dm2vu1yzr/image/upload/v1611494192/checkout_ifrw42.png"  style="center"  width="70%">
 
 #### Profile
 
-Section where customers can see activity on their account such as previous orders and review they have left on developers they have previously worked with.
+A section where customers can see activity on their account such as previous orders and review they have left on developers they have previously worked with.
 
 
 ## TECHNOLOGIES USED
@@ -264,6 +264,8 @@ Section where customers can see activity on their account such as previous order
 
 *   [Cloudinary](https://cloudinary.com/) - Host images for Readme.MD file.
 
+*   [Favicon.io](favicon.io) - Create Favicon.
+
 
 > Note: Additional dependencies per requirements.txt file
 
@@ -271,7 +273,7 @@ Section where customers can see activity on their account such as previous order
 ## TESTING / ISSUE RESOLUTION
 
   
-My aim for this project was to have most of the testing for this done via coded testing but due to time contraints I have not had time to write test code and as such all of my testing was done manually and the scenarios and finding to which are shown below:
+My aim for this project was to have most of the testing for this done via coded testing but due to time constraints I have not had time to write test code and as such all of my testing was done manually and the scenarios and finding to which are shown below:
 
 General Functionality Testing:
 
@@ -317,12 +319,12 @@ General Functionality Testing:
 |                          |Create                                       |Non-Auth User                           |Success                        |**Pass**|
 
 
->**This were not only tested once project was full completed but also as each functionality was initially created.
+>**This was not only tested once the project was fully completed but also as each functionality was initially created.
 
 UX/UI Testing:
-|Screen/View               |Only Visable to…                             |Links                                   |Responsive                     |Comments|
+|Screen/View               |Only Visible to…                             |Links                                   |Responsive                     |Comments|
 |--------------------------|---------------------------------------------|----------------------------------------|-------------------------------|-------------------------------|
-|Home                      |All                                          |                                        |Mostly                         |Navbar warpping on tablet size screens|
+|Home                      |All                                          |                                        |Mostly                         |Navbar wrapping on tablet size screens|
 |Login / Sign up           |Non-Auth User                                |                                        |Yes                            |                               |
 |Log out                   |Auth User                                    |N/A                                     |Yes                            |                               |
 |Developers                |All                                          |                                        |Yes                            |                               |
@@ -342,14 +344,16 @@ UX/UI Testing:
 
 >**Auth = Logged in user, Non-Auth = Not logged in user
 
-As a result of testing in the live enviroment I was able to find a fix a few bugs, most notably the ones below:
-1. Adding a review to a dev: There appeared to be an issue with the way I wrote the code to calculate the developer rating when adding a new review for the developer, this issue was only in the production environemnt and not dev, therefore I believe it something to do with going from sqlite in dev to Postgresql in Prod. I was able to refactor my code to circumvent this, and also moved the developer rating calc to the review approval stage instead of review creation stage whic seemed more appropriate.
+As a result of testing in the live environment I was able to find a fix a few bugs, most notably the ones below:
+1. Adding a review to a dev: There appeared to be an issue with the way I wrote the code to calculate the developer rating when adding a new review for the developer, this issue was only in the production environment and not dev, therefore I believe it something to do with going from SQLite in dev to Postgresql in Prod. I was able to refactor my code to circumvent this and also moved the developer rating calc to the review approval stage instead of review creation stage which seemed more appropriate.
 
-2. No home button on mobile: As part of my responsiveness testing I notice there was no option to go bakc to home screen on mobile view, I updated the nav dropdown to include one.
+2. No home button on mobile: As part of my responsiveness testing I notice there was no option to go back to the home screen on mobile view, I updated the nav dropdown to include one.
 
-3. Cart/Bag on Moble: Existing view was not very responsible for smaller screens, update the view to appear more user friendly on screen below mid size.
+3. Cart/Bag on Moble: Existing view was not very responsible for smaller screens, update the view to appear more user friendly on-screen below mid-size.
 
-4. Review Moderation: Page was not user friendly on mobile, tried to cram two sections into columns that didnt translate well on smaller screens.
+4. Review Moderation UX: Page was not user friendly on mobile, tried to cram two sections into columns that didn't translate well on smaller screens.
+
+5. Review Moderation - Functionality: Encountered an issue where if a review was pending or disputed and the developer was deleted, the review could not be actioned from the review moderation page, it would cause a server error due to developer no longer existing, updated review moderation view so that if the developer no longer existing the review is deleted before returning pending reviews to the template
 
 ## DEPLOYMENT
 
@@ -394,7 +398,7 @@ python3 manage.py createsuperuser
 #### Load Fixtures
 ```
 python manage.py loaddata spoken_languages
-python manage.py loaddata languges
+python manage.py loaddata languages
 python manage.py loaddata frameworks
 python manage.py loaddata developers
 ```
@@ -404,7 +408,7 @@ python manage.py loaddata developers
 
 You will need to set up the following environment variables on your system.
 
-|Variable name        |Used for                                                  |
+|Variable name        |Used for                                                  |
 |---------------------|----------------------------------------------------------|
 |AWS_ACCESS_KEY_ID    |AWS Static files hosting                                  |
 |AWS_SECRET_ACCESS_KEY|AWS Static files hosting                                  |
@@ -415,10 +419,10 @@ You will need to set up the following environment variables on your system.
 |STRIPE_PUBLIC_KEY    |Complete Stripe payments                                  |
 |STRIPE_SECRET_KEY    |Complete Stripe payments                                  |
 |STRIPE_WH_SECRET     |Complete Stripe payments                                  |
-|USE_AWS              |Differentiate from Dev to Prod enviroment for static files|
+|USE_AWS              |Differentiate from Dev to Prod environment for static files|
 
 ```
-For local deployment create env.py file(at same level as manage.py) with below code and add env.py to .gitignore file. 
+For local deployment create env.py file(at the same level as manage.py) with below code and add env.py to .gitignore file. 
 import os
 
 os.environ['AWS_ACCESS_KEY_ID'] = 'your value'
@@ -445,7 +449,7 @@ os.environ['USE_AWS'] = False
 
 ### Acknowledgements
 
-> Big thank you everybody at The Code Institute
+> Big thank you to everybody at The Code Institute, very happy to have finally completed my final project, it was a very fun year (and very stressful at times!! ha)
 
 ### Code Snippets / References
 
@@ -500,7 +504,6 @@ Below links helped me in various parts of the project to overcome issues:
 #### Misc:
 
 
-  
 
 ## FAIR USE DISCLAIMER
 
