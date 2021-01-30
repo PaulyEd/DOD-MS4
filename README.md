@@ -349,11 +349,13 @@ As a result of testing in the live environment I was able to find a fix a few bu
 
 2. No home button on mobile: As part of my responsiveness testing I notice there was no option to go back to the home screen on mobile view, I updated the nav dropdown to include one.
 
-3. Cart/Bag on Moble: Existing view was not very responsible for smaller screens, update the view to appear more user friendly on-screen below mid-size.
+3. Cart/Bag UX: Existing view was not very responsible for smaller screens, update the view to appear more user friendly on-screen below mid-size.
 
 4. Review Moderation UX: Page was not user friendly on mobile, tried to cram two sections into columns that didn't translate well on smaller screens.
 
 5. Review Moderation - Functionality: Encountered an issue where if a review was pending or disputed and the developer was deleted, the review could not be actioned from the review moderation page, it would cause a server error due to developer no longer existing, updated review moderation view so that if the developer no longer existing the review is deleted before returning pending reviews to the template
+
+6. Cart/Bag UX - Functionality: While testing the cart/bag app, I noticed that if a user had a developer in their bag and if that developer was then deleted it would cause a server error, to circumvent this I added logic that checked if it was no possible to calculate the subtotal that indicated there was an issue with a developer in the bag/cart and the bag/cart would be reset.
 
 ## DEPLOYMENT
 
